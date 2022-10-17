@@ -1,0 +1,30 @@
+@use "sass:math";
+
+$primaryFontFamily: Sansation;
+$secondaryFontFamily: Montserrat;
+$fontSize: 16px;
+$primaryColor: #C61E3D;
+$secondaryColor: #22305B;
+$thirdColor: #EBEAF0;
+
+$minWidth: 320px;
+$maxContentWidth: 1326px;
+$containerPadding: 20px;
+
+$maxContainerWidth: $maxContentWidth + $containerPadding * 2; 
+
+$tablet: $maxContainerWidth - 0.02px;
+$mobile: 768.02px;
+$smallMobile: 480.02px;
+
+@import "basic_components/reset.scss";
+@import "fonts.scss";
+@import "basic_components/mixins.scss";
+@import "basic_components/common_styles.scss";
+@import "../../node_modules/swiper/swiper.scss";
+@import '../../node_modules/swiper/modules/effect-fade/effect-fade.scss';
+@import "header.scss";
+@import "footer.scss";
+@import "main_page.scss";
+@import "popups.scss";
+

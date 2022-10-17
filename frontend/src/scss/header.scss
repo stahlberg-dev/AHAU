@@ -1,0 +1,501 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+
+    &__wrapper {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: backdrop-filter 0.3s ease,
+                        box-shadow 0.3s ease;
+
+            .header_scroll & {
+                backdrop-filter: blur(10px);
+                box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    &__container {
+    }
+
+    &__body {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 60px;
+        font-weight: 700;
+        transition: min-height 0.3s ease;
+
+        @media (min-width: $mobile) {
+            min-height: 90px;
+
+            .header_scroll & {
+                min-height: 70px;
+            }
+        }
+
+    }
+
+    &__burger {
+        position: relative;
+        @include adaptiveValue("margin-right", 24px, 48px, $smallMobile, $tablet);
+    }
+
+    &__logo {
+        position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 80px, 120px, $mobile, $tablet);
+        @include adaptiveValue("height", 40px, 60px, $mobile, $tablet);
+        margin-right: auto;
+        z-index: 5;
+
+        @media (min-width: $tablet) {
+            margin-right: 180px;
+        }
+    }
+
+    &__logo-icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__menu {
+        flex: 1 1 auto;
+        margin-right: 60px;
+    }
+
+    &__phone {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+        flex: 0 0 auto;
+        transition: color 0.3s ease;
+
+        @media (min-width: $smallMobile) {
+            z-index: 5;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primaryColor;
+            }
+        }
+
+        &:active {
+            color: $primaryColor;
+        }
+    }
+
+    &__phone-icon {
+        width: 32px;
+        height: 32px;
+        fill: $secondaryColor;
+        transition: fill 0.3s ease;
+
+        @media (min-width: $smallMobile) {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (min-width: $mobile) {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (any-hover: hover) {
+            .header__phone:hover & {
+                fill: $primaryColor;
+            }
+        }
+
+        .header__phone:active & {
+            fill: $primaryColor;
+        }
+    }
+
+    &__phone-number {
+        display: none;
+        
+        @media (min-width: $smallMobile) {
+            display: block;
+            font-size: 20px;
+        }
+
+        @media (min-width: $mobile) {
+            font-size: 16px;
+        }
+    }
+
+    &__lang {
+        display: none;
+        position: relative;
+        margin-left: 60px;
+
+        @media (min-width: $mobile) {
+            display: flex;
+            z-index: 5;
+        }
+    }
+}
+
+@include burger(4px);
+
+@media (min-width: $mobile) {
+    @include burger(3px);
+}
+
+.menu {
+
+    &__body {
+        position: fixed;
+        top: 0;
+        left: calc(-100% - $minWidth);
+        right: calc(100% + $minWidth);
+        min-width: $minWidth;
+        width: 100%;
+        height: 100%;
+        padding: 90px $containerPadding 30px;
+        @include adaptiveValue("padding-top", 90px, 120px, $minWidth, $tablet);
+        overflow: auto;
+        transition: right 0.3s ease,
+                    left 0.3s ease;
+
+        @media (min-width: $tablet) {
+            position: static;
+            padding: 0;
+            overflow: visible;
+            background-color: transparent;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: calc(-100% - $minWidth);
+            right: calc(100% + $minWidth);
+            background-color: rgba(235, 234, 240, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: -1;
+            transition: right 0.3s ease,
+                        left 0.3s ease;
+
+            @media (min-width: $tablet) {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: calc(-100% - $minWidth);
+            right: calc(100% + $minWidth);
+            width: 100%;
+            height: 60px;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+            transition: right 0.3s ease,
+                        left 0.3s ease;
+
+            @media (min-width: $mobile) {
+                height: 90px;
+
+                .header_scroll & {
+                    height: 70px;
+                }
+            }
+        }
+
+        &_active {
+            left: 0;
+            right: 0;
+
+            &::before {
+                left: 0;
+                right: 0;
+            }
+
+            &::after {
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+
+    &__list {
+        @media (min-width: $tablet) {
+            display: flex; 
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+    }
+
+    &__item {
+        @include adaptiveValue("margin-bottom", 20px, 40px, $minWidth, $tablet);
+
+        @media (min-width: $tablet) {
+            margin: 0;
+        }
+
+        &:last-child {
+            @include adaptiveValue("margin-bottom", 40px, 80px, $minWidth, $tablet);
+
+            @media (min-width: $tablet) {
+                margin: 0;
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        position: relative;
+        white-space: nowrap;
+        @include adaptiveValue("font-size", 18px, 24px, $minWidth, $tablet);
+        transition: color 0.3s ease;
+
+        @media (min-width: $tablet) {
+            font-size: 16px;
+        }
+
+        @media (any-hover: hover) {
+
+            &:hover {
+                color: $primaryColor;
+            }
+        } 
+
+        &:active {
+            color: $primaryColor;
+        }
+    }
+
+    &__phone {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        @include adaptiveValue("gap", 5px, 10px, $minWidth, $tablet);
+        @include adaptiveValue("margin-bottom", 40px, 80px, $minWidth, $tablet);
+        transition: color 0.3s ease;
+
+        @media (min-width: $smallMobile) {
+            display: none;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primaryColor;
+            }
+        }
+
+        &:active {
+            color: $primaryColor;
+        }
+    }
+
+    &__phone-icon {
+        @include adaptiveValue("width", 20px, 28px, $minWidth, $tablet);
+        @include adaptiveValue("height", 20px, 28px, $minWidth, $tablet);
+        fill: $secondaryColor;
+        transition: fill 0.3s ease;
+
+        @media (any-hover: hover) {
+            .menu__phone:hover & {
+                fill: $primaryColor;
+            }
+        }
+
+        .menu__phone:active & {
+            fill: $primaryColor;
+        }
+    }
+
+    &__phone-number {
+        @include adaptiveValue("font-size", 20px, 28px, $minWidth, $tablet);
+    }
+
+    &__lang {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        @include adaptiveValue("gap", 30px, 40px, $minWidth, $mobile);
+
+        @media (min-width: $mobile) {
+            display: none;
+        }
+    }
+
+    &__lang-link {
+        display: flex;
+        align-items: flex-end;
+        @include adaptiveValue("gap", 5px, 8px, $minWidth, $mobile);
+    }
+
+    &__lang-icon {
+        @include adaptiveValue("width", 24px, 28px, $minWidth, $mobile);
+        @include adaptiveValue("height", 24px, 28px, $minWidth, $mobile);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        filter: brightness(75%) grayscale(50%) opacity(0.8);
+        transition: filter 0.3s ease;
+
+        @media (any-hover: hover) {
+            .menu__lang-link:hover & {
+                filter: none;
+            }
+        }
+
+        .menu__lang-link:active & {
+            filter: none;
+        }
+
+        .menu__lang-link_active & {
+            filter: none;
+        }
+    }
+
+    &__lang-text {
+        line-height: 1;
+        @include adaptiveValue("font-size", 16px, 18px, $minWidth, $mobile);
+
+        .menu__lang-link_active & {
+            color: $primaryColor;
+        }
+    }
+}
+
+.lang {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    &__arrow {
+        border-bottom: solid 8px $secondaryColor;
+        border-top: solid 8px transparent;
+        border-left: solid 7px transparent;
+        border-right: solid 7px transparent;
+        transform-origin: center 12px;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+
+        @media (any-hover: hover) {
+
+            .header__lang:hover & {
+                transform: rotate(0deg);
+            }
+        } 
+    }
+
+    $menuPadding: 7px;
+
+    &__menu-wrapper {
+        position: absolute;
+        top: 100%;
+        left: calc($menuPadding * (-2));
+        width: calc(100% + $menuPadding * 4);
+        padding-top: 15px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+
+        @media (any-hover: hover) {
+
+            .lang:hover & {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        @media (any-hover: none) {
+            visibility: hidden;
+    
+            .spoiler-block_active &.spoiler {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: $menuPadding;
+        padding: $menuPadding;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(20%);
+        transition: transform 0.3s ease;
+
+        @media (any-hover: hover) {
+
+            .lang:hover & {
+                transform: translateY(0);
+            }
+        }
+
+        @media (any-hover: none) {
+    
+            .spoiler-block_active .spoiler & {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__menu-link {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        gap: 3px;
+        padding: $menuPadding;
+        transition: background-color 0.3s ease;
+
+        @media (any-hover: hover) {
+
+            &:hover {
+                background-color: rgba(34, 48, 91, 0.1);
+            }
+        }
+
+        &:active {
+            background-color: rgba(34, 48, 91, 0.1);
+        }
+    }
+
+    &__menu-text {
+        line-height: 1;
+        font-size: 14px;
+    }
+}

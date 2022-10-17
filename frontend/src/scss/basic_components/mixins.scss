@@ -1,0 +1,82 @@
+@mixin adaptiveValue($property, $minValue, $maxValue, $minSize: $minWidth, $maxSize: $maxContainerWidth) {
+    
+    #{$property}: $minValue;
+    
+    @media (min-width: $minSize) {
+        #{$property}: calc($minValue + ($maxValue - $minValue) / 
+                      ($maxSize - $minSize) * (100vw - $minSize));
+    }
+
+    @media (min-width: $maxSize) {
+        #{$property}: $maxValue;
+    }
+}
+
+@mixin burger($stripeWidth) {
+
+    .burger {
+    
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: calc($stripeWidth * 9);
+        height: calc($stripeWidth * 9);
+        z-index: 5;
+        background-color: transparent;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    
+        @media (min-width: $tablet) {
+            display: none;
+        }
+    
+        &__stripe {
+            position: absolute;
+            top: calc(50% - $stripeWidth / 2);
+            left: 0;
+            width: 100%;
+            height: $stripeWidth;
+            border-radius: calc($stripeWidth / 2);
+            background-color: $secondaryColor;
+            pointer-events: none;
+            transition: all 0.3s ease;
+    
+            @media (any-hover: hover) {
+                .burger:hover & {
+                    background-color: $primaryColor;
+                }
+            }
+    
+            .burger:active & {
+                background-color: $primaryColor;
+            }
+    
+            &:first-child {
+                top: $stripeWidth;
+            }
+    
+            &:last-child {
+                top: auto;
+                bottom: $stripeWidth;
+            }
+        }
+    
+        &_active {
+    
+            .burger__stripe {
+                transform: scale(0);
+    
+                &:first-child {
+                    transform: rotate(-45deg);
+                    top: calc(50% - $stripeWidth / 2);
+                }
+    
+                &:last-child {
+                    transform: rotate(45deg);
+                    bottom: calc(50% - $stripeWidth / 2);
+                }
+            }
+        }
+    }
+
+}
