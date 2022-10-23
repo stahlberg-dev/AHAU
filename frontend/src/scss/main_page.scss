@@ -8,6 +8,14 @@
         }
     }
 
+    &__about {
+        margin-bottom: 40px;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-bottom", 30px, 60px);
+        }
+    }
+
     /* &__advantages {
         @include adaptiveValue("margin-bottom", 35px, 170px);
     }
@@ -196,6 +204,24 @@
         .swiper-pagination-bullet-active {
             opacity: 1;
         }
+    }
+}
+
+//--------------------------------------------------------------------------------------------
+
+//----- About --------------------------------------------------------------------------------
+
+.about {
+
+    &__container {
+    }
+
+    &__title {
+        text-transform: uppercase;
+        @include adaptiveValue("line-height", 29px, 58px, $mobile, $tablet);
+        @include adaptiveValue("font-size", 24px, 48px, $mobile, $tablet);
+        font-weight: 800;
+        color: $primaryColor;
     }
 }
 
