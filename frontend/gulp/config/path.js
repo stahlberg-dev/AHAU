@@ -21,7 +21,7 @@ export function getPath(isDev) {
             images: `${srcFolder}/img/**/*.+(png|jpg|jpeg|gif|webp)`,
             video: `${srcFolder}/video/**/*.+(mp4|webm|ogv|swf)`,
             scss: `${srcFolder}/scss/style.scss`,
-            html: `${srcFolder}/*.html`,
+            html: `${srcFolder}/**/*.html`,
             svg: `${srcFolder}/img/**/*.svg`,
             favicon: `${srcFolder}/favicon/**/*.*`,
             ico: `${srcFolder}/*.ico`,
