@@ -15,37 +15,37 @@
                         <ul class="menu__list">
                             <li class="menu__item">
                                 <a data-goto=".about" href="#!" class="menu__link">
-                                    @@if (lang == 'tr'){Hakkımızda}
-                                    @@if (lang == 'en'){About}
-                                    @@if (lang == 'ru'){О нас}
+                                    @@if (context.lang == 'tr'){Hakkımızda}
+                                    @@if (context.lang == 'en'){About}
+                                    @@if (context.lang == 'ru'){О нас}
                                 </a>
                             </li>
                             <li class="menu__item">
                                 <a data-goto=".products" href="#!" class="menu__link">
-                                    @@if (lang == 'tr'){Katalog}
-                                    @@if (lang == 'en'){Models}
-                                    @@if (lang == 'ru'){Каталог}
+                                    @@if (context.lang == 'tr'){Katalog}
+                                    @@if (context.lang == 'en'){Models}
+                                    @@if (context.lang == 'ru'){Каталог}
                                 </a>
                             </li>
                             <li class="menu__item">
                                 <a data-goto=".health" href="#!" class="menu__link">
-                                    @@if (lang == 'tr'){Omurga Sağlığı}
-                                    @@if (lang == 'en'){Spine health}
-                                    @@if (lang == 'ru'){Здоровье позвоночника}
+                                    @@if (context.lang == 'tr'){Omurga Sağlığı}
+                                    @@if (context.lang == 'en'){Spine health}
+                                    @@if (context.lang == 'ru'){Здоровье позвоночника}
                                 </a>
                             </li>
                             <li class="menu__item">
                                 <a data-goto=".production" href="#!" class="menu__link">
-                                    @@if (lang == 'tr'){Üretim}
-                                    @@if (lang == 'en'){Production}
-                                    @@if (lang == 'ru'){Производство}
+                                    @@if (context.lang == 'tr'){Üretim}
+                                    @@if (context.lang == 'en'){Production}
+                                    @@if (context.lang == 'ru'){Производство}
                                 </a>
                             </li>
                             <li class="menu__item">
                                 <a data-goto=".contact" href="#!" class="menu__link">
-                                    @@if (lang == 'tr'){İletişim}
-                                    @@if (lang == 'en'){Contact}
-                                    @@if (lang == 'ru'){Контакты}
+                                    @@if (context.lang == 'tr'){İletişim}
+                                    @@if (context.lang == 'en'){Contact}
+                                    @@if (context.lang == 'ru'){Контакты}
                                 </a>
                             </li>
                         </ul>
@@ -56,7 +56,7 @@
                             <div class="menu__phone-number">+90 212 613 41 42</div>
                         </a>
                         <div class="menu__lang">
-                            @@if (lang == 'tr'){
+                            @@if (context.lang == 'tr'){
                                 <a href="#!" class="menu__lang-link menu__lang-link_active">
                                     <img src="/img/languages/tr.svg" alt="tr" class="menu__lang-icon">
                                     <span class="menu__lang-text">TR</span>
@@ -70,7 +70,7 @@
                                     <span class="menu__lang-text">RU</span>
                                 </a>
                             }
-                            @@if (lang == 'en'){
+                            @@if (context.lang == 'en'){
                                 <a href="#!" class="menu__lang-link menu__lang-link_active">
                                     <img src="/img/languages/en.svg" alt="en" class="menu__lang-icon">
                                     <span class="menu__lang-text">EN</span>
@@ -84,7 +84,7 @@
                                     <span class="menu__lang-text">RU</span>
                                 </a>
                             }
-                            @@if (lang == 'ru'){
+                            @@if (context.lang == 'ru'){
                                 <a href="#!" class="menu__lang-link menu__lang-link_active">
                                     <img src="/img/languages/ru.svg" alt="ru" class="menu__lang-icon">
                                     <span class="menu__lang-text">RU</span>
@@ -108,7 +108,7 @@
                     <div class="header__phone-number">+90 212 613 41 42</div>
                 </a>
                 <div class="header__lang lang spoiler-block">
-                    @@if (lang == 'tr'){
+                    @@if (context.lang == 'tr'){
                         <img src="/img/languages/tr.svg" alt="tr" class="lang__icon">
                         <div class="lang__arrow"></div>
                         <div class="lang__menu-wrapper spoiler">
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                     }
-                    @@if (lang == 'en'){
+                    @@if (context.lang == 'en'){
                         <img src="/img/languages/en.svg" alt="en" class="lang__icon">
                         <div class="lang__arrow"></div>
                         <div class="lang__menu-wrapper spoiler">
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     }
-                    @@if (lang == 'ru'){
+                    @@if (context.lang == 'ru'){
                         <img src="/img/languages/ru.svg" alt="ru" class="lang__icon">
                         <div class="lang__arrow"></div>
                         <div class="lang__menu-wrapper spoiler">
