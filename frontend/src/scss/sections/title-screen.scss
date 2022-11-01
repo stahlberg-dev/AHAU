@@ -1,0 +1,153 @@
+.title-screen {
+    width: 100%;
+    min-height: 100%;
+
+    &__slider {
+        position: relative;
+        width: 100%;
+        min-width: $minWidth;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    &__slider-wrapper {
+    }
+
+    &__slide {
+        position: relative;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    &__first-slide {
+        background-position: 60% center;
+        background-image: url("../img/title-screen/slide-1-mobile.jpg");
+
+        @media (min-width: $mobile) {
+            background-position: 25% center;
+            background-image: url("../img/title-screen/slide-1.jpg");
+        }
+
+        @media (min-width: $tablet) {
+            background-position: center center;
+        }
+    }
+    
+    &__first-slide-ahau {
+        display: block;
+        position: absolute;
+        bottom: 115%;
+        left: 0;
+        @include adaptiveValue("width", 150px, 200px, $minWidth, $mobile);
+        @include adaptiveValue("height", 37px, 50px, $minWidth, $mobile);
+        fill: $primaryColor;
+
+        @media (min-width: $mobile) {
+            bottom: 125%;
+            @include adaptiveValue("width", 200px, 250px, $mobile, $tablet);
+            @include adaptiveValue("height", 50px, 62px, $mobile, $tablet);
+        }
+    }
+
+    &__first-slide-header {
+        position: absolute;
+        bottom: 13%;
+        left: 10%;
+        @include adaptiveValue("max-width", 240px, 300px, $minWidth, $mobile);
+        @include adaptiveValue("font-size", 20px, 24px, $minWidth, $mobile);
+        font-weight: 600;
+        color: $thirdColor;
+
+        @media (min-width: $mobile) {
+            bottom: 15%;
+            @include adaptiveValue("max-width", 700px, 800px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 28px, 36px, $mobile, $tablet);
+        }
+
+        @media (min-width: $tablet) {
+            bottom: 40%;
+            left: 60%;
+            max-width: 500px;
+        }
+    }
+
+    &__second-slide {
+        background-position: center center;
+        background-image: url("../img/title-screen/slide-2-mobile.jpg");
+
+        @media (min-width: $mobile) {
+            background-position: 5% center;
+            background-image: url("../img/title-screen/slide-2.jpg");
+        }
+
+        @media (min-width: $tablet) {
+            background-position: center center;
+        }
+    }
+
+    &__third-slide {
+        background-position: center center;
+        background-image: url("../img/title-screen/slide-3-mobile.jpg");
+
+        @media (min-width: $mobile) {
+            background-position: 95% center;
+            background-image: url("../img/title-screen/slide-3.jpg");
+        }
+
+        @media (min-width: $tablet) {
+            background-position: center center;
+        }
+    }
+
+    &__slider-pagination {
+        position: absolute;
+        left: 0;
+        bottom: 5%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        @include adaptiveValue("gap", 15px, 30px, $minWidth, $mobile);
+        width: 100%;
+        z-index: 5;
+
+        @media (min-width: $mobile) {
+            gap: 25px;
+        }
+
+        .swiper-pagination-bullet {
+            display: block;
+            @include adaptiveValue("width", 15px, 25px, $minWidth, $mobile);
+            @include adaptiveValue("height", 15px, 25px, $minWidth, $mobile);
+            border-radius: 50%;
+            background-color: $primaryColor;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+
+            @media (min-width: $mobile) {
+                width: 15px;
+                height: 15px;
+            }
+
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            &:active {
+                opacity: 1;
+            }
+
+
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    }
+}

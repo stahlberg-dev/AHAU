@@ -39,6 +39,7 @@
         justify-content: flex-start;
         align-items: center;
         min-height: 60px;
+        padding: 5px 0;
         font-weight: 700;
         transition: min-height 0.3s ease;
 
@@ -57,24 +58,88 @@
         @include adaptiveValue("margin-right", 24px, 48px, $smallMobile, $tablet);
     }
 
+    $originalWidth: 145px;
+    $originalHeight: 73px;
+    $desktopHeightRatio: calc(55px / $originalHeight);
+    $tabletHeightRatio: calc(45px / $originalHeight);
+    $mobileHeightRatio: calc(40px / $originalHeight);
+
     &__logo {
         position: relative;
         flex-grow: 0;
         flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 80px, 120px, $mobile, $tablet);
-        @include adaptiveValue("height", 40px, 60px, $mobile, $tablet);
+        flex-basis: $originalWidth * $mobileHeightRatio;
+        height: $mobileHeightRatio * 56px;
         margin-right: auto;
         z-index: 5;
 
+        @media (min-width: $mobile) {
+            flex-basis: $originalWidth * $tabletHeightRatio;
+            height: $tabletHeightRatio * 36px;
+        }
+
         @media (min-width: $tablet) {
+            flex-basis: $originalWidth * $desktopHeightRatio;
+            height: 55px;
             margin-right: 180px;
         }
     }
 
-    &__logo-icon {
+    &__logo-r {
+        display: block;
+        position: absolute;
+        top: -1 *$mobileHeightRatio * 17px;
+        left: 103%;
+        width: $mobileHeightRatio * 14px;
+        height: $mobileHeightRatio * 14px;
+        fill: $secondaryColor;
+
+        @media (min-width: $mobile) {
+            top: -1 * $tabletHeightRatio * 17px;
+            width: $tabletHeightRatio * 14px;
+            height: $tabletHeightRatio * 14px;
+        }
+        
+        @media (min-width: $tablet) {
+            top: 0;
+            width: $desktopHeightRatio * 14px;
+            height: $desktopHeightRatio * 14px;
+        }
+    }
+
+    &__logo-ahau {
         display: block;
         width: 100%;
-        height: 100%;
+        height: $mobileHeightRatio * 36px;
+        fill: $secondaryColor;
+        stroke: $secondaryColor;
+
+        @media (min-width: $mobile) {
+            height: $tabletHeightRatio * 36px;
+        }
+
+        @media (min-width: $tablet) {
+            height: $desktopHeightRatio * 36px;
+            margin-top: $desktopHeightRatio * 17px;
+        }
+    }
+
+    &__logo-marine-pro {
+        display: block;
+        width: 100%;
+        height: $mobileHeightRatio * 20px;
+        fill: $primaryColor;
+
+        @media (min-width: $mobile) {
+            position: absolute;
+            top: 100%;
+            height: $tabletHeightRatio * 20px;
+        }
+
+        @media (min-width: $tablet) {
+            position: static;
+            height: $desktopHeightRatio * 20px;
+        }
     }
 
     &__menu {
@@ -417,6 +482,13 @@
                 transform: rotate(0deg);
             }
         } 
+
+        @media (any-hover: none) {
+    
+            .spoiler-block_active & {
+                transform: rotate(0deg);
+            }
+        }
     }
 
     $menuPadding: 7px;
