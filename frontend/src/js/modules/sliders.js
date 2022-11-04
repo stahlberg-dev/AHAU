@@ -60,7 +60,6 @@ export function swiperAboutSlider() {
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
-        preloadImages: false,
         watchOverflow: true,
         slidesPerView: 1.8, 
         spaceBetween: 0, 
@@ -71,17 +70,20 @@ export function swiperAboutSlider() {
             draggable: true,
         },
         breakpoints: {
-            400: { 
-                slidesPerView: 2.2,
+            375: { 
+                slidesPerView: 2.4,
+            },
+            414: { 
+                slidesPerView: 2.6,
             },
             481: { 
-                slidesPerView: 2.5,
+                slidesPerView: 2.8,
             },
-            570: { 
-                slidesPerView: 2.9,
-            },
-            680: { 
+            550: { 
                 slidesPerView: 3.3,
+            },
+            650: { 
+                slidesPerView: 3.7,
             },
             769: { 
                 slidesPerView: 2.3,
@@ -108,12 +110,13 @@ export function swiperAboutSlider() {
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
-        preloadImages: false,
         watchOverflow: true,
         slidesPerView: 1,
         spaceBetween: 0,
         speed: 800,
         grabCursor: true,
+        simulateTouch: true,
+        autoHeight: true,
         thumbs: { 
             swiper: aboutSliderThumbs,
         },
