@@ -1,4 +1,13 @@
-import Swiper, { Autoplay, Navigation, Pagination, Thumbs, Mousewheel, Scrollbar, EffectFade} from 'swiper';
+import Swiper, { 
+    Autoplay, 
+    Navigation, 
+    Pagination, 
+    Thumbs, 
+    Mousewheel, 
+    Scrollbar, 
+    EffectFade, 
+    EffectFlip,
+} from 'swiper';
 
 // ----- Title slider -----------------------------------------------------------------------
 
@@ -39,6 +48,86 @@ export function swiperTitleSlider() {
 
 //------------------------------------------------------------------------------------------- 
 
+// ----- About slider -----------------------------------------------------------------------
+
+export function swiperAboutSlider() {
+    
+    if (!document.querySelector('.about-slider')) return;
+    if (!document.querySelector('.about-thumbs')) return;
+
+    const aboutSliderThumbs = new Swiper('.about-thumbs', {
+        modules: [Scrollbar,Thumbs],
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        preloadImages: false,
+        watchOverflow: true,
+        slidesPerView: 1.8, 
+        spaceBetween: 0, 
+        speed: 800,
+        grabCursor: true,
+        scrollbar: {
+            el: '.about-thumbs__scrollbar',
+            draggable: true,
+        },
+        breakpoints: {
+            400: { 
+                slidesPerView: 2.2,
+            },
+            481: { 
+                slidesPerView: 2.5,
+            },
+            570: { 
+                slidesPerView: 2.9,
+            },
+            680: { 
+                slidesPerView: 3.3,
+            },
+            769: { 
+                slidesPerView: 2.3,
+            },
+            900: { 
+                slidesPerView: 2.6,
+            },
+            1100: { 
+                slidesPerView: 2.9,
+            },
+            1366: { 
+                slidesPerView: 3.2,
+            },
+        }
+    });
+
+    const aboutSlider = new Swiper('.about-slider', {
+        modules: [Thumbs, EffectFlip],
+        effect: 'flip',
+        flipEffect: {
+            slideShadows: true,
+            limitRotation: true,
+        },
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        preloadImages: false,
+        watchOverflow: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        grabCursor: true,
+        thumbs: { 
+            swiper: aboutSliderThumbs,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+}
+
+//-------------------------------------------------------------------------------------------
+
+
+/* 
 // ----- About slider ------------------------------------------------------------------------
 
 export function swiperAboutSlider() {
@@ -421,3 +510,5 @@ export function comparisonSlider() {
     }
 }
 //------------------------------------------------------------------------------------------- 
+ */
+

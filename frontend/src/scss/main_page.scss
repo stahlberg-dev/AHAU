@@ -47,6 +47,16 @@ body {
     padding: 0 $containerPadding;
 }
 
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $primaryFontFamily;
+    @include adaptiveValue("line-height", 32px, 54px, $mobile, $tablet);
+    @include adaptiveValue("font-size", 28px, 48px, $mobile, $tablet);
+    font-weight: 700;
+    color: $primaryColor;
+}
+
 .page {
 
     &__title-screen {

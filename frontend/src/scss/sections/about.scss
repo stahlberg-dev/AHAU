@@ -4,10 +4,203 @@
     }
 
     &__title {
-        text-transform: uppercase;
-        @include adaptiveValue("line-height", 29px, 58px, $mobile, $tablet);
-        @include adaptiveValue("font-size", 24px, 48px, $mobile, $tablet);
-        font-weight: 800;
-        color: $primaryColor;
+        @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
+    }
+
+    &__content {
+        position: relative;
+        margin-left: -$containerPadding;
+        margin-right: -$containerPadding;
+        @include adaptiveValue("padding-top", 20px, 40px, $minWidth, $mobile);
+        @include adaptiveValue("padding-bottom", 20px, 40px, $minWidth, $mobile);
+        padding-left: $containerPadding;
+        padding-right: $containerPadding;
+        background: url("../img/about/grid.png") repeat left center/60% auto;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40% auto;
+            background-position-x: 10%;
+            @include adaptiveValue("background-position-y", 210px, 270px, $minWidth, $mobile);
+            background-repeat: no-repeat;
+            background-image: url("../img/about/strut.png");
+
+            @media (min-width: $mobile) {
+                display: none;
+            }
+        }
+
+        @media (min-width: $mobile) {
+            background: url("../img/about/strut.png") no-repeat 5% center/40% auto,
+                        url("../img/about/grid.png") repeat left center/35% auto;
+            margin: 0;
+            @include adaptiveValue("padding", 15px, 30px, $mobile, $tablet);
+        }
+    }
+
+    &__slider-thumbs {
+        position: relative;
+        margin-left: -$containerPadding;
+        margin-right: -$containerPadding;
+        @include adaptiveValue("margin-bottom", 160px, 350px, $minWidth, $mobile);
+        
+        @media (min-width: $mobile) {
+            margin-left: auto;
+            margin-right: 0;
+            @include adaptiveValue("margin-bottom", 10px, 20px, $mobile, $tablet);
+        }
+    }
+
+    &__slider {
+        position: relative;
+    } 
+}
+
+.about-thumbs {
+    @include adaptiveValue("padding-bottom", 10px, 20px, $minWidth, $mobile);
+    overflow: hidden;
+    
+    @media (min-width: $mobile) {
+        width: 55%;
+       @include adaptiveValue("padding-bottom", 10px, 20px, $mobile, $tablet);
+    }
+
+    &__wrapper {
+        @include adaptiveValue("height", 160px, 190px, $minWidth, $mobile);
+        margin-bottom: 10px;
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("height", 130px, 190px, $mobile, $tablet);
+            @include adaptiveValue("margin-bottom", 5px, 10px, $mobile, $tablet);
+         }
+    }
+
+    &__slide {
+        padding: 20px;
+        padding-right: 0px;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("padding", 15px, 20px, $mobile, $tablet);
+        }
+    }
+
+    &__slide-inner {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        @include adaptiveValue("border-radius", 5px, 10px, $minWidth, $mobile);
+        padding: 10px;
+        backdrop-filter: blur(3px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.3s ease,
+                    scale 0.3s ease,
+                    backdrop-filter 0.3s ease;
+        
+        @media (min-width: $mobile) {
+            @include adaptiveValue("border-radius", 5px, 10px, $mobile, $tablet);
+            @include adaptiveValue("padding", 5px, 10px, $mobile, $tablet);
+        }
+
+        .about-thumbs__slide:hover & {
+            transform: scale(1.05, 1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(6px);
+        }
+
+        .swiper-slide-thumb-active & {
+            transform: scale(1.05, 1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(6px);
+        } 
+    }
+
+    &__icon {
+        @include adaptiveValue("height", 65px, 80px, $minWidth, $mobile);
+        transition: opacity 0.3s ease;
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("height", 60px, 80px, $mobile, $tablet);
+        }
+    }
+
+    &__caption {
+        text-align: center;
+        @include adaptiveValue("line-height", 18px, 20px, $minWidth, $mobile);
+        @include adaptiveValue("font-size", 14px, 16px, $minWidth, $mobile);
+        font-weight: 700;
+        transition: opacity 0.3s ease;
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("line-height", 14px, 20px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 12px, 16px, $mobile, $tablet);
+        }
+    }
+
+    &__scrollbar {
+        @include adaptiveValue("height", 3px, 5px, $minWidth, $mobile);
+        margin-right: $containerPadding;
+        margin-left: $containerPadding;
+        @include adaptiveValue("border-radius", 1px, 2px, $minWidth, $mobile);
+        background-color: $secondaryColor;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        cursor: grab;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("height", 3px, 5px, $mobile, $tablet);
+            @include adaptiveValue("border-radius", 1px, 2px, $mobile, $tablet);
+            margin-right: 0;
+            @include adaptiveValue("margin-left", 15px, 20px, $mobile, $tablet);
+        }
+
+        .swiper-scrollbar-drag {
+            @include adaptiveValue("height", 3px, 5px, $minWidth, $mobile);
+            @include adaptiveValue("border-radius", 1px, 2px, $minWidth, $mobile);
+            background-color: $primaryColor;
+
+            @media (min-width: $mobile) {
+                @include adaptiveValue("height", 3px, 5px, $mobile, $tablet);
+                @include adaptiveValue("border-radius", 1px, 2px, $mobile, $tablet);
+            }
+        }
+    }
+}
+
+.about-slider {
+
+    @media (min-width: $mobile) {
+        width: 55%;
+        margin-left: auto;
+        padding: 0;
+        @include adaptiveValue("padding-left", 15px, 20px, $mobile, $tablet);
+    }
+
+    &__wrapper {
+        
+    }
+
+    &__slide {
+        @include adaptiveValue("border-radius", 5px, 10px, $minWidth, $mobile);
+        @include adaptiveValue("padding", 10px, 20px, $minWidth, $mobile);
+        @include adaptiveValue("font-size", 14px, 20px, $minWidth, $mobile);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("border-radius", 5px, 10px, $mobile, $tablet);
+            @include adaptiveValue("padding", 15px, 30px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 12px, 20px, $mobile, $tablet);
+        }
     }
 }
