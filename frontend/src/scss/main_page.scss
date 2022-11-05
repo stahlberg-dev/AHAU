@@ -75,6 +75,14 @@ body {
         }
     }
 
+    &__models {
+        margin-bottom: 40px;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-bottom", 30px, 60px);
+        }
+    }
+
     /* &__advantages {
         @include adaptiveValue("margin-bottom", 35px, 170px);
     }
