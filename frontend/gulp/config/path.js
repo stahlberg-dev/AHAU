@@ -2,7 +2,7 @@ import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
 
 export function getPath(isDev) {
-    const buildFolder = isDev ? `../public_dev`: `../public`;
+    const buildFolder = isDev ? `../dev`: `../public`;
     const srcFolder = `./src`;
 
     return {
@@ -14,6 +14,7 @@ export function getPath(isDev) {
             video: `${buildFolder}/video`,
             fonts: `${buildFolder}/fonts/`,
             favicon: `${buildFolder}/favicon/`,
+            brochures: `${buildFolder}/brochures/`,
             ico: `${buildFolder}/`,
         },
         src: {
@@ -24,6 +25,7 @@ export function getPath(isDev) {
             html: `${srcFolder}/**/*.html`,
             svg: `${srcFolder}/img/**/*.svg`,
             favicon: `${srcFolder}/favicon/**/*.*`,
+            brochures: `${srcFolder}/brochures/**/*.*`,
             ico: `${srcFolder}/*.ico`,
             svgicons: `${srcFolder}/svgicons/*.svg`,
         },
@@ -34,6 +36,7 @@ export function getPath(isDev) {
             images: `${srcFolder}/img/**/*.+(png|jpg|jpeg|svg|ico|gif|webp)`,
             video: `${srcFolder}/video/**/*.+(mp4|webm|ogv|swf)`,
             favicon: `${srcFolder}/favicon/**/*.*`,
+            brochures: `${srcFolder}/brochures/**/*.*`,
             ico: `${srcFolder}/*.ico`,
         },
         clean: buildFolder,

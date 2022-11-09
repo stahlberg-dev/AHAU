@@ -374,22 +374,24 @@
     }
 
     &__brochure {
-        @include adaptiveValue("margin-top", 10px, 20px, $minWidth, $smallMobile);
+        @include adaptiveValue("margin-top", 6px, 13px, $minWidth, $smallMobile);
         @include adaptiveValue("margin-bottom", 10px, 20px, $minWidth, $smallMobile);
         border-bottom: 1px solid $secondaryColor;
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
         font-weight: 700;
         opacity: 0.7;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease, 
+                    color 0.3s ease, 
+                    border-bottom-color 0.3s ease;
 
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("margin-top", 10px, 20px, $smallMobile, $mobile);
+            @include adaptiveValue("margin-top", 6px, 13px, $smallMobile, $mobile);
             @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $mobile);
             @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("margin-top", 10px, 20px, $mobile, $tablet);
+            @include adaptiveValue("margin-top", 6px, 13px, $mobile, $tablet);
             @include adaptiveValue("margin-bottom", 15px, 30px, $mobile, $tablet);
             @include adaptiveValue("font-size", 14px, 18px, $mobile, $tablet);
         }
@@ -400,15 +402,39 @@
                 opacity: 1;
             }
         }
+
+        &:active {
+            opacity: 1;
+            color: $primaryColor;
+            border-bottom-color: $primaryColor;
+        }
+    }
+
+    &__brochure-link {
     }
 
     &__brochure-icon {
         display: inline-block;
-        width: 15px;
-        height: 15px;
-    }
+        @include adaptiveValue("width", 13px, 19px, $minWidth, $smallMobile);
+        @include adaptiveValue("height", 14px, 20px, $minWidth, $smallMobile);
+        fill: $secondaryColor;
+        transition: fill 0.3s ease;
 
-    &__brochure-link {
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-right", 3px, 7px, $smallMobile, $mobile);
+            @include adaptiveValue("width", 17px, 21px, $smallMobile, $mobile);
+            @include adaptiveValue("height", 18px, 23px, $smallMobile, $mobile);
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-right", 3px, 7px, $mobile, $tablet);
+            @include adaptiveValue("width", 15px, 20px, $mobile, $tablet);
+            @include adaptiveValue("height", 16px, 21px, $mobile, $tablet);
+        }
+
+        .choice__brochure:active & {
+            fill: $primaryColor;
+        }
     }
 
     &__price {
@@ -422,7 +448,7 @@
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("font-size", 18px, 26px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 20px, 30px, $mobile, $tablet);
         }
     }
 

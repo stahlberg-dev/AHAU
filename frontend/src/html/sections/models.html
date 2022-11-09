@@ -166,7 +166,9 @@
             </div>
             <div class="models__choice choice"> 
                 <div class="choice__parameter-title">
-                    Model
+                    @@if (context.lang == 'tr'){Model}
+                    @@if (context.lang == 'en'){Model}
+                    @@if (context.lang == 'ru'){Модель}
                 </div>
                 <div class="choice__model-buttons model-buttons">
                     <div data-model-button="as250" 
@@ -183,7 +185,9 @@
                     </div>
                 </div>
                 <div class="choice__parameter-title">
-                    Color
+                    @@if (context.lang == 'tr'){Renk}
+                    @@if (context.lang == 'en'){Color}
+                    @@if (context.lang == 'ru'){Цвет}
                 </div>
                 <div class="choice__color-buttons color-buttons">
                     <div data-color-button="white" 
@@ -199,36 +203,49 @@
                     </div>
                 </div>
                 <div class="choice__characteristic-title">
-                    Material
+                    @@if (context.lang == 'tr'){Malzeme}
+                    @@if (context.lang == 'en'){Material}
+                    @@if (context.lang == 'ru'){Материал}
                 </div>
                 <div class="choice__characteristic-value">
-                    stainless&nbsp;steel
+                    @@if (context.lang == 'tr'){paslanmaz&nbsp;çelik}
+                    @@if (context.lang == 'en'){stainless&nbsp;steel}
+                    @@if (context.lang == 'ru'){Нержавеющая&nbsp;сталь}
                 </div>
                 <div class="choice__characteristic-title">
-                    Dimensions
+                    @@if (context.lang == 'tr'){Boyutlar}
+                    @@if (context.lang == 'en'){Dimensions}
+                    @@if (context.lang == 'ru'){Размеры}
                 </div>
                 <div class="choice__characteristic-value">
                     <span data-model="as250" 
                           class="choice__characteristic-value-opton catalog-tab-content">
-                        250&nbsp;x&nbsp;380&nbsp;x&nbsp;230&nbsp;mm
+                        @@if (context.lang == 'tr' || context.lang == 'en'){250&nbsp;x&nbsp;380&nbsp;x&nbsp;230&nbsp;mm}
+                        @@if (context.lang == 'ru'){250&nbsp;x&nbsp;380&nbsp;x&nbsp;230&nbsp;мм}
                     </span>
                 </div>
                 <div class="choice__characteristic-title">
-                    Load&nbsp;capacity
+                    @@if (context.lang == 'tr'){Yük&nbsp;kapasitesi}
+                    @@if (context.lang == 'en'){Load&nbsp;capacity}
+                    @@if (context.lang == 'ru'){Вес&nbsp;седока}
                 </div>
                 <div class="choice__characteristic-value">
                     <span data-model="as250"
                           class="choice__characteristic-value-opton catalog-tab-content">
-                        50&nbsp;-&nbsp;100&nbsp;kg
+                        @@if (context.lang == 'tr' || context.lang == 'en'){50&nbsp;-&nbsp;100&nbsp;kg}
+                        @@if (context.lang == 'ru'){50&nbsp;-&nbsp;100&nbsp;кг}
                     </span>
                 </div>
                 <div class="choice__characteristic-title">
-                    Working&nbsp;stroke
+                    @@if (context.lang == 'tr'){Çalışma&nbsp;stroku}
+                    @@if (context.lang == 'en'){Working&nbsp;stroke}
+                    @@if (context.lang == 'ru'){Рабочий&nbsp;ход}
                 </div>
                 <div class="choice__characteristic-value">
                     <span data-model="as250"
                           class="choice__characteristic-value-opton catalog-tab-content">
-                          70&nbsp;mm
+                          @@if (context.lang == 'tr' || context.lang == 'en'){70&nbsp;mm}
+                          @@if (context.lang == 'ru'){70&nbsp;мм}
                     </span>
                 </div>
                 <div class="choice__details">
@@ -239,13 +256,17 @@
                     </a>
                 </div>
                 <div class="choice__brochure">
-                    <!-- <svg class="choice__brochure-icon">
-                        <use xlink:href="/img/icon_sprite/sprite.svg#phone"></use>
-                    </svg> -->
-                    <a data-model="as250" href="#!" class="choice__brochure-link catalog-tab-content" download>
-                        @@if (context.lang == 'tr'){Download&nbsp;brochure}
-                        @@if (context.lang == 'en'){Download&nbsp;brochure}
-                        @@if (context.lang == 'ru'){Скачать&nbsp;буклет}
+                    <a data-model="as250" 
+                       data-color="white" 
+                       class="choice__brochure-link catalog-tab-content" 
+                       href="/brochures/SUSPENSION_SISTEM_AS-250-white.pdf" 
+                       download>
+                        <svg class="choice__brochure-icon">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#pdf"></use>
+                        </svg>
+                        @@if (context.lang == 'tr'){Broşür}
+                        @@if (context.lang == 'en'){Brochure}
+                        @@if (context.lang == 'ru'){Буклет}
                     </a>
                 </div>
                 <div class="choice__price">
@@ -257,7 +278,7 @@
                 <div data-popup=""
                      class="choice__order-button button">
                     <div class="choice__order-button-text button__text">
-                        @@if (context.lang == 'tr'){Order}
+                        @@if (context.lang == 'tr'){Sipariş}
                         @@if (context.lang == 'en'){Order}
                         @@if (context.lang == 'ru'){Заказать}
                     </div>
