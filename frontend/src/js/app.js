@@ -1,4 +1,4 @@
-import {isWebp} from "./modules/functions.js";
+import {isWebp, modelSwitcher} from "./modules/functions.js";
 import * as sliders from "./modules/sliders.js";
 import {scrollObserver} from "./modules/scroll-observer.js";
 import {burger} from "./modules/burger.js";
@@ -55,12 +55,6 @@ phoneMask(phoneInputsClassName);
 
 new clickScroller({
     linkAttributeName: 'data-goto',
-    lockedSections: [
-        {sectionClassName: '.about', unlockDelay: 1000},
-    ],
-    callbacks: [
-        lockEquipmentVideo,
-    ]
 }).init();
 
 //-------------------------------------------------------------------------------------------
@@ -87,3 +81,33 @@ sliders.swiperTitleSlider();
 sliders.swiperAboutSlider();
 
 //------------------------------------------------------------------------------------------- 
+
+// ----- About slider -----------------------------------------------------------------------
+
+sliders.swiperAboutSlider();
+
+//------------------------------------------------------------------------------------------- 
+
+// ----- Model-as250-white gallery ----------------------------------------------------------
+
+sliders.modelSlider_as250_w();
+
+//-------------------------------------------------------------------------------------------
+
+// ----- Model-as250-white gallery ----------------------------------------------------------
+
+sliders.modelSlider_as330_w();
+
+//-------------------------------------------------------------------------------------------
+
+// ----- Model-as250-white gallery ----------------------------------------------------------
+
+sliders.modelSlider_as425_w();
+
+//-------------------------------------------------------------------------------------------
+
+//----- Model switcher -----------------------------------------------------------------
+
+modelSwitcher();
+
+//-------------------------------------------------------------------------------------------

@@ -57,30 +57,74 @@ body {
     color: $primaryColor;
 }
 
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    @include adaptiveValue("height", 30px, 50px, $minWidth, $smallMobile);
+    @include adaptiveValue("border-radius", 2px, 5px, $minWidth, $smallMobile);
+    @include adaptiveValue("padding-left", 20px, 50px, $minWidth, $smallMobile);
+    @include adaptiveValue("padding-right", 20px, 50px, $minWidth, $smallMobile);
+    background-color: $primaryColor;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    color: $thirdColor;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+
+    @media (min-width: $smallMobile) {
+        @include adaptiveValue("height", 35px, 50px, $smallMobile, $mobile);
+        @include adaptiveValue("border-radius", 2px, 5px, $smallMobile, $mobile);
+        @include adaptiveValue("padding-left", 20px, 50px, $smallMobile, $mobile);
+        @include adaptiveValue("padding-right", 20px, 50px, $smallMobile, $mobile);
+    }
+
+    @media (min-width: $mobile) {
+        @include adaptiveValue("height", 35px, 50px, $mobile, $tablet);
+        @include adaptiveValue("border-radius", 2px, 5px, $mobile, $tablet);
+        @include adaptiveValue("padding-left", 20px, 50px, $mobile, $tablet);
+        @include adaptiveValue("padding-right", 20px, 50px, $mobile, $tablet);
+    }
+
+    @media (any-hover: hover) {
+
+        &:hover {           
+            background-color: #b41834;
+        }
+    }
+
+    &:active {
+        background-color: #b41834;
+    }
+
+    &__text {
+        text-transform: uppercase;
+        font-family: $primaryFontFamily;
+        @include adaptiveValue("font-size", 16px, 24px, $minWidth, $smallMobile);
+        font-weight: 700;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("font-size", 18px, 26px, $smallMobile, $mobile);
+        }
+        
+        @media (min-width: $mobile) {
+            @include adaptiveValue("font-size", 16px, 24px, $mobile, $tablet);
+        }
+    }
+}
+
 .page {
 
     &__title-screen {
-        margin-bottom: 40px;
-
-        @media (min-width: $smallMobile) {
-            @include adaptiveValue("margin-bottom", 30px, 60px);
-        }
+        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 
     &__about {
-        margin-bottom: 40px;
-
-        @media (min-width: $smallMobile) {
-            @include adaptiveValue("margin-bottom", 30px, 60px);
-        }
+        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 
     &__models {
-        margin-bottom: 40px;
-
-        @media (min-width: $smallMobile) {
-            @include adaptiveValue("margin-bottom", 30px, 60px);
-        }
+        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 
     /* &__advantages {
@@ -125,6 +169,7 @@ body {
 
 @import "sections/title-screen.scss";
 @import "sections/about.scss";
+@import "sections/models.scss";
 
 /* 
 //----- Title screen -------------------------------------------------------------------------

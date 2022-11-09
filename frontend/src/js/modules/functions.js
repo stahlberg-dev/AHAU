@@ -63,3 +63,64 @@ export function unlockBody (lockPaddingElements, unlockDelay = 0) {
     } 
 
 }
+
+export function modelSwitcher() {
+
+    const changeSliderTime = 1000;
+    const tabButtons = document.querySelectorAll('[data-model-button]');
+    let unlockTab = true;
+
+    if (document.querySelector('.catalog-tab-content_active')) {
+        document.querySelector('.catalog-tab-content_active').style.visibility = 'visible';
+    }
+
+    tabButtons.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            if (item.classList.contains('catalog-tab-button_active') || !unlockTab) return;
+                            
+            const activeTabButtons = document.querySelectorAll('.catalog-tab-button_active');
+            unlockTab = false;
+
+            activeTabButtons.forEach(element => {
+
+                const activeTabButtonName = element.getAttribute('data-model-button');
+                const activeSlider = document.querySelector(`[data-model="${activeTabButtonName}"]`);
+
+                element.classList.remove('catalog-tab-button_active');
+                
+                if (activeSlider) {
+                    
+                    activeSlider.classList.remove('catalog-tab-content_active');
+
+                    setTimeout(() => {
+                        activeSlider.style.visibility = '';
+                    }, changeSliderTime);
+
+                }
+
+            });
+
+            const tabButtonName = item.getAttribute('data-model-button');
+            const newActiveTabButtons = document.querySelectorAll(`[data-model-button="${tabButtonName}"]`);
+            const newActiveSlider = document.querySelector(`[data-model="${tabButtonName}"]`);
+
+            newActiveTabButtons.forEach(element => {
+                element.classList.add('catalog-tab-button_active');
+            });
+
+            if (newActiveSlider) {
+                newActiveSlider.classList.add('catalog-tab-content_active');
+                newActiveSlider.style.visibility = 'visible';
+            }
+
+            setTimeout(() => {
+                unlockTab = true;
+            }, changeSliderTime);
+
+        });
+
+    });
+
+}
