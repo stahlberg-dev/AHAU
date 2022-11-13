@@ -1,4 +1,4 @@
-<header class="header">
+<header class="page-wrapper__header header">
     <div class="header__wrapper lock-padding">
         <div class="header__container container">
             <div class="header__body">
@@ -118,7 +118,11 @@
                 <div class="header__lang lang spoiler-block">
                     @@if (context.lang == 'tr'){
                         <img src="/img/languages/tr.svg" alt="tr" class="lang__icon">
-                        <div class="lang__arrow"></div>
+                        <div class="lang__arrow">
+                            <svg class="lang__arrow-icon">
+                                <use xlink:href="/img/icon_sprite/sprite.svg#arrow"></use>
+                            </svg>
+                        </div>
                         <div class="lang__menu-wrapper spoiler">
                             <div class="lang__menu">
                                 <a href="/en/index.html" class="lang__menu-link">
@@ -134,7 +138,11 @@
                     }
                     @@if (context.lang == 'en'){
                         <img src="/img/languages/en.svg" alt="en" class="lang__icon">
-                        <div class="lang__arrow"></div>
+                        <div class="lang__arrow">
+                            <svg class="lang__arrow-icon">
+                                <use xlink:href="/img/icon_sprite/sprite.svg#arrow"></use>
+                            </svg>
+                        </div>
                         <div class="lang__menu-wrapper spoiler">
                             <div class="lang__menu">
                                 <a href="/index.html" class="lang__menu-link">
@@ -150,7 +158,11 @@
                     }
                     @@if (context.lang == 'ru'){
                         <img src="/img/languages/ru.svg" alt="ru" class="lang__icon">
-                        <div class="lang__arrow"></div>
+                        <div class="lang__arrow">
+                            <svg class="lang__arrow-icon">
+                                <use xlink:href="/img/icon_sprite/sprite.svg#arrow"></use>
+                            </svg>
+                        </div>
                         <div class="lang__menu-wrapper spoiler">
                             <div class="lang__menu">
                                 <a href="/index.html" class="lang__menu-link">

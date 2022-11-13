@@ -1,7 +1,4 @@
 .header {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 0px;
 
@@ -456,8 +453,8 @@
 
 .lang {
     flex-flow: row nowrap;
-    align-items: center;
-    gap: 12px;
+    align-items: end;
+    gap: 5px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
@@ -468,11 +465,15 @@
     }
 
     &__arrow {
-        border-bottom: solid 8px $secondaryColor;
-        border-top: solid 8px transparent;
-        border-left: solid 7px transparent;
-        border-right: solid 7px transparent;
-        transform-origin: center 12px;
+        width: 16px;
+        height: 12px;
+    }
+
+    &__arrow-icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: $secondaryColor;
         transform: rotate(180deg);
         transition: transform 0.3s ease;
 
@@ -488,7 +489,7 @@
             .spoiler-block_active & {
                 transform: rotate(0deg);
             }
-        }
+        } 
     }
 
     $menuPadding: 7px;

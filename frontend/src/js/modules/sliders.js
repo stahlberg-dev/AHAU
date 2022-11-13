@@ -7,6 +7,7 @@ import Swiper, {
     Scrollbar, 
     EffectFade, 
     EffectFlip,
+    Zoom,
 } from 'swiper';
 
 // ----- Title slider -----------------------------------------------------------------------
@@ -133,65 +134,66 @@ export function swiperAboutSlider() {
 
 export function modelSlider_as250_w() {
 
-    const thumbsSlider = document.querySelector('.models__gallery-250w .thumbs-slider');
-    const mainSlider = document.querySelector('.models__gallery-250w .main-slider');
-    const prevButton = document.querySelector('.models__gallery-250w .main-slider__prev-button');
-    const nextButton = document.querySelector('.models__gallery-250w .main-slider__next-button');
+    const thumbsSlider = document.querySelector('[data-model="as250white"] .thumbs-slider');
+    const mainSlider = document.querySelector('[data-model="as250white"] .main-slider');
+    const prevButton = document.querySelector('[data-model="as250white"] .main-slider__prev-button');
+    const nextButton = document.querySelector('[data-model="as250white"] .main-slider__next-button');
 
-    if (thumbsSlider && mainSlider) {
+    if (!thumbsSlider && !mainSlider) return;
 
-        const modelsThumbs = new Swiper(thumbsSlider, {
-            modules: [Navigation, Thumbs, Mousewheel],
-            observer: true,
-            observeParents: true,
-            preloadImages: false,
-            direction: 'vertical', 
-	        slidesPerView: 3, 
-	        spaceBetween: 0, 
-            mousewheel: {
-                sensitivity: 3,
-            },
-            speed: 500,
-            loop: true,
-            breakpoints: {
-            
-            }
-        });
-    
-        const modelsMain = new Swiper(mainSlider, {
-            modules: [Navigation, Pagination, Thumbs],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            watchOverflow: true,
-            speed: 1000,
-            loop: true,
-            preloadImages: false,
-            grabCursor: true,
-            thumbs: { 
-                swiper: modelsThumbs,
-            },
-            navigation: {
-                nextEl: nextButton,
-                prevEl: prevButton,
-            },
-            breakpoints: {
-            
-            }
-        });
-
-        const mediaQueryHover = window.matchMedia('(any-hover: hover)');
-
-        if (mediaQueryHover.matches) {
-
-            let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
-            thumbs.forEach(el => el.addEventListener('mouseenter', function() {
-                let index = +el.dataset.swiperSlideIndex + 1;
-                modelsMain.slideTo(index); 
-            }));
-
+    const modelsThumbs = new Swiper(thumbsSlider, {
+        modules: [Thumbs, Mousewheel],
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        direction: 'vertical', 
+        slidesPerView: 3, 
+        spaceBetween: 0, 
+        mousewheel: {
+            sensitivity: 3,
+        },
+        speed: 500,
+        loop: true,
+        breakpoints: {
+        
         }
+    });
+
+    const modelsMain = new Swiper(mainSlider, {
+        modules: [Navigation, Pagination, Thumbs, Zoom],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchOverflow: true,
+        speed: 1000,
+        loop: true,
+        preloadImages: false,
+        thumbs: { 
+            swiper: modelsThumbs,
+        },
+        navigation: {
+            nextEl: nextButton,
+            prevEl: prevButton,
+        },
+        zoom: {
+            maxRatio: 3,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+    const mediaQueryHover = window.matchMedia('(any-hover: hover)');
+
+    if (mediaQueryHover.matches) {
+
+        let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
+        thumbs.forEach(el => el.addEventListener('mouseenter', function() {
+            let index = +el.dataset.swiperSlideIndex + 1;
+            modelsMain.slideTo(index); 
+        }));
+
     }
 }
 
@@ -201,65 +203,66 @@ export function modelSlider_as250_w() {
 
 export function modelSlider_as330_w() {
 
-    const thumbsSlider = document.querySelector('.models__gallery-330w .thumbs-slider');
-    const mainSlider = document.querySelector('.models__gallery-330w .main-slider');
-    const prevButton = document.querySelector('.models__gallery-330w .main-slider__prev-button');
-    const nextButton = document.querySelector('.models__gallery-330w .main-slider__next-button');
+    const thumbsSlider = document.querySelector('[data-model="as330white"] .thumbs-slider');
+    const mainSlider = document.querySelector('[data-model="as330white"] .main-slider');
+    const prevButton = document.querySelector('[data-model="as330white"] .main-slider__prev-button');
+    const nextButton = document.querySelector('[data-model="as330white"] .main-slider__next-button');
 
-    if (thumbsSlider && mainSlider) {
+    if (!thumbsSlider && !mainSlider) return;
 
-        const modelsThumbs = new Swiper(thumbsSlider, {
-            modules: [Navigation, Pagination, Thumbs, Mousewheel],
-            observer: true,
-            observeParents: true,
-            preloadImages: false,
-            direction: 'vertical', 
-	        slidesPerView: 3, 
-	        spaceBetween: 0, 
-            mousewheel: {
-                sensitivity: 3,
-            },
-            speed: 500,
-            loop: true,
-            breakpoints: {
-            
-            }
-        });
-    
-        const modelsMain = new Swiper(mainSlider, {
-            modules: [Navigation, Pagination, Thumbs],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            watchOverflow: true,
-            speed: 1000,
-            loop: true,
-            preloadImages: false,
-            grabCursor: true,
-            thumbs: { 
-                swiper: modelsThumbs,
-            },
-            navigation: {
-                nextEl: nextButton,
-                prevEl: prevButton,
-            },
-            breakpoints: {
-            
-            }
-        });
-
-        const mediaQueryHover = window.matchMedia('(any-hover: hover)');
-
-        if (mediaQueryHover.matches) {
-
-            let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
-            thumbs.forEach(el => el.addEventListener('mouseenter', function() {
-                let index = +el.dataset.swiperSlideIndex + 1;
-                modelsMain.slideTo(index); 
-            }));
-
+    const modelsThumbs = new Swiper(thumbsSlider, {
+        modules: [Thumbs, Mousewheel],
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        direction: 'vertical', 
+        slidesPerView: 3, 
+        spaceBetween: 0, 
+        mousewheel: {
+            sensitivity: 3,
+        },
+        speed: 500,
+        loop: true,
+        breakpoints: {
+        
         }
+    });
+
+    const modelsMain = new Swiper(mainSlider, {
+        modules: [Navigation, Pagination, Thumbs, Zoom],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchOverflow: true,
+        speed: 1000,
+        loop: true,
+        preloadImages: false,
+        thumbs: { 
+            swiper: modelsThumbs,
+        },
+        navigation: {
+            nextEl: nextButton,
+            prevEl: prevButton,
+        },
+        zoom: {
+            maxRatio: 3,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+    const mediaQueryHover = window.matchMedia('(any-hover: hover)');
+
+    if (mediaQueryHover.matches) {
+
+        let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
+        thumbs.forEach(el => el.addEventListener('mouseenter', function() {
+            let index = +el.dataset.swiperSlideIndex + 1;
+            modelsMain.slideTo(index); 
+        }));
+
     }
 }
 
@@ -269,65 +272,273 @@ export function modelSlider_as330_w() {
 
 export function modelSlider_as425_w() {
 
-    const thumbsSlider = document.querySelector('.models__gallery-425w .thumbs-slider');
-    const mainSlider = document.querySelector('.models__gallery-425w .main-slider');
-    const prevButton = document.querySelector('.models__gallery-425w .main-slider__prev-button');
-    const nextButton = document.querySelector('.models__gallery-425w .main-slider__next-button');
+    const thumbsSlider = document.querySelector('[data-model="as425white"] .thumbs-slider');
+    const mainSlider = document.querySelector('[data-model="as425white"] .main-slider');
+    const prevButton = document.querySelector('[data-model="as425white"] .main-slider__prev-button');
+    const nextButton = document.querySelector('[data-model="as425white"] .main-slider__next-button');
 
-    if (thumbsSlider && mainSlider) {
+    if (!thumbsSlider && !mainSlider) return;
 
-        const modelsThumbs = new Swiper(thumbsSlider, {
-            modules: [Navigation, Pagination, Thumbs, Mousewheel],
-            observer: true,
-            observeParents: true,
-            preloadImages: false,
-            direction: 'vertical', 
-	        slidesPerView: 3, 
-	        spaceBetween: 0, 
-            mousewheel: {
-                sensitivity: 1,
-            },
-            speed: 500,
-            loop: true,
-            breakpoints: {
-            
-            }
-        });
-    
-        const modelsMain = new Swiper(mainSlider, {
-            modules: [Navigation, Pagination, Thumbs],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            watchOverflow: true,
-            speed: 1000,
-            loop: true,
-            preloadImages: false,
-            grabCursor: true,
-            thumbs: { 
-                swiper: modelsThumbs,
-            },
-            navigation: {
-                nextEl: nextButton,
-                prevEl: prevButton,
-            },
-            breakpoints: {
-            
-            }
-        });
-
-        const mediaQueryHover = window.matchMedia('(any-hover: hover)');
-
-        if (mediaQueryHover.matches) {
-
-            let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
-            thumbs.forEach(el => el.addEventListener('mouseenter', function() {
-                let index = +el.dataset.swiperSlideIndex + 1;
-                modelsMain.slideTo(index); 
-            }));
-
+    const modelsThumbs = new Swiper(thumbsSlider, {
+        modules: [Thumbs, Mousewheel],
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        direction: 'vertical', 
+        slidesPerView: 3, 
+        spaceBetween: 0, 
+        mousewheel: {
+            sensitivity: 1,
+        },
+        speed: 500,
+        loop: true,
+        breakpoints: {
+        
         }
+    });
+
+    const modelsMain = new Swiper(mainSlider, {
+        modules: [Navigation, Pagination, Thumbs, Zoom],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchOverflow: true,
+        speed: 1000,
+        loop: true,
+        preloadImages: false,
+        thumbs: { 
+            swiper: modelsThumbs,
+        },
+        navigation: {
+            nextEl: nextButton,
+            prevEl: prevButton,
+        },
+        zoom: {
+            maxRatio: 3,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+    const mediaQueryHover = window.matchMedia('(any-hover: hover)');
+
+    if (mediaQueryHover.matches) {
+
+        let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
+        thumbs.forEach(el => el.addEventListener('mouseenter', function() {
+            let index = +el.dataset.swiperSlideIndex + 1;
+            modelsMain.slideTo(index); 
+        }));
+
+    }
+}
+
+//------------------------------------------------------------------------------------------- 
+
+// ----- Model-as250-black gallery -----------------------------------------------------------
+
+export function modelSlider_as250_b() {
+
+    const thumbsSlider = document.querySelector('[data-model="as250black"] .thumbs-slider');
+    const mainSlider = document.querySelector('[data-model="as250black"] .main-slider');
+    const prevButton = document.querySelector('[data-model="as250black"] .main-slider__prev-button');
+    const nextButton = document.querySelector('[data-model="as250black"] .main-slider__next-button');
+
+    if (!thumbsSlider && !mainSlider) return;
+
+    const modelsThumbs = new Swiper(thumbsSlider, {
+        modules: [Thumbs, Mousewheel],
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        direction: 'vertical', 
+        slidesPerView: 3, 
+        spaceBetween: 0, 
+        mousewheel: {
+            sensitivity: 3,
+        },
+        speed: 500,
+        loop: true,
+        breakpoints: {
+        
+        }
+    });
+
+    const modelsMain = new Swiper(mainSlider, {
+        modules: [Navigation, Pagination, Thumbs, Zoom],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchOverflow: true,
+        speed: 1000,
+        loop: true,
+        preloadImages: false,
+        thumbs: { 
+            swiper: modelsThumbs,
+        },
+        navigation: {
+            nextEl: nextButton,
+            prevEl: prevButton,
+        },
+        zoom: {
+            maxRatio: 3,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+    const mediaQueryHover = window.matchMedia('(any-hover: hover)');
+
+    if (mediaQueryHover.matches) {
+
+        let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
+        thumbs.forEach(el => el.addEventListener('mouseenter', function() {
+            let index = +el.dataset.swiperSlideIndex + 1;
+            modelsMain.slideTo(index); 
+        }));
+
+    }
+}
+
+//------------------------------------------------------------------------------------------- 
+
+// ----- Model-as330-black gallery ---------------------------------------------------------------
+
+export function modelSlider_as330_b() {
+
+    const thumbsSlider = document.querySelector('[data-model="as330black"] .thumbs-slider');
+    const mainSlider = document.querySelector('[data-model="as330black"] .main-slider');
+    const prevButton = document.querySelector('[data-model="as330black"] .main-slider__prev-button');
+    const nextButton = document.querySelector('[data-model="as330black"] .main-slider__next-button');
+
+    if (!thumbsSlider && !mainSlider) return;
+
+    const modelsThumbs = new Swiper(thumbsSlider, {
+        modules: [Thumbs, Mousewheel],
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        direction: 'vertical', 
+        slidesPerView: 3, 
+        spaceBetween: 0, 
+        mousewheel: {
+            sensitivity: 3,
+        },
+        speed: 500,
+        loop: true,
+        breakpoints: {
+        
+        }
+    });
+
+    const modelsMain = new Swiper(mainSlider, {
+        modules: [Navigation, Pagination, Thumbs, Zoom],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchOverflow: true,
+        speed: 1000,
+        loop: true,
+        preloadImages: false,
+        thumbs: { 
+            swiper: modelsThumbs,
+        },
+        navigation: {
+            nextEl: nextButton,
+            prevEl: prevButton,
+        },
+        zoom: {
+            maxRatio: 3,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+    const mediaQueryHover = window.matchMedia('(any-hover: hover)');
+
+    if (mediaQueryHover.matches) {
+
+        let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
+        thumbs.forEach(el => el.addEventListener('mouseenter', function() {
+            let index = +el.dataset.swiperSlideIndex + 1;
+            modelsMain.slideTo(index); 
+        }));
+
+    }
+}
+
+//------------------------------------------------------------------------------------------- 
+
+// ----- Model-as425-black gallery ---------------------------------------------------------------
+
+export function modelSlider_as425_b() {
+
+    const thumbsSlider = document.querySelector('[data-model="as425black"] .thumbs-slider');
+    const mainSlider = document.querySelector('[data-model="as425black"] .main-slider');
+    const prevButton = document.querySelector('[data-model="as425black"] .main-slider__prev-button');
+    const nextButton = document.querySelector('[data-model="as425black"] .main-slider__next-button');
+
+    if (!thumbsSlider && !mainSlider) return;
+
+    const modelsThumbs = new Swiper(thumbsSlider, {
+        modules: [Thumbs, Mousewheel],
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        direction: 'vertical', 
+        slidesPerView: 3, 
+        spaceBetween: 0, 
+        mousewheel: {
+            sensitivity: 1,
+        },
+        speed: 500,
+        loop: true,
+        breakpoints: {
+        
+        }
+    });
+
+    const modelsMain = new Swiper(mainSlider, {
+        modules: [Navigation, Pagination, Thumbs, Zoom],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        watchOverflow: true,
+        speed: 1000,
+        loop: true,
+        preloadImages: false,
+        thumbs: { 
+            swiper: modelsThumbs,
+        },
+        navigation: {
+            nextEl: nextButton,
+            prevEl: prevButton,
+        },
+        zoom: {
+            maxRatio: 3,
+        },
+        breakpoints: {
+        
+        }
+    });
+
+    const mediaQueryHover = window.matchMedia('(any-hover: hover)');
+
+    if (mediaQueryHover.matches) {
+
+        let thumbs =  thumbsSlider.querySelectorAll('.swiper-slide');
+        thumbs.forEach(el => el.addEventListener('mouseenter', function() {
+            let index = +el.dataset.swiperSlideIndex + 1;
+            modelsMain.slideTo(index); 
+        }));
+
     }
 }
 

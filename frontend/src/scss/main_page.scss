@@ -28,15 +28,25 @@ body {
     }
 }
 
-.wrapper {
+.page-wrapper {
     min-height: 100%;
     display: flex;
     flex-flow: column nowrap;
     overflow: hidden;
     
-    & main {
+    &__main {
         flex: 1 1 auto;
         //@include adaptiveValue("margin-bottom", 55px, 150px);
+    }
+
+    &__header {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__footer {
+
     }
 }
 
@@ -113,7 +123,7 @@ body {
     }
 }
 
-.page {
+.main {
 
     &__title-screen {
         @include adaptiveValue("margin-bottom", 40px, 100px);
@@ -126,45 +136,6 @@ body {
     &__models {
         @include adaptiveValue("margin-bottom", 40px, 100px);
     }
-
-    /* &__advantages {
-        @include adaptiveValue("margin-bottom", 35px, 170px);
-    }
-
-    &__about {
-        @include adaptiveValue("margin-bottom", 70px, 170px);
-    }
-
-    &__perfection {
-        @include adaptiveValue("margin-bottom", 35px, 170px);
-    }
-
-    &__autoclave {
-        @include adaptiveValue("margin-bottom", 40px, 170px);
-    }
-
-    &__comparison {
-        @include adaptiveValue("margin-bottom", 70px, 170px);
-    }
-
-    &__equipment {
-        @include adaptiveValue("margin-bottom", 40px, 170px);
-    }
-
-    &__work {
-        @include adaptiveValue("margin-bottom", 80px, 170px);
-    }
-
-    &__about-us {
-        @include adaptiveValue("margin-bottom", 55px, 100px);
-    }
-
-    &__order {
-        @include adaptiveValue("margin-bottom", 30px, 50px);
-    }
-
-    &__payment {
-    } */
 }
 
 @import "sections/title-screen.scss";

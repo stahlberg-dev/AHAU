@@ -12,12 +12,11 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-start;
-        align-items: stretch;
+        align-items: center;
         
         @media (min-width: $mobile) {
             flex-flow: row nowrap;
             justify-content: space-between;
-            align-items: center;     
         }
     }
 
@@ -29,18 +28,20 @@
         width: 100vw;
         min-width: $minWidth;
         min-height: $minWidth;
-        margin-bottom: 30px;
+        @include adaptiveValue("margin-bottom", 10px, 20px, $minWidth, $mobile);
 
         @media (min-width: $smallMobile) {
-            width: 100%;
-            @include adaptiveValue("flex-basis", 300px, 480px, $smallMobile, $mobile);
+            width: 80%;
+            padding-bottom: 64%;
+            flex-basis: auto;
             min-width: auto;
             min-height: auto;
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("flex-basis", 370px, 700px, $mobile, $tablet);
-            @include adaptiveValue("height", 300px, 550px, $mobile, $tablet);
+            width: auto;
+            flex-basis: 45%;
+            padding-bottom: 37.5%;
             margin-bottom: 0;
         }
     }
@@ -48,10 +49,16 @@
     &__gallery {
         position: absolute;
         top: 0;
-        left: -$containerPadding;
+        left: 0;
+        width: 100%;
+        padding-bottom: 100%;
 
         @media (min-width: $smallMobile) {
-            left: 0;
+            padding-bottom: 80%;
+        }
+
+        @media (min-width: $mobile) {
+            padding-bottom: 83.333%;
         }
     }
 
@@ -60,24 +67,10 @@
 }
 
 .slider-gallery {
-    width: 100%;
-    height: 100%;
     visibility: hidden;
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s ease;
-
-    @media (min-width: $smallMobile) {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        left: 0;
-    }
-
-    @media (min-width: $mobile) {
-        justify-content: space-between;
-    }
 
     &.catalog-tab-content_active {
         pointer-events: auto;
@@ -88,51 +81,52 @@
         display: none;
 
         @media (min-width: $smallMobile) {
-            display: block;
-            position: relative;
-            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20%;
+            height: 100%;
+        }
+
+        @media (min-width: $mobile) {
+            width: 16.66%;
         }
     }
 
     &__thumbs-slider {
 
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("width", 70px, 120px, $smallMobile, $mobile);
-            @include adaptiveValue("height", 220px, 380px, $smallMobile, $mobile);
+            width: 100%;
+            height: 80%;
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("width", 70px, 120px, $mobile, $tablet);
-            @include adaptiveValue("height", 220px, 380px, $mobile, $tablet);
+            height: 70%;
         }
     }
 
     &__main-part {
-        position: relative;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
 
         @media (min-width: $smallMobile) {
-            flex: 0 0 auto;
+            width: 80%;
+        }
+
+        @media (min-width: $mobile) {
+            width: 83.333%;
         }
     }
 
     &__main-slider {
         position: relative;
-        width: 100vw;
-        height: 100vw;
-        min-width: $minWidth;
-        min-height: $minWidth;
-
-        @media (min-width: $smallMobile) {
-            @include adaptiveValue("width", 300px, 480px, $smallMobile, $mobile);
-            @include adaptiveValue("height", 300px, 480px, $smallMobile, $mobile);
-            min-width: auto;
-            min-height: auto;
-        }
-
-        @media (min-width: $mobile) { 
-            @include adaptiveValue("width", 300px, 550px, $mobile, $tablet);
-            @include adaptiveValue("height", 300px, 550px, $mobile, $tablet);
-        }
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -184,15 +178,19 @@
         position: relative;
     }
 
+    &__zoom-container {
+        
+    }
+
     &__photo {
         display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 120%;
-        height: 120%;
-        filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.3));
+        width: 100%;
+        height: 100%;
+        cursor: zoom-in;
+
+        .swiper-slide-zoomed & {
+            cursor: zoom-out;
+        }
     }
 
     &__prev-button,
@@ -244,15 +242,12 @@
     grid-auto-flow: row;
     justify-items: start;
     align-items: center;
-    margin-left: -$containerPadding;
-    margin-right: -$containerPadding;
-    padding: $containerPadding;
+    width: 100%;
     @include adaptiveValue("column-gap", 10px, 20px, $minWidth, $smallMobile);
     line-height: 1;
 
     @media (min-width: $smallMobile) {
         @include adaptiveValue("column-gap", 20px, 30px, $smallMobile, $mobile);
-        margin: 0;
         @include adaptiveValue("padding", 20px, 40px, $smallMobile, $mobile);
         border-radius: 7px;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -278,7 +273,7 @@
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("margin-bottom", 10px, 20px, $mobile, $tablet);
+            @include adaptiveValue("margin-bottom", 10px, 14px, $mobile, $tablet);
             @include adaptiveValue("font-size", 18px, 22px, $mobile, $tablet);
         }
     }
@@ -287,11 +282,11 @@
         @include adaptiveValue("margin-bottom", 10px, 20px, $minWidth, $smallMobile);
 
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("margin-bottom", 10px, 20px, $smallMobile, $mobile);
+            @include adaptiveValue("margin-bottom", 12px, 20px, $smallMobile, $mobile);
         }
     
         @media (min-width: $mobile) {
-            @include adaptiveValue("margin-bottom", 10px, 20px, $mobile, $tablet);
+            @include adaptiveValue("margin-bottom", 12px, 20px, $mobile, $tablet);
         }
     }
 
@@ -324,21 +319,37 @@
     }
 
     &__characteristic-value {
+        position: relative;
+        min-width: 10px;
+        @include adaptiveValue("height", 12px, 16px, $minWidth, $smallMobile);
         @include adaptiveValue("margin-top", 5px, 10px, $minWidth, $smallMobile);
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
 
         @media (min-width: $smallMobile) {
+            @include adaptiveValue("height", 16px, 20px, $smallMobile, $mobile);
             @include adaptiveValue("margin-top", 5px, 10px, $smallMobile, $mobile);
             @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
         }
 
         @media (min-width: $mobile) {
+            @include adaptiveValue("height", 14px, 18px, $mobile, $tablet);
             @include adaptiveValue("margin-top", 5px, 10px, $mobile, $tablet);
             @include adaptiveValue("font-size", 14px, 18px, $mobile, $tablet);
         }
     }
 
     &__characteristic-value-opton {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+
+        &.catalog-tab-content_active {
+            opacity: 1;
+        }
     }
 
     &__details {
@@ -347,7 +358,7 @@
         border-bottom: 1px solid $secondaryColor;
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
         font-weight: 700;
-        opacity: 0.7;
+        opacity: 0.6;
         transition: opacity 0.3s ease;
 
         @media (min-width: $smallMobile) {
@@ -379,7 +390,7 @@
         border-bottom: 1px solid $secondaryColor;
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
         font-weight: 700;
-        opacity: 0.7;
+        opacity: 0.6;
         transition: opacity 0.3s ease, 
                     color 0.3s ease, 
                     border-bottom-color 0.3s ease;
@@ -438,22 +449,39 @@
     }
 
     &__price {
+        position: relative;
+        @include adaptiveValue("width", 87px, 145px, $minWidth, $smallMobile);
+        @include adaptiveValue("height", 18px, 26px, $minWidth, $smallMobile);
         font-family: $primaryFontFamily;
         @include adaptiveValue("font-size", 18px, 26px, $minWidth, $smallMobile);
         font-weight: 700;
         color: $primaryColor;
 
         @media (min-width: $smallMobile) {
+            @include adaptiveValue("width", 96px, 145px, $smallMobile, $mobile);
+            @include adaptiveValue("height", 20px, 30px, $smallMobile, $mobile);
             @include adaptiveValue("font-size", 20px, 30px, $smallMobile, $mobile);
         }
 
         @media (min-width: $mobile) {
+            @include adaptiveValue("width", 96px, 145px, $mobile, $tablet);
+            @include adaptiveValue("height", 20px, 30px, $mobile, $tablet);
             @include adaptiveValue("font-size", 20px, 30px, $mobile, $tablet);
         }
     }
 
     &__price-opton {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
 
+        &.catalog-tab-content_active {
+            opacity: 1;
+        }
     }
 
     &__order-button {
@@ -513,15 +541,15 @@
     
     &__button-text {
         font-family: $primaryFontFamily;
-        @include adaptiveValue("font-size", 14px, 20px, $minWidth, $smallMobile);
+        @include adaptiveValue("font-size", 12px, 20px, $minWidth, $smallMobile);
         font-weight: 700;
 
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("font-size", 20px, 30px, $smallMobile, $mobile);
+            @include adaptiveValue("font-size", 16px, 30px, $smallMobile, $mobile);
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("font-size", 16px, 24px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 16px, 30px, $mobile, $tablet);
         }
     }
 }
@@ -531,43 +559,106 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-end;
-    @include adaptiveValue("gap", 20px, 25px, $minWidth, $smallMobile);
+    @include adaptiveValue("gap", 10px, 15px, $minWidth, $smallMobile);
 
     @media (min-width: $smallMobile) {
-        @include adaptiveValue("gap", 20px, 25px, $smallMobile, $mobile);
+        @include adaptiveValue("gap", 10px, 15px, $smallMobile, $mobile);
     }
 
     @media (min-width: $mobile) {
-        @include adaptiveValue("gap", 20px, 25px, $mobile, $tablet);
+        @include adaptiveValue("gap", 10px, 15px, $mobile, $tablet);
     }
 
     &__button {
+        position: relative;
         flex-grow: 0;
         flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 20px, 30px, $minWidth, $smallMobile);
-        @include adaptiveValue("height", 20px, 30px, $minWidth, $smallMobile);
+        @include adaptiveValue("flex-basis", 30px, 40px, $minWidth, $smallMobile);
+        @include adaptiveValue("height", 30px, 40px, $minWidth, $smallMobile);
         border-radius: 50%;
         cursor: pointer;
+        transition: transform 0.3s ease;
         -webkit-tap-highlight-color: transparent;
         
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("flex-basis", 25px, 40px, $smallMobile, $mobile);
-            @include adaptiveValue("height", 25px, 40px, $smallMobile, $mobile);
+            @include adaptiveValue("flex-basis", 35px, 45px, $smallMobile, $mobile);
+            @include adaptiveValue("height", 35px, 45px, $smallMobile, $mobile);
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("flex-basis", 25px, 40px, $mobile, $tablet);
-            @include adaptiveValue("height", 25px, 40px, $mobile, $tablet);
+            @include adaptiveValue("flex-basis", 35px, 45px, $mobile, $tablet);
+            @include adaptiveValue("height", 35px, 45px, $mobile, $tablet);
         }
-        
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
         &_color_white {
             background: radial-gradient(farthest-side ellipse at 35% 35%, #EEE, #CCC);
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            border: 5px solid $thirdColor;
+
+            @media (min-width: $smallMobile) {
+                border-width: 7px;
+            }
+
+            &::after {
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            }
         }
         
         &_color_black {
             background: radial-gradient(farthest-side ellipse at 35% 35%, #333, #111);
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            border: 5px solid $thirdColor;
+
+            @media (min-width: $smallMobile) {
+                border-width: 7px;
+            }
+
+            &::after {
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        @media (any-hover: hover) {
+    
+            &:not(.catalog-tab-button_active):hover {   
+                transform: scale(120%, 120%);        
+            }
+        }
+
+    }
+
+    &__button-circle {
+        display: block;
+        width: 140%;
+        height: 140%;
+        transform: translate(-14.3%, -14.3%) rotate(-45deg);
+        fill: none;
+        stroke: $primaryColor;
+        stroke-width: 6%;
+        stroke-dasharray: 290%;
+        stroke-dashoffset: 290%;
+        stroke-linecap: round;
+        pointer-events: none;
+        transition: stroke-dashoffset 0s linear,
+                    transform 0s linear;
+
+        .catalog-tab-button_active & {
+            stroke-dashoffset: 0%;
+            transform: translate(-14.3%, -14.3%) rotate(135deg);
+            transition: stroke-dashoffset 0.4s linear,
+                        transform 0.4s linear;
         }
     }
+
 }
