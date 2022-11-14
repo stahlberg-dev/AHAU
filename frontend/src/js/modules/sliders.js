@@ -102,11 +102,15 @@ export function swiperAboutSlider() {
     });
 
     const aboutSlider = new Swiper('.about-slider', {
-        modules: [Thumbs, EffectFlip],
-        effect: 'flip',
+        modules: [Thumbs, EffectFade],
+        /* effect: 'flip',
         flipEffect: {
             slideShadows: true,
             limitRotation: true,
+        }, */
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
         },
         observer: true,
         observeParents: true,
