@@ -778,6 +778,8 @@ body.locked {
 .title-screen {
   width: 100%;
   min-height: 100%;
+  animation: clip-animation 1.25s cubic-bezier(0.29, 0.8, 0.8, 0.98);
+  will-change: clip-path;
 }
 .title-screen__slider {
   position: relative;
@@ -785,6 +787,8 @@ body.locked {
   min-width: 320px;
   height: 100vh;
   overflow: hidden;
+  animation: scaling-animation 4s 0.25s cubic-bezier(0, 0.71, 0.4, 0.97) forwards;
+  will-change: transform;
 }
 .title-screen__slide {
   position: relative;
@@ -872,6 +876,8 @@ body.locked {
   font-size: 20px;
   font-weight: 600;
   color: #EBEAF0;
+  opacity: 0;
+  animation: fade-in 0.75s 1.5s linear forwards;
 }
 @media (min-width: 320px) {
   .title-screen__first-slide-header {
@@ -1031,6 +1037,30 @@ body.locked {
 }
 .title-screen__slider-pagination .swiper-pagination-bullet-active {
   opacity: 1;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaling-animation {
+  from {
+    transform: scale(1.3);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes clip-animation {
+  from {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
 
 .about__title {
