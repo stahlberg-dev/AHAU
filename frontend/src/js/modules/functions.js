@@ -64,9 +64,18 @@ export function unlockBody (lockPaddingElements, unlockDelay = 0) {
 
 }
 
-function getModelAttributeName() {
+export function addLoadedClass(elementsClassName, loadedClassName) {
+    
+    const elements = document.querySelectorAll(elementsClassName);
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        elements.forEach(element => {
+            element.classList.add(loadedClassName.slice(1));
+        });
 
 
+    });
 
 }
 

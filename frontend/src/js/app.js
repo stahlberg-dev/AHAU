@@ -1,4 +1,4 @@
-import {isWebp, modelSwitcher} from "./modules/functions.js";
+import {isWebp, addLoadedClass, modelSwitcher} from "./modules/functions.js";
 import * as sliders from "./modules/sliders.js";
 import {scrollObserver} from "./modules/scroll-observer.js";
 import {burger} from "./modules/burger.js";
@@ -11,6 +11,12 @@ import {lockEquipmentVideo, clickScroller} from "./modules/click-scroller.js";
 //----- Webp --------------------------------------------------------------------------------
 
 isWebp();
+
+//-------------------------------------------------------------------------------------------
+
+//----- Add Loaded Class --------------------------------------------------------------------
+
+addLoadedClass('.title-screen', '.title-screen_loaded');
 
 //-------------------------------------------------------------------------------------------
 

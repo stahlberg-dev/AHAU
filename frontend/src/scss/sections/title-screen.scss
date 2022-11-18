@@ -1,8 +1,11 @@
 .title-screen {
     width: 100%;
     min-height: 100%;
-    animation: clip-animation 1.25s cubic-bezier(0.29, 0.8, 0.8, 0.98) forwards;
-    will-change: clip-path;
+    
+    &_loaded {
+        animation: clip-animation 1.25s cubic-bezier(0.29, 0.8, 0.8, 0.98) forwards;
+        will-change: clip-path;
+    }
 
     &__slider {
         position: relative;
@@ -11,8 +14,11 @@
         height: 100vh;
         overflow: hidden;
         opacity: 0;
-        animation: fade-in 1s linear forwards;
-        will-change: opacity;
+        
+        .title-screen_loaded & {
+            animation: fade-in 1s linear forwards;
+            will-change: opacity;
+        }
     }
 
     &__slider-wrapper {
@@ -34,12 +40,15 @@
         left: 50%;
         transform: translate(-50%, -50%);
         height: 100%;
-        animation: scaling-animation 4s 0.25s cubic-bezier(0, 0.71, 0.4, 0.97) forwards;
-        will-change: transform;
-
+        
         @media (min-aspect-ratio: 16/9) {
             width: 100%;
             height: auto;
+        }
+        
+        .title-screen_loaded & {
+            animation: scaling-animation 4s 0.25s cubic-bezier(0, 0.71, 0.4, 0.97) forwards;
+            will-change: transform;
         }
     }
 
