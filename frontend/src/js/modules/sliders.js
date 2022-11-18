@@ -24,7 +24,7 @@ export function swiperTitleSlider() {
         },
         effect: 'fade',
         fadeEffect: {
-            crossFade: true
+            crossFade: true,
         },
         observer: true,
         observeParents: true,
@@ -32,7 +32,7 @@ export function swiperTitleSlider() {
         slidesPerView: 1,
         spaceBetween: 0,
         watchOverflow: true,
-        speed: 4000,
+        speed: 2000,
         loop: true,
         preloadImages: false,
         pagination: {
