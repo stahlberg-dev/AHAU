@@ -38,17 +38,18 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1.3);
         height: 100%;
+        transition: transform 0s cubic-bezier(0, 0.71, 0.4, 0.97) 2.1s;
         
         @media (min-aspect-ratio: 16/9) {
             width: 100%;
             height: auto;
         }
-        
-        .title-screen_loaded & {
-            animation: scaling-animation 4s 0.25s cubic-bezier(0, 0.71, 0.4, 0.97) forwards;
-            will-change: transform;
+
+        .swiper-slide-active & {
+            transform: translate(-50%, -50%);
+            transition: transform 4s cubic-bezier(0, 0.71, 0.4, 0.97) 0.25s;
         }
     }
 
@@ -58,6 +59,8 @@
         left: $containerPadding;
         width: calc(100% - $containerPadding * 2);
         height: 60%;
+        perspective: 400px;
+        transform-style: preserve-3d;
 
         @media (min-width: $smallMobile) {
             top: 25%;
@@ -99,8 +102,8 @@
         overflow: hidden;
         z-index: 1;
         opacity: 0;
-        transform: translateY(-50%);
-        transition: transform 0s ease, opacity 0s ease;
+        transform: rotate3d(-1, 1, 0, -20deg) translate3d(10%, -10%, 170px);
+        transition: transform 0s ease 0s, opacity 0s ease 0s;
 
         @media (min-width: $smallMobile) {
             top: -5%;
@@ -115,7 +118,7 @@
             left: 55%;
             width: 40%;
             padding-bottom: 40%;
-            transform: translateX(50%);
+            transform: rotate3d(-1, 1, 0, -20deg) translate3d(20%, -20%, 220px);
         }
 
         @media (min-width: $tablet) {
@@ -128,7 +131,7 @@
         .swiper-slide-active & {
             transform: none;
             opacity: 1;
-            transition: transform 2s ease, opacity 2s ease;
+            transition: transform 2s ease 0.3s, opacity 2s ease 0.3s;
         }
     }
 
@@ -137,19 +140,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -50%);
         width: 120%;
-        transition: transform 0s ease 0s;
-
-        @media (min-width: $mobile) {
-            transform: translate(50%, -50%);
-        }
-
-        .swiper-slide-active & {
-            transform: translate(-50%, -50%);
-            opacity: 1;
-            transition: transform 2s ease;
-        }
     }
 
     &__slide-header {
@@ -169,7 +161,7 @@
         backdrop-filter: brightness(70%) blur(1px);
         box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
         opacity: 0;
-        transform: translateY(50%);
+        transform: rotate3d(-1, 0, 1, -20deg) translate3d(-10%, 10%, 150px);
         transition: transform 0s ease, opacity 0s ease;
 
         @media (min-width: $smallMobile) {
@@ -188,7 +180,7 @@
             max-width: 70%;
             padding: 2vw;
             font-size: 2.5vw;
-            transform: translateX(-20%);
+            transform: rotate3d(-1, 0, 1, -45deg) translate3d(-20%, 10%, 200px);
         }
 
         @media (min-width: $tablet) {
@@ -284,14 +276,7 @@
           opacity: 1;
         }
     }
-    @keyframes scaling-animation {
-        from {
-            transform: translate(-50%, -50%) scale(1.3);
-        }
-        to {
-            transform: translate(-50%, -50%) scale(1);
-        }
-    }
+
     @keyframes clip-animation {
         from {
             clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
