@@ -502,7 +502,9 @@
         padding-top: 15px;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s ease;
+        perspective: 150px;
+        transform-style: preserve-3d;
+        transition: opacity 0.5s ease;
 
         @media (any-hover: hover) {
 
@@ -530,8 +532,8 @@
         padding: $menuPadding;
         backdrop-filter: blur(5px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        transform: translateY(20%);
-        transition: transform 0.3s ease;
+        transform: translate3d(0, 20%, 0) rotateX(-90deg);
+        transition: transform 0.5s ease;
 
         @media (any-hover: hover) {
 
