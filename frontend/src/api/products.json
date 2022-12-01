@@ -1,0 +1,18 @@
+{
+    "products": [
+        {
+            "productName": "as250white",
+            "dimensions": "250 x 380 x 230",
+            "loadCapacity": "50 - 100",
+            "workingStroke": "70",
+            "price": "25 000"
+        },
+        {
+            "productName": "as250black",
+            "dimensions": "250 x 380 x 230",
+            "loadCapacity": "50 - 100",
+            "workingStroke": "70",
+            "price": "26 000"
+        }
+    ]
+}

@@ -13,6 +13,7 @@ global.app = {
     plugins: plugins,
 };
 
+import { api } from "./gulp/tasks/api.js";
 import { favicon } from "./gulp/tasks/favicon.js";
 import { brochures } from "./gulp/tasks/brochures.js";
 import { ico } from "./gulp/tasks/ico.js";
@@ -28,6 +29,7 @@ import { makeSvgSprite } from "./gulp/tasks/svgSprite.js";
 import { zip } from "./gulp/tasks/zip.js";
 
 function watcher() {
+    gulp.watch(path.watch.api, api);
     gulp.watch(path.watch.favicon, favicon);
     gulp.watch(path.watch.brochures, brochures);
     gulp.watch(path.watch.ico, ico);
@@ -42,7 +44,7 @@ export { makeSvgSprite };
 
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
-const mainTasks = gulp.series(fonts, gulp.parallel(brochures, favicon, ico, html, scss, js, images, video));
+const mainTasks = gulp.series(fonts, gulp.parallel(api, brochures, favicon, ico, html, scss, js, images, video));
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);

@@ -78,12 +78,12 @@ export class popups {
     
         setTimeout(() => {
     
-            popupActive.querySelectorAll('video').forEach(element => element.pause());
-            popupActive.querySelectorAll('input[type=text]').forEach(element => element.value = '');
+            popupActive?.querySelectorAll('video').forEach(element => element.pause());
+            popupActive?.querySelectorAll('form').forEach(element => element.reset());
     
         }, this.showHideTime);
         
-        popupActive.classList.remove(this.openedPopupClassName.slice(1));
+        popupActive?.classList.remove(this.openedPopupClassName.slice(1));
         
         const lockPaddingElements = document.querySelectorAll(this.lockPaddingElementClassName);
     

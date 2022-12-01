@@ -1,12 +1,12 @@
-import {isWebp, addLoadedClass, modelSwitcher} from "./modules/functions.js";
+import {isWebp, addLoadedClass} from "./modules/functions.js";
 import * as sliders from "./modules/sliders.js";
 import {scrollObserver} from "./modules/scroll-observer.js";
 import {burger} from "./modules/burger.js";
 import {popupsMaker} from "./modules/popups-maker.js";
 import {spoilers} from "./modules/spoilers.js";
-import {phoneMask, promoMask} from "./modules/masks.js";
 import {lockEquipmentVideo, clickScroller} from "./modules/click-scroller.js";
-
+import {modelSwitcher} from "./modules/model-switcher.js";
+import {formHandler} from "./modules/forms.js";
 
 //----- Webp --------------------------------------------------------------------------------
 
@@ -48,14 +48,6 @@ new burger({
 popupsMaker.init();
 
 //-------------------------------------------------------------------------------------------
-
-// ----- Phone mask -------------------------------------------------------------------------
-
-const phoneInputsClassName = 'jsPhone';
-
-phoneMask(phoneInputsClassName);
-
-//------------------------------------------------------------------------------------------- 
 
 //----- Click scroller ----------------------------------------------------------------------
 
@@ -133,5 +125,21 @@ sliders.modelSlider_as425_b();
 //----- Model switcher ----------------------------------------------------------------------
 
 modelSwitcher();
+
+//-------------------------------------------------------------------------------------------
+
+//----- Forms -------------------------------------------------------------------------------
+
+new formHandler({
+    formClassName: '.form',
+    modelInputClassName: '.form__model',
+    phoneInputClassName: '.form__phone',
+    messageInputClassName: '.form__message',
+    sendingFormClassName: '.form_sending',
+    mailerConfigPath: '../api/sendLetter.php',
+    successOrderPopupName: 'checkout',
+    successMessagePopupName: 'message',
+    failPopupName: 'fail',
+}).init();
 
 //-------------------------------------------------------------------------------------------

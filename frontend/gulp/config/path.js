@@ -16,6 +16,7 @@ export function getPath(isDev) {
             favicon: `${buildFolder}/favicon/`,
             brochures: `${buildFolder}/brochures/`,
             ico: `${buildFolder}/`,
+            api: `${buildFolder}/api/`,
         },
         src: {
             js: `${srcFolder}/js/app.js`,
@@ -28,6 +29,7 @@ export function getPath(isDev) {
             brochures: `${srcFolder}/brochures/**/*.*`,
             ico: `${srcFolder}/*.ico`,
             svgicons: `${srcFolder}/svgicons/*.svg`,
+            api: `${srcFolder}/api/**/*.*`,
         },
         watch: {
             js: `${srcFolder}/js/**/*.js`,
@@ -38,6 +40,7 @@ export function getPath(isDev) {
             favicon: `${srcFolder}/favicon/**/*.*`,
             brochures: `${srcFolder}/brochures/**/*.*`,
             ico: `${srcFolder}/*.ico`,
+            api: `${srcFolder}/api/**/*.*`,
         },
         clean: buildFolder,
         buildFolder: buildFolder,

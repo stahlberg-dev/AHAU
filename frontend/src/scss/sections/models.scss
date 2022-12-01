@@ -385,43 +385,59 @@
     }
 
     &__brochure {
+        position: relative;
+        @include adaptiveValue("width", 75px, 105px, $minWidth, $smallMobile);
+        @include adaptiveValue("height", 17px, 24px, $minWidth, $smallMobile);
         @include adaptiveValue("margin-top", 6px, 13px, $minWidth, $smallMobile);
         @include adaptiveValue("margin-bottom", 10px, 20px, $minWidth, $smallMobile);
-        border-bottom: 1px solid $secondaryColor;
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
         font-weight: 700;
-        opacity: 0.6;
-        transition: opacity 0.3s ease, 
-                    color 0.3s ease, 
-                    border-bottom-color 0.3s ease;
 
         @media (min-width: $smallMobile) {
+            @include adaptiveValue("width", 105px, 135px, $smallMobile, $mobile);
+            @include adaptiveValue("height", 22px, 27px, $smallMobile, $mobile);
             @include adaptiveValue("margin-top", 6px, 13px, $smallMobile, $mobile);
             @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $mobile);
             @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
         }
 
         @media (min-width: $mobile) {
+            @include adaptiveValue("width", 90px, 120px, $mobile, $tablet);
+            @include adaptiveValue("height", 19px, 25px, $mobile, $tablet);
             @include adaptiveValue("margin-top", 6px, 13px, $mobile, $tablet);
             @include adaptiveValue("margin-bottom", 15px, 30px, $mobile, $tablet);
             @include adaptiveValue("font-size", 14px, 18px, $mobile, $tablet);
         }
+    }
+    
+    &__brochure-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom: 1px solid $secondaryColor;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, 
+                    color 0.3s ease, 
+                    border-bottom-color 0.3s ease;
 
-        @media (any-hover: hover) {
+        &.catalog-tab-content_active {
+            opacity: 0.6;
 
-            &:hover {           
+            @media (any-hover: hover) {
+        
+                &:hover {           
+                    opacity: 1;
+                }
+            }
+        
+            &:active {
                 opacity: 1;
+                color: $primaryColor;
+                border-bottom-color: $primaryColor;
             }
         }
-
-        &:active {
-            opacity: 1;
-            color: $primaryColor;
-            border-bottom-color: $primaryColor;
-        }
-    }
-
-    &__brochure-link {
     }
 
     &__brochure-icon {

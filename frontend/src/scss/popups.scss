@@ -2,19 +2,21 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color:rgba(5, 6, 0, 0.75);
+    backdrop-filter: none;
     top: 0;
     left: 0;
     opacity: 0;
-    visibility: hidden;
+    pointer-events: none;
     overflow-x: hidden;
     overflow-y: scroll;
     z-index: 200;
-    transition: all 0.3s ease;
+    transition: backdrop-filter 0.5s ease, 
+                opacity  0.5s ease;
 
     &_opened {
         opacity: 1;
-        visibility: visible;
+        backdrop-filter: blur(10px);
+        pointer-events: auto;
     }
 
     &__wrapper {
@@ -22,39 +24,41 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        padding: $containerPadding;
+        perspective: 400px;
+        transform-style: preserve-3d;
     }
  
     &__content {
         position: relative;
-        width: 100%;
-        min-width: 300px;
-        @include adaptiveValue("padding-top", 30px, 60px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-bottom", 35px, 60px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-left", 15px, 70px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-right", 15px, 70px, $smallMobile, $maxContainerWidth);
-        transform: scale(0.3, 0.3);
-        transition: transform 0.3s ease;
+        min-width: calc($minWidth - $containerPadding * 2);
+        @include adaptiveValue("width", 280px, 340px, $minWidth, $smallMobile);
+        @include adaptiveValue("padding-top", 25px, 70px, $smallMobile, $tablet);
+        @include adaptiveValue("padding-bottom", 20px, 60px, $smallMobile, $tablet);
+        @include adaptiveValue("padding-left", 20px, 60px, $smallMobile, $tablet);
+        @include adaptiveValue("padding-right", 20px, 60px, $smallMobile, $tablet);
+        background-color: $thirdColor;
+        color: $secondaryColor;
+        border-radius: 7px;
+        box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+        transform: scale(0.3, 0.3) rotateX(-90deg);
+        transition: transform 0.5s ease;
 
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("width", 460px, 680px, $smallMobile, $maxContainerWidth);
-        }
-
-        @media (min-width: $tablet) {
-            width: 680px;
+            @include adaptiveValue("width", 340px, 580px, $smallMobile, $tablet);
         }
 
         .popup_opened & {
-            transform: scale(1, 1);
+            transform: none;
         }
     }
     
     &__close {
         position: absolute;
-        top: -40px;
-        right: -2px;
-        width: 24px;
-        height: 24px;
+        top: -50px;
+        right: -4px;
+        width: 32px;
+        height: 32px;
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
 
@@ -62,10 +66,11 @@
             content: "";
             display: block;
             position: absolute;
-            top: calc(50% - 4%);
+            top: calc(50% - 5.5%);
             left: 0;
             width: 100%;
-            height: 8%;
+            height: 11%;
+            border-radius: 1.5px;
             background-color: $secondaryColor;
             transform: rotate(45deg);
             transition: all 0.3s ease;
@@ -87,8 +92,7 @@
         &:active {
             
             &::before, &::after {
-                background-color: #f38b15;
-                box-shadow: 0px 0px 30px rgba(248, 172, 84, 0.9);
+                background-color: $primaryColor;
             }
         }
 
@@ -101,79 +105,12 @@
     }
 }
 
-.perfection-popup {
-
-    &__wrapper {
-    }
-
-    &__content {
-        position: relative;
-        height: calc(0.5625 * (100vw - 20px));
-        min-height: 168.75px;
-        padding: 0;
-        background-color: transparent;
-
-        @media (min-width: $smallMobile) {
-            @include adaptiveValue("width", 460px, 900px, $smallMobile, $maxContainerWidth);
-            @include adaptiveValue("height", 258.75px, 506.25px, $smallMobile, $maxContainerWidth);
-        }
-
-        @media (min-width: $tablet) {
-            width: 1000px;
-            height: 562.5px;
-        }
-    }
-
-    &__close {
-    }
-
-    &__video {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.work-popup {
-
-    &__wrapper {
-    }
-
-    &__content {
-        position: relative;
-        height: calc(0.5625 * (100vw - 20px));
-        min-height: 168.75px;
-        padding: 0;
-        background-color: transparent;
-
-        @media (min-width: $smallMobile) {
-            @include adaptiveValue("width", 460px, 900px, $smallMobile, $maxContainerWidth);
-            @include adaptiveValue("height", 258.75px, 506.25px, $smallMobile, $maxContainerWidth);
-        }
-
-        @media (min-width: $tablet) {
-            width: 1000px;
-            height: 562.5px;
-        }
-    }
-
-    &__close {
-    }
-
-    &__video {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.consultation-popup {
+.order-popup {
     
     &__wrapper {
     }
     
     &__content {
-        color: $secondaryColor;
     }
     
     &__close {
@@ -181,25 +118,62 @@
     
     &__header {
         text-align: center;
-        margin-bottom: 15px;
+        @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("line-height", 24px, 48px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 20px, 40px, $smallMobile, $maxContainerWidth);
-        font-weight: 800;
-        }
-    
-    &__text {
-        max-width: 340px;
-        margin: 0 auto;
-        @include adaptiveValue("margin-bottom", 15px, 45px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("line-height", 17px, 22px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 14px, 18px, $smallMobile, $maxContainerWidth);
-        font-weight: 200;
+        font-weight: 700;
+    }
+
+    &__model {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: flex-end;
+        @include adaptiveValue("gap", 5px, 10px, $smallMobile, $maxContainerWidth);
+        position: relative;
+        @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $maxContainerWidth);
 
         @media (min-width: $smallMobile) {
-            max-width: none;
-            margin-left: 0;
-            margin-right: 0;
-            text-align: center;
+            max-width: 80%;
+            margin: 0 auto;
+            @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $maxContainerWidth);
+        }
+    }
+
+    &__model-title {
+        @include adaptiveValue("line-height", 20px, 26px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 22px, $smallMobile, $maxContainerWidth);
+        font-weight: 600;
+    }
+
+    &__model-value {
+        display: block;
+        position: absolute;
+        @include adaptiveValue("line-height", 20px, 26px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 22px, $smallMobile, $maxContainerWidth);
+        font-weight: 700;
+        color: $primaryColor;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+
+        &.catalog-tab-content_active {
+            position: static;
+            opacity: 1;
+        }
+    }
+    
+    &__text {
+        @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $maxContainerWidth);
+        text-align: center;
+        @include adaptiveValue("line-height", 16px, 22px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 14px, 18px, $smallMobile, $maxContainerWidth);
+        font-weight: 500;
+
+        @media (min-width: $smallMobile) {
+            max-width: 90%;
+            margin: 0 auto;
+            @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $maxContainerWidth);
         }
     }
     
@@ -208,145 +182,239 @@
         flex-flow: column nowrap;
         justify-content: start;
         align-items: center;
-        max-width: 340px;
-        margin: 0 auto 10px;
+        @include adaptiveValue("gap", 15px, 20px, $smallMobile, $maxContainerWidth);
+        
+        @media (min-width: $smallMobile) {
+            max-width: 80%;
+            margin: 0 auto;
+        }
     }
 
     &__input {
         width: 100%;
         flex-grow: 0;
         flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 40px, 50px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-top", 10px, 15px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-bottom", 10px, 15px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-top", 8px, 14px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-right", 15px, 30px, $smallMobile, $maxContainerWidth);
-        background-color: $thirdColor;
-        @include adaptiveValue("line-height", 19px, 22px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 16px, 18px, $smallMobile, $maxContainerWidth);
-        font-weight: 200;
-        color: $primaryColor;
-
-        &:nth-child(1) {
-            margin-bottom: 10px;
-        }
-
-        &:nth-child(2) {
-            @include adaptiveValue("margin-bottom", 20px, 30px, $smallMobile, $maxContainerWidth);
-        }
+        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+        background-color: #FFF;
+        @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
+        font-weight: 500;
+        color: $secondaryColor;
 
         &::placeholder {
-            color: $primaryColor;
+            color: $secondaryColor;
             transition: color 0.3s ease;
         }
 
         &:focus::placeholder {
             color: transparent;
         }
+
+        &_hidden {
+            display: none;
+        }
     }
 
-    &__btn {
-        width: 100%;
-        flex: 0 0 60px;
-        @include adaptiveValue("line-height", 22px, 30px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
-        font-weight: 200;
-    }
-
-    &__privacy-policy {
-        max-width: 340px;
-        margin: 0 auto;
-        @include adaptiveValue("line-height", 14px, 17px, $smallMobile, $maxContainerWidth);
+    &__agreement {
+        display: flex;
+        position: relative;
+        align-items: flex-start;
+        @include adaptiveValue("line-height", 14px, 16px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 12px, 14px, $smallMobile, $maxContainerWidth);
-        font-weight: 200;
+        font-weight: 400;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    &__agreement-input {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__agreement-checkbox {
+        position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 14px, 16px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("height", 14px, 16px, $smallMobile, $maxContainerWidth);
+        margin-right: 10px;
+        border-radius: 50%;
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+        background-color:#FFF;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #FFF;
+            background-color: $primaryColor;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+
+            .order-popup__agreement-input:checked + & {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__button {
+        width: 100%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
+    }
+    
+    &__button-text {
+        @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
+    }
+
+    &__sending-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(235, 234, 240, 0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity  0.2s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 7px solid $secondaryColor;
+            opacity: 0.7;
+
+            @media (min-width: $smallMobile) {
+                width: 50px;
+                height: 50px;
+                border-width: 8px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 60px;
+                height: 60px;
+                border-width: 10px;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 7px solid transparent;
+            border-right-color: $primaryColor;
+            animation: none;
+
+            @media (min-width: $smallMobile) {
+                width: 50px;
+                height: 50px;
+                border-width: 8px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 60px;
+                height: 60px;
+                border-width: 10px;
+            }
+
+            .form_sending & {
+                animation: loading 1s linear infinite;
+            }
+
+            @keyframes loading {
+                from {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+        }
+
+        .form_sending & {
+            opacity: 1;
+            pointer-events: auto;
+        }
     }
 }
 
-.thanks-popup {
+.checkout-popup,
+.message-popup {
 
     &__wrapper {
     }
 
     &__content {
-        max-width: 350px;
-
-        @media (min-width: $smallMobile) {
-            max-width: none;
-            @include adaptiveValue("width", 350px, 450px, $smallMobile, $maxContainerWidth);
-        }
-
-        @media (min-width: $tablet) {
-            width: 450px;
-        }
+        text-align: center;
     }
 
     &__close {
     }
 
     &__header {
-        text-align: center;
-        margin-bottom: 20px;
+        @include adaptiveValue("margin-bottom", 15px, 20px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("line-height", 24px, 48px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 20px, 40px, $smallMobile, $maxContainerWidth);
-        font-weight: 800;
+        font-weight: 700;
+        color: $primaryColor;
     }
 
     &__text {
-        @include adaptiveValue("line-height", 17px, 26px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 14px, 22px, $smallMobile, $maxContainerWidth);
-        font-weight: 200;
-
-        @media (min-width: $smallMobile) {
-            text-align: center;
-        }
+        @include adaptiveValue("line-height", 20px, 28px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 24px, $smallMobile, $maxContainerWidth);
+        font-weight: 500;
     }
 }
 
-.checkout-popup {
+.fail-popup {
 
     &__wrapper {
     }
 
     &__content {
-        max-width: 350px;
-
-        @media (min-width: $smallMobile) {
-            max-width: none;
-            @include adaptiveValue("width", 350px, 500px, $smallMobile, $maxContainerWidth);
-        }
-
-        @media (min-width: $tablet) {
-            width: 500px;
-        }
+        text-align: center;
     }
 
     &__close {
     }
 
     &__header {
-        text-align: center;
-        margin-bottom: 20px;
-        @include adaptiveValue("line-height", 24px, 48px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 20px, 40px, $smallMobile, $maxContainerWidth);
-        font-weight: 800;
+        @include adaptiveValue("margin-bottom", 15px, 20px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("line-height", 24px, 36px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 18px, 32px, $smallMobile, $maxContainerWidth);
+        font-weight: 700;
+        color: $primaryColor;
     }
 
     &__text {
-        text-align: center;
-        @include adaptiveValue("line-height", 17px, 26px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 14px, 22px, $smallMobile, $maxContainerWidth);
-        font-weight: 200;
-    }
-}
-
-.dolyame-popup {
-    &__content {
-        background: white;
-        padding: 0;
-
-        &::before,
-        &::after{
-            content: none;
-        }
+        @include adaptiveValue("line-height", 20px, 28px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 24px, $smallMobile, $maxContainerWidth);
+        font-weight: 500;
     }
 }
