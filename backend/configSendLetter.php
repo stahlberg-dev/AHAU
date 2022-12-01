@@ -58,7 +58,7 @@ try {
 
     $mail->setFrom('info@ahaumarine.com', 'AHAU');
     $mail->addAddress('info@ahaumarine.com');
-    $mail->addAddress('samsonov.d@ahaumarine.com');
+    //$mail->addAddress('samsonov.d@ahaumarine.com');
     
     $mail->IsHTML(true);
     $mail->Subject = $title;
