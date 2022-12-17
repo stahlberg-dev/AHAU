@@ -368,6 +368,7 @@
     
     &__details-link {
         display: inline-block;
+        position: relative;
         border-bottom: 1px solid $secondaryColor;
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
         font-weight: 700;

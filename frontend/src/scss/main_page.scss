@@ -277,7 +277,6 @@ body {
                 fill 0.2s ease 0.3s;
     
     @media (any-hover: none) {
-        position: relative;
 
         &::after {
             content: '';
