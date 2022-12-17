@@ -67,6 +67,303 @@ body {
     color: $primaryColor;
 }
 
+.burger {
+    
+    @media (any-hover: none) {
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            border-radius: 7px;
+            box-shadow: inset 0 0 15px 10px $secondaryColor;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s linear,
+                        height 0s linear 0.2s,
+                        width 0s linear 0.2s;
+        }
+    }
+
+    &.burger_clicked {
+
+        @media (any-hover: none) {
+
+            &::after {
+                opacity: 0.18;
+                width: calc(100% + 10px);
+                height: calc(100% + 10px);
+                transition: opacity 0.2s linear,
+                            height 0.2s linear,
+                            width 0.2s linear;
+            }
+
+        }
+
+        .burger__stripe {
+            background-color: $primaryColor;
+        }
+    }
+}
+
+.header-link {
+    
+    @media (any-hover: hover) {
+        transition: color 0.2s ease 0.3s,
+                    fill 0.2s ease 0.3s;
+
+        &::after {
+            transition: transform 0.3s ease, 
+                        background-color 0.2s ease 0.3s;
+        }
+    }
+
+    @media (any-hover: none) {
+        transition: color 0.2s ease,
+                    fill 0.2s ease;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            border-radius: 7px;
+            box-shadow: inset 0 0 15px 10px $secondaryColor;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s linear,
+                        height 0s linear 0.2s,
+                        width 0s linear 0.2s;
+        }
+    }
+
+    &.header-link_clicked {
+        transition: color 0.2s ease,
+                    fill 0.2s ease;
+        
+        @media (any-hover: hover) {
+            color: $primaryColor;
+            fill: $primaryColor;
+
+            &::after {
+                transform-origin: top left;          
+                transform: scaleX(1);
+                background-color: $primaryColor;
+                transition: transform 0.3s ease, 
+                            background-color 0.2s ease;
+            }
+        }
+
+        @media (any-hover: none) {
+            color: $primaryColor;
+            fill: $primaryColor;
+
+            &::after {
+                opacity: 0.18;
+                width: calc(100% + 10px);
+                height: calc(100% + 10px);
+                transition: opacity 0.2s linear,
+                            height 0.2s linear,
+                            width 0.2s linear;
+            }
+        }
+    }
+}
+
+.menu__lang-link:not(.menu__lang-link_active) {
+    transition: color 0.2s ease;
+    
+    @media (any-hover: none) {
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            border-radius: 7px;
+            box-shadow: inset 0 0 15px 10px $secondaryColor;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s linear,
+                        height 0s linear 0.2s,
+                        width 0s linear 0.2s;
+        }
+    }
+
+    .menu__lang-icon {
+        transition: filter 0.2s ease;
+    }
+
+    &.menu__lang-link_clicked {
+        transition: color 0.2s ease;
+        
+        @media (any-hover: hover) {
+            color: $primaryColor;
+        }
+
+        @media (any-hover: none) {
+            color: $primaryColor;
+
+            &::after {
+                opacity: 0.18;
+                width: calc(100% + 10px);
+                height: calc(100% + 10px);
+                transition: opacity 0.2s linear,
+                            height 0.2s linear,
+                            width 0.2s linear;
+            }
+
+        }
+
+        .menu__lang-icon {
+            filter: none;
+        }
+    }
+}
+
+.lang-link {
+    
+    @media (any-hover: none) {
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            border-radius: 7px;
+            box-shadow: inset 0 0 15px 10px $secondaryColor;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s linear,
+                        height 0s linear 0.2s,
+                        width 0s linear 0.2s;
+        }
+    }
+
+    &.lang-link_clicked {
+
+        @media (any-hover: none) {
+
+            &::after {
+                opacity: 0.18;
+                width: calc(100% + 10px);
+                height: calc(100% + 10px);
+                transition: opacity 0.2s linear,
+                            height 0.2s linear,
+                            width 0.2s linear;
+            }
+        }
+    }
+}
+
+.underlined-link {
+    transition: opacity 0.3s ease,
+                color 0.2s ease 0.3s,
+                border-bottom-color 0.2s ease 0.3s,
+                fill 0.2s ease 0.3s;
+    
+    @media (any-hover: none) {
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 7px;
+            box-shadow: inset 0 0 15px 10px $secondaryColor;
+            transform: scale(0, 1);
+            opacity: 0;
+            transition: opacity 0.2s linear,
+                        transform 0s linear 0.2s;
+        }
+    }
+
+    &.underlined-link_clicked {
+        transition: opacity 0.3s ease,
+                    color 0.2s ease,
+                    border-bottom-color 0.2s ease,
+                    fill 0.2s ease;
+
+        @media (any-hover: hover) {
+            opacity: 1;
+            color: $primaryColor;
+            border-bottom-color: $primaryColor;
+            fill: $primaryColor;
+        }
+
+        @media (any-hover: none) {
+
+            &::after {
+                opacity: 0.3;
+                transform: scale(1.4, 1.5);
+                transition: opacity 0.2s linear,
+                            transform 0.2s linear;
+            }
+        }
+    }
+}
+
+.slider-button {
+
+    @media (any-hover: none) {
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            border-radius: 7px;
+            box-shadow: inset 0 0 15px 10px $secondaryColor;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s linear,
+                        height 0s linear 0.3s,
+                        width 0s linear 0.3s;
+        }
+    }
+
+    &.slider-button_clicked {
+        
+        @media (any-hover: hover) {
+            fill: $primaryColor;
+        }
+
+        @media (any-hover: none) {
+            fill: $primaryColor;
+
+            &::after {
+                opacity: 0.18;
+                width: calc(100% + 10px);
+                height: calc(100% + 10px);
+                transition: opacity 0.3s linear,
+                            height 0.3s linear,
+                            width 0.3s linear;
+            }
+        }
+    }
+}
+
 .button {
     display: inline-flex;
     justify-content: center;

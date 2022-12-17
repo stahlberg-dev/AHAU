@@ -21,7 +21,8 @@
                         box-shadow 0.3s ease;
 
             .header_scroll & {
-                backdrop-filter: blur(10px);
+                background-color: rgba(235, 234, 240, 0.3);
+                backdrop-filter: blur(5px);
                 box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
             }
         }
@@ -145,34 +146,48 @@
     }
 
     &__phone {
-        display: flex;
+        position: relative;
+        display: inline-flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
         gap: 5px;
         flex: 0 0 auto;
-        transition: color 0.3s ease;
+        fill: $secondaryColor;
 
         @media (min-width: $smallMobile) {
             z-index: 5;
         }
 
         @media (any-hover: hover) {
-            &:hover {
-                color: $primaryColor;
-            }
-        }
 
-        &:active {
-            color: $primaryColor;
+            &::after {
+                content: '';
+                display: none;
+
+                @media (min-width: $smallMobile) {
+                    display: block;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    transform-origin: top right;
+                    transform: scaleX(0);
+                    background-color: $secondaryColor;
+                }
+            }
+
+            &:hover::after {
+                transform-origin: top left;          
+                transform: scaleX(1);
+            }
         }
     }
 
     &__phone-icon {
         width: 32px;
         height: 32px;
-        fill: $secondaryColor;
-        transition: fill 0.3s ease;
 
         @media (min-width: $smallMobile) {
             width: 20px;
@@ -182,16 +197,6 @@
         @media (min-width: $mobile) {
             width: 16px;
             height: 16px;
-        }
-
-        @media (any-hover: hover) {
-            .header__phone:hover & {
-                fill: $primaryColor;
-            }
-        }
-
-        .header__phone:active & {
-            fill: $primaryColor;
         }
     }
 
@@ -236,11 +241,19 @@
         min-width: $minWidth;
         width: 100%;
         height: 100%;
-        padding: 90px $containerPadding 30px;
+        padding: 90px $containerPadding 30px calc($containerPadding + 36px);
         @include adaptiveValue("padding-top", 90px, 120px, $minWidth, $tablet);
         overflow: auto;
         transition: right 0.3s ease,
                     left 0.3s ease;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("padding-left", $containerPadding + 60px, $containerPadding + 84px, $smallMobile, $tablet);
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("padding-left", $containerPadding + 51px, $containerPadding + 75px, $smallMobile, $tablet);
+        }
 
         @media (min-width: $tablet) {
             position: static;
@@ -338,7 +351,6 @@
         position: relative;
         white-space: nowrap;
         @include adaptiveValue("font-size", 18px, 24px, $minWidth, $tablet);
-        transition: color 0.3s ease;
 
         @media (min-width: $tablet) {
             font-size: 16px;
@@ -346,55 +358,65 @@
 
         @media (any-hover: hover) {
 
-            &:hover {
-                color: $primaryColor;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                transform-origin: top right;
+                transform: scaleX(0);
+                background-color: $secondaryColor;
+            }
+
+            &:hover::after {
+                transform-origin: top left;          
+                transform: scaleX(1);
             }
         } 
-
-        &:active {
-            color: $primaryColor;
-        }
     }
 
     &__phone {
-        display: flex;
+        position: relative;
+        display: inline-flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
         @include adaptiveValue("gap", 5px, 10px, $minWidth, $tablet);
         @include adaptiveValue("margin-bottom", 40px, 80px, $minWidth, $tablet);
-        transition: color 0.3s ease;
+        fill: $secondaryColor;
 
         @media (min-width: $smallMobile) {
             display: none;
         }
 
         @media (any-hover: hover) {
-            &:hover {
-                color: $primaryColor;
-            }
-        }
 
-        &:active {
-            color: $primaryColor;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                transform-origin: top right;
+                transform: scaleX(0);
+                background-color: $secondaryColor;
+            }
+
+            &:hover::after {
+                transform-origin: top left;          
+                transform: scaleX(1);
+            }
         }
     }
 
     &__phone-icon {
         @include adaptiveValue("width", 20px, 28px, $minWidth, $tablet);
         @include adaptiveValue("height", 20px, 28px, $minWidth, $tablet);
-        fill: $secondaryColor;
-        transition: fill 0.3s ease;
-
-        @media (any-hover: hover) {
-            .menu__phone:hover & {
-                fill: $primaryColor;
-            }
-        }
-
-        .menu__phone:active & {
-            fill: $primaryColor;
-        }
     }
 
     &__phone-number {
@@ -414,6 +436,7 @@
     }
 
     &__lang-link {
+        position: relative;
         display: flex;
         align-items: flex-end;
         @include adaptiveValue("gap", 5px, 8px, $minWidth, $mobile);
@@ -422,18 +445,12 @@
     &__lang-icon {
         @include adaptiveValue("width", 24px, 28px, $minWidth, $mobile);
         @include adaptiveValue("height", 24px, 28px, $minWidth, $mobile);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         filter: brightness(75%) grayscale(50%) opacity(0.8);
-        transition: filter 0.3s ease;
 
         @media (any-hover: hover) {
             .menu__lang-link:hover & {
                 filter: none;
             }
-        }
-
-        .menu__lang-link:active & {
-            filter: none;
         }
 
         .menu__lang-link_active & {
@@ -455,6 +472,7 @@
     flex-flow: row nowrap;
     align-items: end;
     gap: 5px;
+    padding: 3px 0 3px 3px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
@@ -492,19 +510,18 @@
         } 
     }
 
-    $menuPadding: 7px;
+    $menuPadding: 10px;
 
     &__menu-wrapper {
         position: absolute;
         top: 100%;
-        left: calc($menuPadding * (-2));
-        width: calc(100% + $menuPadding * 4);
+        left: -$menuPadding;
         padding-top: 15px;
         opacity: 0;
         pointer-events: none;
         perspective: 150px;
         transform-style: preserve-3d;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.6s ease;
 
         @media (any-hover: hover) {
 
@@ -530,10 +547,11 @@
         gap: $menuPadding;
         border-radius: 5px;
         padding: $menuPadding;
-        backdrop-filter: blur(5px);
+        background-color: rgba(235, 234, 240, 0.2);
+        backdrop-filter: blur(2px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         transform: translate3d(0, 20%, 0) rotateX(-90deg);
-        transition: transform 0.5s ease;
+        transition: transform 0.6s ease;
 
         @media (any-hover: hover) {
 
@@ -551,23 +569,33 @@
     }
 
     &__menu-link {
+        position: relative;
         display: flex;
         flex-flow: row nowrap;
         align-items: flex-end;
         gap: 3px;
         border-radius: 3px;
-        padding: $menuPadding;
-        transition: box-shadow 0.3s ease;
+        padding: 3px 0;
 
         @media (any-hover: hover) {
 
-            &:hover {
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                transform-origin: top right;
+                transform: scaleX(0);
+                background-color: $secondaryColor;
             }
-        }
 
-        &:active {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            &:hover::after {
+                transform-origin: top left;          
+                transform: scaleX(1);
+            }
         }
     }
 

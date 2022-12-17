@@ -47,10 +47,6 @@
                 }
             }
     
-            .burger:active & {
-                background-color: $primaryColor;
-            }
-    
             &:first-child {
                 top: $stripeWidth;
             }

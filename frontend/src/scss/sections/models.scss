@@ -214,10 +214,6 @@
                 fill: $primaryColor;
             }
         }
-
-        &:active { 
-            fill: $primaryColor;
-        }
     }
     
     &__next-button {
@@ -355,21 +351,33 @@
     &__details {
         @include adaptiveValue("margin-top", 10px, 20px, $minWidth, $smallMobile);
         @include adaptiveValue("margin-bottom", 10px, 20px, $minWidth, $smallMobile);
-        border-bottom: 1px solid $secondaryColor;
-        @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
-        font-weight: 700;
-        opacity: 0.6;
-        transition: opacity 0.3s ease;
-
+        
         @media (min-width: $smallMobile) {
             @include adaptiveValue("margin-top", 10px, 20px, $smallMobile, $mobile);
             @include adaptiveValue("margin-bottom", 15px, 30px, $smallMobile, $mobile);
             @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
         }
-
+        
         @media (min-width: $mobile) {
             @include adaptiveValue("margin-top", 10px, 20px, $mobile, $tablet);
             @include adaptiveValue("margin-bottom", 15px, 30px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 14px, 18px, $mobile, $tablet);
+        }
+        
+    }
+    
+    &__details-link {
+        display: inline-block;
+        border-bottom: 1px solid $secondaryColor;
+        @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
+        font-weight: 700;
+        opacity: 0.6;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
+        }
+        
+        @media (min-width: $mobile) {
             @include adaptiveValue("font-size", 14px, 18px, $mobile, $tablet);
         }
 
@@ -379,9 +387,6 @@
                 opacity: 1;
             }
         }
-    }
-
-    &__details-link {
     }
 
     &__brochure {
@@ -418,9 +423,7 @@
         border-bottom: 1px solid $secondaryColor;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease, 
-                    color 0.3s ease, 
-                    border-bottom-color 0.3s ease;
+        fill: $secondaryColor;
 
         &.catalog-tab-content_active {
             opacity: 0.6;
@@ -431,12 +434,6 @@
                     opacity: 1;
                 }
             }
-        
-            &:active {
-                opacity: 1;
-                color: $primaryColor;
-                border-bottom-color: $primaryColor;
-            }
         }
     }
 
@@ -444,8 +441,6 @@
         display: inline-block;
         @include adaptiveValue("width", 13px, 19px, $minWidth, $smallMobile);
         @include adaptiveValue("height", 14px, 20px, $minWidth, $smallMobile);
-        fill: $secondaryColor;
-        transition: fill 0.3s ease;
 
         @media (min-width: $smallMobile) {
             @include adaptiveValue("margin-right", 3px, 7px, $smallMobile, $mobile);
@@ -457,10 +452,6 @@
             @include adaptiveValue("margin-right", 3px, 7px, $mobile, $tablet);
             @include adaptiveValue("width", 15px, 20px, $mobile, $tablet);
             @include adaptiveValue("height", 16px, 21px, $mobile, $tablet);
-        }
-
-        .choice__brochure:active & {
-            fill: $primaryColor;
         }
     }
 
@@ -526,6 +517,7 @@
             color: $primaryColor;
 
             &::after {
+                transform-origin: top left;
                 transform: scaleX(1);
                 background-color: $primaryColor;
             }
@@ -539,7 +531,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            transform-origin: top left;
+            transform-origin: top right;
             transform: scaleX(0);
             background-color: $secondaryColor;
             transition: transform 0.3s ease, 
@@ -549,7 +541,8 @@
 
         @media (any-hover: hover) {
 
-            &:hover::after {           
+            &:hover::after { 
+                transform-origin: top left;          
                 transform: scaleX(1);
             }
         }

@@ -5,6 +5,7 @@ import {burger} from "./modules/burger.js";
 import {popupsMaker} from "./modules/popups-maker.js";
 import {spoilers} from "./modules/spoilers.js";
 import {lockEquipmentVideo, clickScroller} from "./modules/click-scroller.js";
+import {clickAnimator} from "./modules/click-animation.js";
 import {modelSwitcher} from "./modules/model-switcher.js";
 import {formHandler} from "./modules/forms.js";
 
@@ -63,8 +64,46 @@ new spoilers({
     spoilerClassName: '.spoiler',
     spoilerBlockClassName: '.spoiler-block',
     spoilerActiveBlockClassName: '.spoiler-block_active',
-    hideTime: 300,
+    hideTime: 600,
 }).init();
+
+//-------------------------------------------------------------------------------------------
+
+//----- Click animation ---------------------------------------------------------------------
+
+new clickAnimator([
+    {
+        clickableElementClassName: '.underlined-link',
+        clickedElementClassName: '.underlined-link_clicked',
+        duration: 200,
+        clickCoordinates: true,
+    },
+    {
+        clickableElementClassName: '.header-link',
+        clickedElementClassName: '.header-link_clicked',
+        duration: 200,
+    },
+    {
+        clickableElementClassName: '.lang-link',
+        clickedElementClassName: '.lang-link_clicked',
+        duration: 200,
+    },
+    {
+        clickableElementClassName: '.menu__lang-link',
+        clickedElementClassName: '.menu__lang-link_clicked',
+        duration: 200,
+    },
+    {
+        clickableElementClassName: '.burger',
+        clickedElementClassName: '.burger_clicked',
+        duration: 300,
+    },
+    {
+        clickableElementClassName: '.slider-button',
+        clickedElementClassName: '.slider-button_clicked',
+        duration: 300,
+    },
+]).init();
 
 //-------------------------------------------------------------------------------------------
 
