@@ -1,7 +1,10 @@
 <div data-popup-name="order" class="order-popup popup">
     <div class="order-popup__wrapper popup__wrapper">
         <div class="order-popup__content popup__content">
-            <div class="order-popup__close popup__close"></div>
+            <div class="order-popup__close popup__close">
+                <span class="popup__close-stripe"></span>
+                <span class="popup__close-stripe"></span>
+            </div>
             <h3 class="order-popup__header">
                 @@if (context.lang == 'tr'){Sipariş vermek}
                 @@if (context.lang == 'en'){Order placing}
@@ -39,7 +42,7 @@
                 </span>
             </div>
             <div class="order-popup__text">
-                @@if (context.lang == 'tr'){Enter your contact details so that our manager could contact you}
+                @@if (context.lang == 'tr'){Yöneticimizin sizinle iletişim kurabilmesi için iletişim bilgilerinizi girin}
                 @@if (context.lang == 'en'){Enter your contact details so that our manager could contact you}
                 @@if (context.lang == 'ru'){Оставьте ваши контактные данные и&nbsp;наш менеджер свяжется с&nbsp;вами}
             </div>
@@ -83,7 +86,7 @@
                            required> 
                     <div class="order-popup__agreement-checkbox"></div>
                     <span>
-                        @@if (context.lang == 'tr'){I agree to the processing of my personal&nbsp;data}
+                        @@if (context.lang == 'tr'){Kişisel verilerimin işlenmesini kabul ediyorum}
                         @@if (context.lang == 'en'){I agree to the processing of my personal&nbsp;data}
                         @@if (context.lang == 'ru'){Я даю своё согласие на&nbsp;обработку персональных данных}
                     </span>
@@ -105,14 +108,17 @@
 <div data-popup-name="checkout" class="checkout-popup popup">
     <div class="checkout-popup__wrapper popup__wrapper">
         <div class="checkout-popup__content popup__content">
-            <div class="checkout-popup__close popup__close"></div>
+            <div class="order-popup__close popup__close">
+                <span class="popup__close-stripe"></span>
+                <span class="popup__close-stripe"></span>
+            </div>
             <h3 class="checkout-popup__header">
-                @@if (context.lang == 'tr'){Your order has&nbsp;been accepted!}
+                @@if (context.lang == 'tr'){Siparişiniz kabul edildi!}
                 @@if (context.lang == 'en'){Your order has&nbsp;been accepted!}
                 @@if (context.lang == 'ru'){Заказ оформлен!}
             </h3>
             <div class="checkout-popup__text">  
-                @@if (context.lang == 'tr'){Our manager will contact you shortly.}
+                @@if (context.lang == 'tr'){Yöneticimiz kısa süre içinde sizinle irtibata geçecektir.}
                 @@if (context.lang == 'en'){Our manager will contact you shortly.}
                 @@if (context.lang == 'ru'){В&nbsp;ближайшее время с&nbsp;вами свяжется наш менеджер.}
             </div>
@@ -123,14 +129,17 @@
 <div data-popup-name="message" class="message-popup popup">
     <div class="message-popup__wrapper popup__wrapper">
         <div class="message-popup__content popup__content">
-            <div class="message-popup__close popup__close"></div>
+            <div class="order-popup__close popup__close">
+                <span class="popup__close-stripe"></span>
+                <span class="popup__close-stripe"></span>
+            </div>
             <h3 class="message-popup__header">
-                @@if (context.lang == 'tr'){Your message has&nbsp;been sent!}
+                @@if (context.lang == 'tr'){Mesajınız gönderildi!}
                 @@if (context.lang == 'en'){Your message has&nbsp;been sent!}
                 @@if (context.lang == 'ru'){Сообщение отправлено!}
             </h3>
             <div class="message-popup__text">               
-                @@if (context.lang == 'tr'){Our manager will contact you shortly.}
+                @@if (context.lang == 'tr'){Yöneticimiz kısa süre içinde sizinle irtibata geçecektir.}
                 @@if (context.lang == 'en'){Our manager will contact you shortly.}
                 @@if (context.lang == 'ru'){В&nbsp;ближайшее время с&nbsp;вами свяжется наш менеджер.}
             </div>
@@ -141,14 +150,17 @@
 <div data-popup-name="fail" class="fail-popup popup">
     <div class="fail-popup__wrapper popup__wrapper">
         <div class="fail-popup__content popup__content">
-            <div class="fail-popup__close popup__close"></div>
+            <div class="order-popup__close popup__close">
+                <span class="popup__close-stripe"></span>
+                <span class="popup__close-stripe"></span>
+            </div>
             <h3 class="fail-popup__header">
-                @@if (context.lang == 'tr'){Failed to connect to the server}
+                @@if (context.lang == 'tr'){Sunucuya bağlanırken hata oluştu}
                 @@if (context.lang == 'en'){Failed to connect to the server}
                 @@if (context.lang == 'ru'){Не&nbsp;удалось отправить данные на&nbsp;сервер}
             </h3>
             <div class="fail-popup__text">  
-                @@if (context.lang == 'tr'){Try again later.}
+                @@if (context.lang == 'tr'){Daha sonra tekrar deneyin.}
                 @@if (context.lang == 'en'){Try again later.}
                 @@if (context.lang == 'ru'){Попробуйте повторить отправку&nbsp;позже.}             
             </div>

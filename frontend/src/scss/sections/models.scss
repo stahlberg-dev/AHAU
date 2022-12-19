@@ -229,7 +229,18 @@
         width: 100%;
         height: 100%;
     }
+}
 
+.slider-button {
+
+    @include mobileClickAnimation;
+
+    &_clicked {
+        
+        @media (any-hover: hover) {
+            fill: $primaryColor;
+        }
+    }
 }
 
 .choice {
@@ -369,10 +380,12 @@
     &__details-link {
         display: inline-block;
         position: relative;
-        border-bottom: 1px solid $secondaryColor;
+        border-bottom: 1px solid rgba(34, 48, 91, 0.6);
         @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
         font-weight: 700;
-        opacity: 0.6;
+        color: rgba(34, 48, 91, 0.6);
+        transition: color 0.3s ease,
+                    border-bottom-color 0.3s ease;
 
         @media (min-width: $smallMobile) {
             @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
@@ -385,8 +398,18 @@
         @media (any-hover: hover) {
 
             &:hover {           
-                opacity: 1;
+                border-bottom-color: $secondaryColor;
+                color: $secondaryColor;
             }
+
+            &.underlined-link_clicked {
+                color: $primaryColor;
+                border-bottom-color: $primaryColor;
+            }
+        }
+
+        &.underlined-link {
+            @include mobileClickAnimation;
         }
     }
 
@@ -421,20 +444,36 @@
         position: absolute;
         top: 0;
         left: 0;
-        border-bottom: 1px solid $secondaryColor;
+        border-bottom: 1px solid rgba(34, 48, 91, 0.6);
         opacity: 0;
         visibility: hidden;
-        fill: $secondaryColor;
+        color: rgba(34, 48, 91, 0.6);
+        fill: rgba(34, 48, 91, 0.6);
+        transition: color 0.3s ease,
+                    border-bottom-color 0.3s ease,
+                    fill 0.3s ease;
 
         &.catalog-tab-content_active {
-            opacity: 0.6;
+            opacity: 1;
 
             @media (any-hover: hover) {
         
                 &:hover {           
-                    opacity: 1;
+                    border-bottom-color: $secondaryColor;
+                    color: $secondaryColor;
+                    fill: $secondaryColor;
+                }
+    
+                &.underlined-link_clicked {
+                    color: $primaryColor;
+                    border-bottom-color: $primaryColor;
+                    fill: $primaryColor;
                 }
             }
+        }
+
+        &.underlined-link {
+            @include mobileClickAnimation;
         }
     }
 

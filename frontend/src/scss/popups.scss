@@ -64,45 +64,42 @@
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
 
-        &::before, &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: calc(50% - 5.5%);
-            left: 0;
-            width: 100%;
-            height: 11%;
-            border-radius: 1.5px;
-            background-color: $secondaryColor;
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
-        }
-
-        &::after {
-            transform: rotate(-45deg);
-        }
-        
-        @media (any-hover: hover) {
-            
-            &:hover {               
-                &::before, &::after {
-                    background-color: $primaryColor;
-                }
-            }
-        }
-        
-        &:active {
-            
-            &::before, &::after {
-                background-color: $primaryColor;
-            }
-        }
-
         @media (min-width: $mobile) {
             top: -4px;
             right: -56px;
             width: 32px;
             height: 32px;
+        }
+
+        @include mobileClickAnimation;
+    }
+
+    &__close-stripe {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(50% - 5.5%);
+        left: 0;
+        width: 100%;
+        height: 11%;
+        border-radius: 1.5px;
+        background-color: $secondaryColor;
+        transform: rotate(45deg);
+        transition: all 0.3s ease;
+
+        &:first-child {
+            transform: rotate(-45deg);
+        }
+
+        @media (any-hover: hover) {
+            
+            .popup__close:hover & {               
+                background-color: $primaryColor;
+            }
+
+            .popup__close_clicked & {
+                background-color: $primaryColor;
+            }
         }
     }
 }

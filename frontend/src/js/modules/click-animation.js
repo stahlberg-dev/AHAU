@@ -76,7 +76,7 @@ export class clickAnimator {
 
             this.onClick(item.clickableElementClassName, 
                          item.clickedElementClassName, 
-                         item.duration, 
+                         item.duration ?? 300, 
                          item.clickCoordinates);
 
         });

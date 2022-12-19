@@ -162,25 +162,11 @@
         @media (any-hover: hover) {
 
             &::after {
-                content: '';
                 display: none;
 
                 @media (min-width: $smallMobile) {
                     display: block;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
-                    transform-origin: top right;
-                    transform: scaleX(0);
-                    background-color: $secondaryColor;
                 }
-            }
-
-            &:hover::after {
-                transform-origin: top left;          
-                transform: scaleX(1);
             }
         }
     }
@@ -355,27 +341,6 @@
         @media (min-width: $tablet) {
             font-size: 16px;
         }
-
-        @media (any-hover: hover) {
-
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                transform-origin: top right;
-                transform: scaleX(0);
-                background-color: $secondaryColor;
-            }
-
-            &:hover::after {
-                transform-origin: top left;          
-                transform: scaleX(1);
-            }
-        } 
     }
 
     &__phone {
@@ -390,27 +355,6 @@
 
         @media (min-width: $smallMobile) {
             display: none;
-        }
-
-        @media (any-hover: hover) {
-
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                transform-origin: top right;
-                transform: scaleX(0);
-                background-color: $secondaryColor;
-            }
-
-            &:hover::after {
-                transform-origin: top left;          
-                transform: scaleX(1);
-            }
         }
     }
 
@@ -440,14 +384,27 @@
         display: flex;
         align-items: flex-end;
         @include adaptiveValue("gap", 5px, 8px, $minWidth, $mobile);
+        @include mobileClickAnimation;
+
+        &_active {
+
+            @media (any-hover: none) {
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
     }
 
     &__lang-icon {
         @include adaptiveValue("width", 24px, 28px, $minWidth, $mobile);
         @include adaptiveValue("height", 24px, 28px, $minWidth, $mobile);
         filter: brightness(75%) grayscale(50%) opacity(0.8);
+        transition: filter 0.2s ease;
 
         @media (any-hover: hover) {
+
             .menu__lang-link:hover & {
                 filter: none;
             }
@@ -456,13 +413,22 @@
         .menu__lang-link_active & {
             filter: none;
         }
+
+        .menu__lang-link_clicked & {
+            filter: none;
+        }
     }
 
     &__lang-text {
         line-height: 1;
         @include adaptiveValue("font-size", 16px, 18px, $minWidth, $mobile);
+        transition: color 0.2s ease;
 
         .menu__lang-link_active & {
+            color: $primaryColor;
+        }
+
+        .menu__lang-link_clicked & {
             color: $primaryColor;
         }
     }
@@ -475,6 +441,8 @@
     padding: 3px 0 3px 3px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+
+    @include mobileClickAnimation;
 
     &__icon {
         width: 16px;
@@ -576,31 +544,51 @@
         gap: 3px;
         border-radius: 3px;
         padding: 3px 0;
-
-        @media (any-hover: hover) {
-
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                transform-origin: top right;
-                transform: scaleX(0);
-                background-color: $secondaryColor;
-            }
-
-            &:hover::after {
-                transform-origin: top left;          
-                transform: scaleX(1);
-            }
-        }
     }
 
     &__menu-text {
         line-height: 1;
         font-size: 14px;
     }
+}
+
+.header-link {
+    
+    @media (any-hover: hover) {
+        transition: color 0.2s ease,
+                    fill 0.2s ease;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform-origin: top right;
+            transform: scaleX(0);
+            background-color: $secondaryColor;
+            transition: transform 0.3s ease, 
+                        background-color 0.2s ease;
+        }
+
+        &:hover::after {
+            transform-origin: top left;          
+            transform: scaleX(1);
+        }
+
+        &.header-link_clicked {
+            color: $primaryColor;
+            fill: $primaryColor;
+
+            &::after {
+                transform-origin: top left;          
+                transform: scaleX(1);
+                background-color: $primaryColor;
+            }
+        }
+    }
+
+    @include mobileClickAnimation;
 }

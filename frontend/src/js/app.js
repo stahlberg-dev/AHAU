@@ -75,33 +75,35 @@ new clickAnimator([
     {
         clickableElementClassName: '.underlined-link',
         clickedElementClassName: '.underlined-link_clicked',
-        duration: 200,
         clickCoordinates: true,
     },
     {
         clickableElementClassName: '.header-link',
         clickedElementClassName: '.header-link_clicked',
-        duration: 200,
     },
     {
-        clickableElementClassName: '.lang-link',
-        clickedElementClassName: '.lang-link_clicked',
-        duration: 200,
+        clickableElementClassName: '.lang',
+        clickedElementClassName: '.lang_clicked',
     },
     {
         clickableElementClassName: '.menu__lang-link',
         clickedElementClassName: '.menu__lang-link_clicked',
-        duration: 200,
     },
     {
         clickableElementClassName: '.burger',
         clickedElementClassName: '.burger_clicked',
-        duration: 300,
     },
     {
         clickableElementClassName: '.slider-button',
         clickedElementClassName: '.slider-button_clicked',
-        duration: 300,
+    },
+    {
+        clickableElementClassName: '.footer-link',
+        clickedElementClassName: '.footer-link_clicked',
+    },
+    {
+        clickableElementClassName: '.popup__close',
+        clickedElementClassName: '.popup__close_clicked',
     },
 ]).init();
 
