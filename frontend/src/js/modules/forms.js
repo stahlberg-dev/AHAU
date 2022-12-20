@@ -84,11 +84,9 @@ export class formHandler {
                 }
 
                 console.log(result.report);
-                //form.classList.remove(sendingFormClassName.slice(1));
 
             } else {
 
-                //form.classList.remove(sendingFormClassName.slice(1));
                 popupsMaker.openPopup(failPopupName);
                 
             }
