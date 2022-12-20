@@ -1,0 +1,320 @@
+.contact {
+
+    &__container {
+
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
+    }
+
+    &__content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        
+        @media (min-width: $mobile) {
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            @include adaptiveValue("gap", 10px, 30px, $mobile, $tablet);
+        }
+    }
+
+    &__info {
+        flex: 0 0 45%;
+    }
+
+    &__info-block {
+        display: flex;
+        flex-flow: row nowrap;
+        @include adaptiveValue("margin-bottom", 15px, 20px, $minWidth, $smallMobile);
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-bottom", 20px, 25px, $smallMobile, $mobile);
+        }
+
+        @media (min-width: $mobile) {
+            flex-flow: column nowrap;
+            @include adaptiveValue("margin-bottom", 20px, 25px, $mobile, $tablet);
+        }
+    }
+
+    &__questions {
+        flex: 1 1 auto;
+    }
+
+    &__questions-title {
+        line-height: 1;
+        @include adaptiveValue("margin-top", 10px, 15px, $minWidth, $smallMobile);
+        @include adaptiveValue("margin-bottom", 15px, 20px, $minWidth, $smallMobile);
+        @include adaptiveValue("font-size", 16px, 20px, $minWidth, $smallMobile);
+        font-weight: 700;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-top", 10px, 15px, $smallMobile, $mobile);
+            @include adaptiveValue("margin-bottom", 20px, 25px, $smallMobile, $mobile);
+            @include adaptiveValue("font-size", 20px, 24px, $smallMobile, $mobile);
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-top", 0px, 8px, $mobile, $tablet);
+            @include adaptiveValue("margin-bottom", 20px, 25px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 20px, 24px, $mobile, $tablet);
+        }
+    }
+
+    &__question-form {
+    }
+}
+    
+.info-block {
+
+    &__title {
+        white-space: nowrap;
+        line-height: 1.2;
+        @include adaptiveValue("font-size", 14px, 18px, $minWidth, $smallMobile);
+        font-weight: 600;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("font-size", 18px, 22px, $smallMobile, $mobile);
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("font-size", 18px, 22px, $mobile, $tablet);
+        }
+    }
+
+    &__title-icon {
+        display: inline-block;
+        @include adaptiveValue("margin-right", 3px, 7px, $minWidth, $smallMobile);
+        @include adaptiveValue("width", 14px, 16px, $minWidth, $smallMobile);
+        @include adaptiveValue("height", 14px, 16px, $minWidth, $smallMobile);
+        fill: $secondaryColor;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-right", 5px, 10px, $smallMobile, $mobile);
+            @include adaptiveValue("width", 16px, 28px, $smallMobile, $mobile);
+            @include adaptiveValue("height", 16px, 28px, $smallMobile, $mobile);
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-right", 5px, 10px, $mobile, $tablet);
+            @include adaptiveValue("width", 16px, 28px, $mobile, $tablet);
+            @include adaptiveValue("height", 16px, 28px, $mobile, $tablet);
+        }
+
+        &_type_adress {
+            transform: translateY(2%);
+        }
+
+        &_type_email {
+            transform: translateY(15%);
+        }
+
+        &_type_phone {
+            transform: translateY(3%);
+        }
+
+        &_type_hours {
+            transform: translateY(4%);
+        }
+    }
+
+    &__info {
+        @include adaptiveValue("margin-top", 3px, 1px, $minWidth, $smallMobile);
+        @include adaptiveValue("margin-left", 5px, 20px, $minWidth, $smallMobile);
+        line-height: 1.2;
+        @include adaptiveValue("font-size", 12px, 16px, $minWidth, $smallMobile);
+        font-weight: 500;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("margin-top", 1px, 9px, $smallMobile, $mobile);
+            @include adaptiveValue("margin-left", 15px, 20px, $smallMobile, $mobile);
+            @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $mobile);
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-left", 26px, 45px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 16px, 18px, $mobile, $tablet);
+        }
+    }
+}
+
+.question-form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: center;
+    @include adaptiveValue("gap", 15px, 20px, $smallMobile, $maxContainerWidth);
+
+    &__input {
+        width: 100%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-top", 8px, 14px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-right", 15px, 30px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+        background-color: #FFF;
+        @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
+        font-weight: 500;
+        color: $secondaryColor;
+
+        &::placeholder {
+            color: $secondaryColor;
+            transition: color 0.3s ease;
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    &__agreement {
+        display: flex;
+        position: relative;
+        align-items: flex-start;
+        @include adaptiveValue("line-height", 14px, 16px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 12px, 14px, $smallMobile, $maxContainerWidth);
+        font-weight: 400;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    &__agreement-input {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__agreement-checkbox {
+        position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 14px, 16px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("height", 14px, 16px, $smallMobile, $maxContainerWidth);
+        margin-right: 10px;
+        border-radius: 50%;
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+        background-color:#FFF;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #FFF;
+            background-color: $primaryColor;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+
+            .question-form__agreement-input:checked + & {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__button {
+        /* width: 100%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth); */
+    }
+
+    /* &__button-text {
+        @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
+    } */
+
+    &__sending-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(235, 234, 240, 0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity  0.2s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 7px solid $secondaryColor;
+            opacity: 0.7;
+
+            @media (min-width: $smallMobile) {
+                width: 50px;
+                height: 50px;
+                border-width: 8px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 60px;
+                height: 60px;
+                border-width: 10px;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 7px solid transparent;
+            border-right-color: $primaryColor;
+            animation: none;
+
+            @media (min-width: $smallMobile) {
+                width: 50px;
+                height: 50px;
+                border-width: 8px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 60px;
+                height: 60px;
+                border-width: 10px;
+            }
+
+            .form_sending & {
+                animation: loading 1s linear infinite;
+            }
+
+            @keyframes loading {
+                from {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+        }
+
+        .form_sending & {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+

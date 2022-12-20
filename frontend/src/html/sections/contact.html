@@ -1,0 +1,140 @@
+<section class="main__contact contact">
+    <div class="contact__container container">
+        <h2 class="contact__title title">
+            @@if (context.lang == 'tr'){
+                İletişim
+            }
+            @@if (context.lang == 'en'){
+                Contact
+            }
+            @@if (context.lang == 'ru'){
+                Контакты
+            }
+        </h2>
+        <div class="contact__content">
+            <div class="contact__info">
+                <div class="contact__info-block info-block">
+                    <div class="info-block__title">
+                        <svg class="info-block__title-icon info-block__title-icon_type_adress">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#location"></use>
+                        </svg>
+                        @@if (context.lang == 'tr'){Adres:}
+                        @@if (context.lang == 'en'){Adress:}
+                        @@if (context.lang == 'ru'){Адрес:}
+                    </div>
+                    <div class="info-block__info">
+                        Liman&nbsp;Quarter&nbsp;62&nbsp;str. Mimoza&nbsp;Sitesi&nbsp;No:68B&nbsp;07130 Konyaalti/Antalya&nbsp;Turkey
+                    </div>
+                </div>
+                <div class="contact__info-block info-block">
+                    <div class="info-block__title">
+                        <svg class="info-block__title-icon info-block__title-icon_type_email">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#mail"></use>
+                        </svg>
+                        @@if (context.lang == 'tr'){E-posta:}
+                        @@if (context.lang == 'en'){E-mail:}
+                        @@if (context.lang == 'ru'){E-mail:}
+                    </div>
+                    <div class="info-block__info">
+                        info@ahaumarine.com
+                    </div>
+                </div>
+                <div class="contact__info-block info-block">
+                    <div class="info-block__title">
+                        <svg class="info-block__title-icon info-block__title-icon_type_phone">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#phone"></use>
+                        </svg>
+                        @@if (context.lang == 'tr'){Telefon:}
+                        @@if (context.lang == 'en'){Phone:}
+                        @@if (context.lang == 'ru'){Телефон:}
+                    </div>
+                    <div class="info-block__info">
+                        +90 501 003 22 55
+                    </div>
+                </div>
+                <div class="contact__info-block info-block">
+                    <div class="info-block__title">
+                        <svg class="info-block__title-icon info-block__title-icon_type_hours">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#time"></use>
+                        </svg>
+                        @@if (context.lang == 'tr'){Çalışma saatleri:}
+                        @@if (context.lang == 'en'){Working hours:}
+                        @@if (context.lang == 'ru'){Часы работы:}
+                    </div>
+                    <div class="info-block__info">
+                        @@if (context.lang == 'tr'){Pt–Cu: 9:00–18:00}
+                        @@if (context.lang == 'en'){Mo–Fr: 9:00–18:00}
+                        @@if (context.lang == 'ru'){Пн–Пт: 9:00–18:00}
+                    </div>
+                </div>
+            </div>
+            <div class="contact__questions">
+                <h3 class="contact__questions-title">
+                    @@if (context.lang == 'tr'){Başka soru?}
+                    @@if (context.lang == 'en'){Got any questions?}
+                    @@if (context.lang == 'ru'){Остались вопросы?}
+                </h3>
+                <form class="contact__question-form question-form form">
+                    <input type="text" 
+                           class="question-form__input form__name" 
+                           name="name" 
+                           @@if (context.lang == 'tr'){placeholder="Adınız*"}
+                           @@if (context.lang == 'en'){placeholder="Name*"}
+                           @@if (context.lang == 'ru'){placeholder="Имя*"}
+                           maxlength="100"
+                           autocomplete="off"
+                           required>
+                    <input type="text" 
+                           class="question-form__input form__phone" 
+                           name="phone" 
+                           @@if (context.lang == 'tr'){placeholder="Telefon"}
+                           @@if (context.lang == 'en'){placeholder="Phone"}
+                           @@if (context.lang == 'ru'){placeholder="Телефон"}
+                           maxlength="50"
+                           autocomplete="off">
+                    <input type="text" 
+                           class="question-form__input form__email" 
+                           name="email" 
+                           @@if (context.lang == 'tr'){placeholder="E-posta*"}
+                           @@if (context.lang == 'en'){placeholder="E-mail*"}
+                           @@if (context.lang == 'ru'){placeholder="E-mail*"}
+                           maxlength="100"
+                           autocomplete="off"
+                           pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$"
+                           required>
+                    <input type="text" 
+                           class="question-form__input form__subject" 
+                           name="subject" 
+                           @@if (context.lang == 'tr'){placeholder="Konu"}
+                           @@if (context.lang == 'en'){placeholder="Subject"}
+                           @@if (context.lang == 'ru'){placeholder="Тема"}
+                           maxlength="100"
+                           autocomplete="off"
+                           required>
+                    <label class="question-form__agreement">
+                        <input type="checkbox" 
+                               class="question-form__agreement-input form__agreement"
+                               name="agreement"
+                               checked 
+                               required> 
+                        <div class="question-form__agreement-checkbox"></div>
+                        <span>
+                            @@if (context.lang == 'tr'){Kişisel verilerimin işlenmesini kabul ediyorum}
+                            @@if (context.lang == 'en'){I agree to the processing of my personal&nbsp;data}
+                            @@if (context.lang == 'ru'){Я даю своё согласие на&nbsp;обработку персональных данных}
+                        </span>
+                    </label>
+                    <button type="submit"
+                            class="question-form__button button form__submit">
+                            <div class="question-form__button-text button__text">
+                                @@if (context.lang == 'tr'){Gönder}
+                                @@if (context.lang == 'en'){Send}
+                                @@if (context.lang == 'ru'){Отправить}
+                            </div>
+                    </button>
+                    <div class="question-form__sending-screen form__sending-screen"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

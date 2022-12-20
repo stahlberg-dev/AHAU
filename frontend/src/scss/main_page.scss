@@ -136,8 +136,13 @@ body {
     &__models {
         @include adaptiveValue("margin-bottom", 40px, 100px);
     }
+
+    &__contact {
+        @include adaptiveValue("margin-bottom", 40px, 100px);
+    }
 }
 
 @import "sections/title-screen.scss";
 @import "sections/about.scss";
 @import "sections/models.scss";
+@import "sections/contact.scss";
