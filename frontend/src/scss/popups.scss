@@ -201,6 +201,7 @@
         @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
         box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
         background-color: #FFF;
+        font-family: $secondaryFontFamily;
         @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
         font-weight: 500;

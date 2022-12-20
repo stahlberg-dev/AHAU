@@ -21,7 +21,10 @@
     }
 
     &__info {
-        flex: 0 0 45%;
+
+        @media (min-width: $mobile) {
+            flex: 0 0 35%;
+        }
     }
 
     &__info-block {
@@ -40,7 +43,10 @@
     }
 
     &__questions {
-        flex: 1 1 auto;
+
+        @media (min-width: $mobile) {
+            flex: 1 1 auto;
+        }
     }
 
     &__questions-title {
@@ -141,17 +147,19 @@
 }
 
 .question-form {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: start;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     @include adaptiveValue("gap", 15px, 20px, $smallMobile, $maxContainerWidth);
+    width: 100%;
+
+    @media (min-width: $smallMobile) {
+        grid-template-columns: 1fr 1fr;
+    }
 
     &__input {
         width: 100%;
-        flex-grow: 0;
-        flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-top", 8px, 14px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
@@ -159,6 +167,7 @@
         @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
         box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
         background-color: #FFF;
+        font-family: $secondaryFontFamily;
         @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
         font-weight: 500;
@@ -172,17 +181,66 @@
         &:focus::placeholder {
             color: transparent;
         }
+
+        &_type_name {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 1/2; 
+                grid-row: 1/2;
+            }
+        }
+
+        &_type_phone {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 2/3; 
+                grid-row: 1/2;
+            }
+        }
+
+        &_type_mail {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 1/2; 
+                grid-row: 2/3;
+            }
+        }
+        
+        &_type_subject {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 2/3; 
+                grid-row: 2/3;
+            }
+        }
+
+        &_type_message {
+            @include adaptiveValue("min-height", 120px, 200px, $smallMobile, $maxContainerWidth);
+            resize: vertical;
+
+            @media (min-width: $smallMobile) {
+                grid-column: 1/3; 
+                grid-row: 3/4;
+            }
+        }
     }
 
     &__agreement {
+        justify-self: start;
         display: flex;
         position: relative;
         align-items: flex-start;
+        width: 100%;
         @include adaptiveValue("line-height", 14px, 16px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 12px, 14px, $smallMobile, $maxContainerWidth);
         font-weight: 400;
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
+
+        @media (min-width: $smallMobile) {
+            grid-column: 1/3; 
+            grid-row: 4/5;
+        }
     }
 
     &__agreement-input {
@@ -223,17 +281,19 @@
     }
 
     &__button {
-        /* width: 100%;
-        flex-grow: 0;
-        flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth); */
+        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
+
+        @media (min-width: $smallMobile) {
+            grid-column: 1/2; 
+            grid-row: 5/6;
+            justify-self: start;
+        }
     }
 
-    /* &__button-text {
+    &__button-text {
         @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
-    } */
+    }
 
     &__sending-screen {
         position: fixed;

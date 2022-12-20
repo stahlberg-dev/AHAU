@@ -12,13 +12,18 @@ $model = $_POST['model'] ?? "";
 $name = $_POST['name'] ?? "";
 $phone = $_POST['phone'] ?? "";
 $email = $_POST['email'] ?? "";
+$subject = $_POST['subject'] ?? "";
 $message = $_POST['message'] ?? "";
 
 $title = "";
 if ($model !== "") {
     $title = "Order";
 } else {
-    $title = "Message";
+    if ($subject !== "") {
+        $title = $subject;
+    } else {
+        $title = "Message";
+    }
 }
 
 $body = "<body>";
