@@ -75,7 +75,6 @@ new clickAnimator([
     {
         clickableElementClassName: '.underlined-link',
         clickedElementClassName: '.underlined-link_clicked',
-        clickCoordinates: true,
     },
     {
         clickableElementClassName: '.header-link',
@@ -104,6 +103,12 @@ new clickAnimator([
     {
         clickableElementClassName: '.popup__close',
         clickedElementClassName: '.popup__close_clicked',
+    },
+    {
+        clickableElementClassName: '.button',
+        clickedElementClassName: '.button_clicked',
+        clickCoordinates: true,
+        duration: 300,
     },
 ]).init();
 
