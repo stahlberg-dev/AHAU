@@ -2,7 +2,7 @@ import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 import cleanCss from 'gulp-clean-css';
-import webpcss from 'gulp-webpcss';
+//import webpcss from 'gulp-webpcss';
 import autoprefixer from 'gulp-autoprefixer';
 import groupCssMediaQueries from 'gulp-group-css-media-queries';
 
@@ -26,7 +26,7 @@ export const scss = () => {
             groupCssMediaQueries()
         )
     )
-    .pipe(
+    /* .pipe(
         app.plugins.if(
             app.isBuild,
             webpcss(
@@ -35,7 +35,7 @@ export const scss = () => {
                 noWebpClass: ".no-webp"
             })
         )
-    )
+    ) */
     .pipe(
         app.plugins.if(
             app.isBuild,

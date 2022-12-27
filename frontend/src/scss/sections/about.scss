@@ -15,7 +15,6 @@
         @include adaptiveValue("padding-bottom", 20px, 40px, $minWidth, $mobile);
         padding-left: $containerPadding;
         padding-right: $containerPadding;
-        //background: url("../img/about/grid.png") repeat left top/60% auto;
 
         &::after {
             content: '';
@@ -29,7 +28,7 @@
             background-position-x: 30%;
             @include adaptiveValue("background-position-y", 165px, 220px, $minWidth, $mobile);
             background-repeat: no-repeat;
-            background-image: url("../img/about/struts.png");
+            background-image: url("../img/about/struts.webp");
 
             @media (min-width: $mobile) {
                 display: none;
@@ -37,8 +36,7 @@
         }
 
         @media (min-width: $mobile) {
-            background: url("../img/about/strut.png") no-repeat 5% center/40% auto;
-                        //url("../img/about/grid.png") repeat left top/35% auto;
+            background: url("../img/about/strut.webp") no-repeat 5% center/40% auto;
             margin: 0;
             @include adaptiveValue("padding", 15px, 30px, $mobile, $tablet);
         }
