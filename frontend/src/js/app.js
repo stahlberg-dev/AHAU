@@ -1,19 +1,13 @@
-import {isWebp, addLoadedClass} from "./modules/functions.js";
+import {addLoadedClass} from "./modules/functions.js";
 import * as sliders from "./modules/sliders.js";
 import {scrollObserver} from "./modules/scroll-observer.js";
 import {burger} from "./modules/burger.js";
 import {popupsMaker} from "./modules/popups-maker.js";
 import {spoilers} from "./modules/spoilers.js";
-import {lockEquipmentVideo, clickScroller} from "./modules/click-scroller.js";
+import {clickScroller} from "./modules/click-scroller.js";
 import {clickAnimator} from "./modules/click-animation.js";
 import {modelSwitcher} from "./modules/model-switcher.js";
 import {formHandler} from "./modules/forms.js";
-
-//----- Webp --------------------------------------------------------------------------------
-
-isWebp();
-
-//-------------------------------------------------------------------------------------------
 
 //----- Add Loaded Class --------------------------------------------------------------------
 
