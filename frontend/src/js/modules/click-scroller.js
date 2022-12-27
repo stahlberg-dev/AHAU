@@ -1,31 +1,3 @@
-export function lockEquipmentVideo(gotoBlock) {
-
-    const equipmentVideo = document.querySelector('.complectation');
-        
-    if (equipmentVideo) {
-
-        if (!gotoBlock.classList.contains('equipment')) {
-
-            equipmentVideo.classList.add('equipment__body-content_locked');
-
-        } else {
-
-            if (!equipmentVideo.classList.contains('equipment__body-content_active')) {
-
-                equipmentVideo.classList.add('equipment__body-content_locked');
-
-            }
-
-        }
-
-        setTimeout(() => {
-            equipmentVideo.classList.remove('equipment__body-content_locked');
-        }, 1000);
-
-    }
-
-}
-
 export class clickScroller {
 
     constructor(config) {
