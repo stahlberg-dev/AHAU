@@ -1,70 +1,117 @@
 <section class="main__title-screen title-screen">
     <div class="title-screen__slider">
         <div class="title-screen__slider-wrapper swiper-wrapper">
-            <div class="title-screen__slide swiper-slide">
-                <img src="/img/title-screen/slide-1.webp" loading="lazy" alt="slide-1" class="title-screen__slide-bg">
-                <div class="title-screen__slide-content">
-                    <div class="title-screen__slide-image">
-                        <img src="/img/title-screen/330-white.webp" loading="lazy" alt="photo-1" class="title-screen__slide-photo">
+            <div class="title-screen__slide 
+                        title-screen-slide 
+                        title-screen-slide_number_first 
+                        swiper-slide">
+                <img src="/img/title-screen/slide-1/slide-1-mobile.webp" loading="lazy" alt="slide-1" class="title-screen-slide__bg-mobile">
+                <div class="title-screen-slide__content container">
+                    <div class="title-screen-slide__text">
+                        <h1 class="title-screen-slide__title">
+                            @@if (context.lang == 'tr'){
+                                Sürat tekneleri ve tekneleri için amortisör üniteleri üreten ilk Türk şirketidir
+                            }
+                            @@if (context.lang == 'en'){
+                                Manufacturer of suspension struts for your spine protection
+                            }
+                            @@if (context.lang == 'ru'){
+                                Производитель амортизационных стоек для&nbsp;безопасности вашего позвоночника
+                            }
+                        </h1>
+                        <div data-popup="order"
+                            class="title-screen-slide__button button">
+                            <div class="title-screen-slide__button-text button__text">
+                                @@if (context.lang == 'tr'){İletişim}
+                                @@if (context.lang == 'en'){Contact}
+                                @@if (context.lang == 'ru'){Связаться}
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="title-screen__slide-header">
-                        <svg class="title-screen__slide-ahau">
-                            <use xlink:href="/img/icon_sprite/sprite.svg#ahau"></use>
+                    <div class="title-screen-slide__image">
+                        <svg class="title-screen-slide__hexagon-big">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-big"></use>
                         </svg>
-                        @@if (context.lang == 'tr'){
-                            Sürat tekneleri ve tekneleri için amortisör üniteleri üreten ilk Türk şirketidir
-                        }
-                        @@if (context.lang == 'en'){
-                            Manufacturer of suspension struts for your spine protection
-                        }
-                        @@if (context.lang == 'ru'){
-                            Производитель амортизационных стоек для&nbsp;безопасности вашего позвоночника
-                        }
-                    </h1>
+                        <img src="/img/title-screen/slide-1/hexagon-1.svg" loading="lazy" alt="hexagon" class="title-screen-slide__hexagon-1">
+                        <img src="/img/title-screen/slide-1/hexagon-2.svg" loading="lazy" alt="hexagon" class="title-screen-slide__hexagon-2">
+                        <img src="/img/title-screen/slide-1/hexagon-3.svg" loading="lazy" alt="hexagon" class="title-screen-slide__hexagon-3">
+                        <img src="/img/title-screen/slide-1/seat-1.webp" loading="lazy" alt="seat-1" class="title-screen-slide__seat">
+                    </div>
                 </div>
             </div>
-            <div class="title-screen__slide title-screen__second-slide swiper-slide">
-                <img src="/img/title-screen/slide-2.webp" loading="lazy" alt="slide-2" class="title-screen__slide-bg">
-                <div class="title-screen__slide-content">
-                    <div class="title-screen__slide-image">
-                        <img src="/img/title-screen/330-white.webp" loading="lazy" alt="photo-1" class="title-screen__slide-photo">
+            <div class="title-screen__slide 
+                        title-screen-slide 
+                        title-screen-slide_number_second 
+                        swiper-slide">
+                <img src="/img/title-screen/slide-2/slide-2-mobile.webp" loading="lazy" alt="slide-2" class="title-screen-slide__bg-mobile">
+                <img src="/img/title-screen/slide-2/slide-2.webp" loading="lazy" alt="slide-2" class="title-screen-slide__bg">
+                <div class="title-screen-slide__content container">
+                    <div class="title-screen-slide__text">
+                        <h1 class="title-screen-slide__title">
+                            @@if (context.lang == 'tr'){
+                                Комфортабельные кресла капитана и&nbsp;пассажиров
+                            }
+                            @@if (context.lang == 'en'){
+                                Комфортабельные кресла капитана и&nbsp;пассажиров
+                            }
+                            @@if (context.lang == 'ru'){
+                                Комфортабельные кресла капитана и&nbsp;пассажиров
+                            }
+                        </h1>
+                        <div data-popup="order"
+                            class="title-screen-slide__button button">
+                            <div class="title-screen-slide__button-text button__text">
+                                @@if (context.lang == 'tr'){İletişim}
+                                @@if (context.lang == 'en'){Contact}
+                                @@if (context.lang == 'ru'){Связаться}
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="title-screen__slide-header">
-                        <svg class="title-screen__slide-ahau">
-                            <use xlink:href="/img/icon_sprite/sprite.svg#ahau"></use>
+                    <div class="title-screen-slide__image">
+                        <svg class="title-screen-slide__hexagon-big">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-big"></use>
                         </svg>
-                        @@if (context.lang == 'tr'){
-                            Sürat tekneleri ve tekneleri için amortisör üniteleri üreten ilk Türk şirketidir
-                        }
-                        @@if (context.lang == 'en'){
-                            Manufacturer of suspension struts for your spine protection
-                        }
-                        @@if (context.lang == 'ru'){
-                            Производитель амортизационных стоек для&nbsp;безопасности вашего позвоночника
-                        }
-                    </h1>
+                        <img src="/img/title-screen/slide-2/seat-2.webp" loading="lazy" alt="seat-2" class="title-screen-slide__seat">
+                    </div>
                 </div>
             </div>
-            <div class="title-screen__slide title-screen__third-slide swiper-slide">
-                <img src="/img/title-screen/slide-3.webp" loading="lazy" alt="slide-3" class="title-screen__slide-bg">
-                <div class="title-screen__slide-content">
-                    <div class="title-screen__slide-image">
-                        <img src="/img/title-screen/330-white.webp" loading="lazy" alt="photo-1" class="title-screen__slide-photo">
+            <div class="title-screen__slide 
+                        title-screen-slide 
+                        title-screen-slide_number_third 
+                        swiper-slide">
+                <img src="/img/title-screen/slide-3/slide-3-mobile.webp" loading="lazy" alt="slide-3" class="title-screen-slide__bg-mobile">
+                <img src="/img/title-screen/slide-3/slide-3.webp" loading="lazy" alt="slide-3" class="title-screen-slide__bg">
+                <div class="title-screen-slide__content container">
+                    <div class="title-screen-slide__text">
+                        <h2 class="title-screen-slide__title">
+                            @@if (context.lang == 'tr'){
+                                Комфортные и&nbsp;безопасные решения от&nbsp;прогулочных
+                                катеров и&nbsp;яхт до&nbsp;скоростных служебных кораблей.
+                            }
+                            @@if (context.lang == 'en'){
+                                Комфортные и&nbsp;безопасные решения от&nbsp;прогулочных
+                                катеров и&nbsp;яхт до&nbsp;скоростных служебных кораблей.
+                            }
+                            @@if (context.lang == 'ru'){
+                                Комфортные и&nbsp;безопасные решения от&nbsp;прогулочных
+                                катеров и&nbsp;яхт до&nbsp;скоростных служебных кораблей.
+                            }
+                        </h2>
+                        <div data-popup="order"
+                            class="title-screen-slide__button button">
+                            <div class="title-screen-slide__button-text button__text">
+                                @@if (context.lang == 'tr'){İletişim}
+                                @@if (context.lang == 'en'){Contact}
+                                @@if (context.lang == 'ru'){Связаться}
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="title-screen__slide-header">
-                        <svg class="title-screen__slide-ahau">
-                            <use xlink:href="/img/icon_sprite/sprite.svg#ahau"></use>
+                    <div class="title-screen-slide__image">
+                        <svg class="title-screen-slide__hexagon-big">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-big"></use>
                         </svg>
-                        @@if (context.lang == 'tr'){
-                            Sürat tekneleri ve tekneleri için amortisör üniteleri üreten ilk Türk şirketidir
-                        }
-                        @@if (context.lang == 'en'){
-                            Manufacturer of suspension struts for your spine protection
-                        }
-                        @@if (context.lang == 'ru'){
-                            Производитель амортизационных стоек для&nbsp;безопасности вашего позвоночника
-                        }
-                    </h1>
+                        <img src="/img/title-screen/slide-3/seat-3.webp" loading="lazy" alt="seat-3" class="title-screen-slide__seat">
+                    </div>
                 </div>
             </div>
         </div>

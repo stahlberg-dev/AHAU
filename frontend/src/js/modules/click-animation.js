@@ -4,10 +4,10 @@ export class clickAnimator {
         this.clickableElementConfigs = config;
     }
 
-    onClick(clickableElementClassName, 
+    onClick({clickableElementClassName, 
             clickedElementClassName, 
-            duration, 
-            clickCoordinates) {
+            duration = 300, 
+            clickCoordinates}) {
 
         const mediaQueryHover = window.matchMedia('(any-hover: none)');
 
@@ -96,10 +96,7 @@ export class clickAnimator {
 
         clickableElementConfigs.forEach(item => {
 
-            this.onClick(item.clickableElementClassName, 
-                         item.clickedElementClassName, 
-                         item.duration ?? 300, 
-                         item.clickCoordinates);
+            this.onClick(item);
 
         });
 

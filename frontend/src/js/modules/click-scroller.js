@@ -22,7 +22,7 @@ export class clickScroller {
     
     }
 
-    onClick(linkAttributeName, lockedSections, callbacks) {
+    onClick({linkAttributeName, lockedSections = [], callbacks = []}) {
 
         document.addEventListener("click", event => {
     
@@ -56,11 +56,7 @@ export class clickScroller {
 
     init() {
 
-        const linkAttributeName = this.linkAttributeName;
-        const lockedSections = this.lockedSections ?? [];
-        const callbacks = this.callbacks ?? [];
-
-        this.onClick(linkAttributeName, lockedSections, callbacks);
+        this.onClick(this);
 
     }
 }

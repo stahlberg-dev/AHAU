@@ -8,24 +8,8 @@
         top: 0;
         left: 0;
         z-index: 100;
-        
-        &::before {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: backdrop-filter 0.3s ease,
-                        box-shadow 0.3s ease;
-
-            .header_scroll & {
-                background-color: rgba(235, 234, 240, 0.3);
-                backdrop-filter: blur(5px);
-                box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-            }
-        }
+        background-color: $fourthColor;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
     }
 
     &__container {
@@ -176,13 +160,13 @@
         height: 32px;
 
         @media (min-width: $smallMobile) {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
         }
 
         @media (min-width: $mobile) {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
         }
     }
 
@@ -191,11 +175,12 @@
         
         @media (min-width: $smallMobile) {
             display: block;
-            font-size: 20px;
+            line-height: 1.5;
+            font-size: 24px;
         }
 
         @media (min-width: $mobile) {
-            font-size: 16px;
+            font-size: 20px;
         }
     }
 
@@ -227,7 +212,7 @@
         min-width: $minWidth;
         width: 100%;
         height: 100%;
-        padding: 90px $containerPadding 30px calc($containerPadding + 36px);
+        padding: 90px $containerPadding 30px calc($containerPadding + 20px);
         @include adaptiveValue("padding-top", 90px, 120px, $minWidth, $tablet);
         overflow: auto;
         transition: right 0.3s ease,
@@ -277,7 +262,8 @@
             right: calc(100% + $minWidth);
             width: 100%;
             height: 60px;
-            backdrop-filter: blur(10px);
+            background-color: $fourthColor;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
             z-index: 1;
             transition: right 0.3s ease,
                         left 0.3s ease;
@@ -335,6 +321,7 @@
     &__link {
         display: inline-block;
         position: relative;
+        text-transform: uppercase;
         white-space: nowrap;
         @include adaptiveValue("font-size", 18px, 24px, $minWidth, $tablet);
 
@@ -359,12 +346,12 @@
     }
 
     &__phone-icon {
-        @include adaptiveValue("width", 20px, 28px, $minWidth, $tablet);
-        @include adaptiveValue("height", 20px, 28px, $minWidth, $tablet);
+        @include adaptiveValue("width", 22px, 30px, $minWidth, $tablet);
+        @include adaptiveValue("height", 22px, 30px, $minWidth, $tablet);
     }
 
     &__phone-number {
-        @include adaptiveValue("font-size", 20px, 28px, $minWidth, $tablet);
+        @include adaptiveValue("font-size", 24px, 32px, $minWidth, $tablet);
     }
 
     &__lang {
@@ -421,7 +408,7 @@
 
     &__lang-text {
         line-height: 1;
-        @include adaptiveValue("font-size", 16px, 18px, $minWidth, $mobile);
+        @include adaptiveValue("font-size", 20px, 24px, $minWidth, $mobile);
         transition: color 0.2s ease;
 
         .menu__lang-link_active & {
@@ -436,9 +423,8 @@
 
 .lang {
     flex-flow: row nowrap;
-    align-items: end;
+    align-items: center;
     gap: 5px;
-    padding: 3px 0 3px 3px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
@@ -447,12 +433,12 @@
     &__icon {
         width: 16px;
         height: 16px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 
     &__arrow {
-        width: 16px;
-        height: 12px;
+        width: 20px;
+        height: 15px;
+        transform: translateY(2px);
     }
 
     &__arrow-icon {
@@ -487,9 +473,7 @@
         padding-top: 15px;
         opacity: 0;
         pointer-events: none;
-        perspective: 150px;
-        transform-style: preserve-3d;
-        transition: opacity 0.6s ease;
+        transition: opacity 0.3s ease;
 
         @media (any-hover: hover) {
 
@@ -513,13 +497,12 @@
         display: flex;
         flex-flow: column nowrap;
         gap: $menuPadding;
-        border-radius: 5px;
+        border-radius: 10px;
         padding: $menuPadding;
-        background-color: rgba(235, 234, 240, 0.2);
-        backdrop-filter: blur(2px);
+        background-color: $fourthColor;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        transform: translate3d(0, 20%, 0) rotateX(-90deg);
-        transition: transform 0.6s ease;
+        transform: translateY(20%);
+        transition: transform 0.3s ease;
 
         @media (any-hover: hover) {
 

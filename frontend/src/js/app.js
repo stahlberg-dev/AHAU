@@ -58,7 +58,7 @@ new spoilers({
     spoilerClassName: '.spoiler',
     spoilerBlockClassName: '.spoiler-block',
     spoilerActiveBlockClassName: '.spoiler-block_active',
-    hideTime: 600,
+    hideTime: 300,
 }).init();
 
 //-------------------------------------------------------------------------------------------

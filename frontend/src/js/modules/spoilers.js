@@ -7,7 +7,10 @@ export class spoilers {
         this.hideTime = config.hideTime;
     }
 
-    onClick(spoilerClassName, spoilerBlockClassName, spoilerActiveBlockClassName, hideTime) {
+    onClick({spoilerClassName, 
+             spoilerBlockClassName, 
+             spoilerActiveBlockClassName, 
+             hideTime}) {
 
         document.addEventListener("click", function(event) {
 
@@ -42,12 +45,7 @@ export class spoilers {
 
     init() {
 
-        const spoilerClassName = this.spoilerClassName;
-        const spoilerBlockClassName = this.spoilerBlockClassName;
-        const spoilerActiveBlockClassName = this.spoilerActiveBlockClassName;
-        const hideTime = this.hideTime;
-
-        this.onClick(spoilerClassName, spoilerBlockClassName, spoilerActiveBlockClassName, hideTime);
+        this.onClick(this);
 
     }
 }

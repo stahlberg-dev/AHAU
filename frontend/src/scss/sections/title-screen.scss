@@ -3,8 +3,6 @@
     min-height: 100%;
     
     &_loaded {
-        will-change: clip-path;
-        animation: clip-animation 1.25s cubic-bezier(0.29, 0.8, 0.8, 0.98) forwards;
     }
 
     &__slider {
@@ -13,12 +11,6 @@
         min-width: $minWidth;
         height: 100vh;
         overflow: hidden;
-        opacity: 0;
-        
-        .title-screen_loaded & {
-            will-change: opacity;
-            animation: fade-in 1s linear forwards;
-        }
     }
 
     &__slider-wrapper {
@@ -27,197 +19,6 @@
 
     &__slide {
         position: relative;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow: hidden;
-    }
-
-    &__slide-bg {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.3);
-        height: 100%;
-        transition: transform 0s cubic-bezier(0, 0.71, 0.4, 0.97) 2.1s;
-        
-        @media (min-aspect-ratio: 16/9) {
-            width: 100%;
-            height: auto;
-        }
-
-        .swiper-slide-active & {
-            transform: translate(-50%, -50%);
-            transition: transform 4s cubic-bezier(0, 0.71, 0.4, 0.97) 0.25s;
-        }
-    }
-
-    &__slide-content {
-        position: absolute;
-        top: 25%;
-        left: $containerPadding;
-        width: calc(100% - $containerPadding * 2);
-        height: 60%;
-        perspective: 400px;
-        transform-style: preserve-3d;
-
-        @media (min-width: $smallMobile) {
-            top: 25%;
-            left: $containerPadding;
-            width: calc(100% - $containerPadding * 2);
-            height: auto;
-            padding-bottom: 60%;
-        }
-
-        @media (min-width: $mobile) {
-            top: 27%;
-            left: 10%;
-            width: 80%;
-            padding-bottom: 40%;
-        }
-
-        @media (min-width: 1180px) {
-            top: 15%;
-            padding-bottom: 37%;
-        }
-        
-        @media (min-width: $tablet) {
-            top: auto;
-            bottom: 13%;
-            left: 10%;
-            width: 80%;
-            padding-bottom: 37%;
-        }
-    }
-
-    &__slide-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 60%;
-        padding-bottom: 60%;
-        backdrop-filter: brightness(85%) blur(3px);
-        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        z-index: 1;
-        opacity: 0;
-        transform: rotate3d(-1, 1, 0, -20deg) translate3d(10%, -10%, 170px);
-        will-change: transform, opacity;
-        transition: transform 0s ease 0s, opacity 0s ease 0s;
-
-        @media (min-width: $smallMobile) {
-            top: -5%;
-            left: 48%;
-            right: auto;
-            width: 50%;
-            padding-bottom: 50%;
-        }
-
-        @media (min-width: $mobile) {
-            top: -5%;
-            left: 55%;
-            width: 40%;
-            padding-bottom: 40%;
-            transform: rotate3d(-1, 1, 0, -20deg) translate3d(20%, -20%, 220px);
-        }
-
-        @media (min-width: $tablet) {
-            top: 5%;
-            left: 55%;
-            width: 33%;
-            padding-bottom: 33%;
-        }
-
-        .swiper-slide-active & {
-            transform: none;
-            opacity: 1;
-            transition: transform 2s ease 0.3s, opacity 2s ease 0.3s;
-        }
-    }
-
-    &__slide-photo {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 120%;
-    }
-
-    &__slide-header {
-        position: absolute;
-        top: 40vw;
-        left: 0;
-        max-width: 80%;
-        padding: 5vw;
-        line-height: 1.5;
-        font-size: 5vw;
-        font-weight: 600;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1),
-                     -2px 2px 5px rgba(0, 0, 0, 0.1), 
-                     2px -2px 5px rgba(0, 0, 0, 0.1), 
-                     -2px -2px 5px rgba(0, 0, 0, 0.1);
-        color: $thirdColor;
-        backdrop-filter: brightness(70%) blur(1px);
-        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        transform: rotate3d(-1, 0, 1, -20deg) translate3d(-10%, 10%, 150px);
-        will-change: transform, opacity;
-        transition: transform 0s ease, opacity 0s ease;
-
-        @media (min-width: $smallMobile) {
-            top: auto;
-            bottom: -10%;
-            left: 10%;
-            max-width: 70%;
-            padding: 3vw;
-            font-size: 3.5vw;
-        }
-
-        @media (min-width: $mobile) {
-            top: 60%;
-            bottom: auto;
-            left: 5%;
-            max-width: 70%;
-            padding: 2vw;
-            font-size: 2.5vw;
-            transform: rotate3d(-1, 0, 1, -45deg) translate3d(-20%, 10%, 200px);
-        }
-
-        @media (min-width: $tablet) {
-            top: 65%;
-            left: 10%;
-            max-width: 70%;
-            padding: 1.5vw;
-            font-size: 2vw;
-        }
-
-        .swiper-slide-active & {
-            transform: none;
-            opacity: 1;
-            transition: transform 2s ease, opacity 2s ease;
-        }
-    }
-
-    &__slide-ahau {
-        display: block;
-        width: 28vw;
-        height: 7vw;
-        margin-bottom: 5vw;
-        fill: $primaryColor;
-
-        @media (min-width: $mobile) {
-            width: 14vw;
-            height: 3.5vw;
-            margin-bottom: 2vw;
-        }
-
-        @media (min-width: $tablet) {
-            width: 12vw;
-            height: 3vw;
-            margin-bottom: 1.5vw;
-        }
     }
 
     &__slider-pagination {
@@ -238,53 +39,391 @@
 
         .swiper-pagination-bullet {
             display: block;
-            @include adaptiveValue("width", 15px, 25px, $minWidth, $mobile);
-            @include adaptiveValue("height", 15px, 25px, $minWidth, $mobile);
-            border-radius: 50%;
-            background-color: $primaryColor;
-            opacity: 0.5;
+            @include adaptiveValue("width", 20px, 40px, $minWidth, $mobile);
+            @include adaptiveValue("height", 20px, 40px, $minWidth, $mobile);
+            fill: transparent;
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            transition: fill 0.3s ease;
             -webkit-tap-highlight-color: transparent;
 
             @media (min-width: $mobile) {
-                width: 15px;
-                height: 15px;
+                width: 30px;
+                height: 30px;
             }
 
             @media (any-hover: hover) {
-                &:hover {
-                    opacity: 1;
+                &:hover:not(.swiper-pagination-bullet-active) {
+                    fill: $primaryColor;
+                    fill-opacity: 0.5;
                 }
             }
-
-            &:active {
-                opacity: 1;
-            }
-
-
         }
 
         .swiper-pagination-bullet-active {
-            opacity: 1;
+            fill: $primaryColor;
         }
     }
 
-    @keyframes fade-in {
-        from {
-          opacity: 0;
+    &__hexagon-bullet {
+        display: block;
+        width: 100%;
+        height: 100%;
+        stroke: $primaryColor;
+        stroke-width: 2;
+    }
+}
+
+.title-screen-slide {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+
+    &__content {
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        height: 100%;
+        z-index: 10;
+
+        @media (min-width: $mobile) {
+            flex-flow: row nowrap;
+            align-items: stretch;
+            gap: 5%;
+            height: auto;
+            margin-bottom: calc(7vh - 0.04 * (100vw - $tablet));
         }
-        to {
-          opacity: 1;
+
+        @media (min-width: $tablet) {
+            margin-bottom: 7vh;
         }
     }
 
-    @keyframes clip-animation {
-        from {
-            clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    &__text {
+        position: relative;
+        flex: 1 1 auto;
+        width: 100vw;
+        transform: translateX(-1 * $containerPadding);
+        background-color: $fourthColor;
+
+        @media (min-width: $mobile) {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-end;
+            align-items: flex-start;
+            gap: 2vh;
+            width: auto;
+            transform: none;
+            padding-bottom: 7%;
+            background-color: transparent;
         }
-        to {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    &__title {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        text-align: center;
+        @include adaptiveValue("font-size", 20px, 26px, $minWidth, $smallMobile);
+        font-weight: 400;
+        color: $secondaryColor;
+
+        .title-screen-slide_number_third & {
+            right: $containerPadding;
+            left: auto;
+            transform: none; 
+            text-align: right;   
+        } 
+
+        @media (min-width: $smallMobile) {
+            top: 15%;
+            width: 80%;
+            @include adaptiveValue("font-size", 24px, 26px, $smallMobile, $mobile);
+
+            .title-screen-slide_number_third & {
+                left: auto;
+                width: 80%;
+            }
+        }
+
+        @media (min-width: $mobile) {
+            position: static;
+            transform: translateX(-10%);
+            width: auto;
+            text-align: left;
+            @include adaptiveValue("font-size", 28px, 44px, $mobile, $tablet);
+            opacity: 0;
+            transition: transform 0s ease 1s, opacity 0s ease 1s;
+            
+            .title-screen-slide_number_second &,
+            .title-screen-slide_number_third & {
+                transform: translateX(-10%);
+                text-align: left;
+                color: $fourthColor;
+                text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+            }
+
+            .swiper-slide-active & {
+                transform: none;
+                opacity: 1;
+                transition: transform 0.7s ease 0.3s, opacity 0.7s ease 0.3s;
+            }
+        }
+    }
+
+    &__button {
+        display: none;
+
+        @media (min-width: $mobile) {
+            display: inline-flex;
+            @include adaptiveValue("height", 60px, 80px, $mobile, $tablet);
+            margin-left: 8%;
+            @include adaptiveValue("padding-left", 50px, 60px, $mobile, $tablet);
+            @include adaptiveValue("padding-right", 50px, 60px, $mobile, $tablet);
+            transform: translateX(-20%);
+            opacity: 0;
+            transition: transform 0s ease 1s, opacity 0s ease 1s;
+
+            .swiper-slide-active & {
+                transform: none;
+                opacity: 1;
+                transition: transform 0.7s ease 0.6s, opacity 0.8s ease 0.6s;
+            }
+        }
+    }
+
+    &__button-text {
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("font-size", 20px, 32px, $mobile, $tablet);
+        }
+    }
+
+    &__image {
+        flex: 0 0 calc(60vh + 60px);
+        
+        @media (min-width: $mobile) {
+            position: relative;
+            flex: 0 0 auto;
+        }
+    }
+
+    &__hexagon-big {
+        display: none;
+        aspect-ratio: 0.89;
+        height: 600px;
+        
+        @media (min-width: $mobile) {
+            @include adaptiveValue("height", 360px, 600px, $mobile, $tablet);
+            transform: scale(0, 0);
+            opacity: 0;
+            transition: transform 0s ease 1s, opacity 0s ease 1s;
+
+            .swiper-slide-active & {
+                transform: none;
+                opacity: 1;
+                transition: transform 0.7s ease 1.1s, opacity 0.7s ease 1.1s;
+            }
+        }
+        
+        .title-screen-slide_number_first & {
+            fill: $secondaryColor;
+
+            @media (min-width: $mobile) {
+                display: block;
+            }
+        }
+
+        .title-screen-slide_number_second &,
+        .title-screen-slide_number_third & {
+            fill: $fourthColor;
+
+            @media (min-width: $mobile) {
+                display: block;
+            }
+        }
+    }
+
+    &__seat {
+        display: block;
+        position: absolute;
+
+        .title-screen-slide_number_first & {
+            display: none;
+        }
+
+        .title-screen-slide_number_second & {
+            top: 45%;
+            left: 30%;
+            transform: translateY(-50%);
+            width: 90%;
+        }
+
+        .title-screen-slide_number_third & {
+            top: 55%;
+            left: -20%;
+            transform: translateY(-50%);
+            width: 80%;
+        }
+
+        @media (min-width: $smallMobile) {
+
+            .title-screen-slide_number_second & {
+                top: 50%;
+                left: 30%;
+                transform: translateY(-60%);
+                width: 90%;
+            }
+
+            .title-screen-slide_number_third & {
+                top: 50%;
+                left: -25%;
+                transform: translateY(-30%);
+                width: 80%;
+            }
+        }
+
+        @media (min-width: $mobile) {
+            opacity: 0;
+            transition: opacity 0s ease 1s;
+
+            .swiper-slide-active & {
+                opacity: 1;
+                transition: opacity 0.5s ease 1.6s;
+            }
+            
+            .title-screen-slide_number_first & {
+                display: block;
+                top: 50%;
+                left: 50%;
+                transform: translate(-46%, -50%);
+                width: 140%;
+            }
+
+            .title-screen-slide_number_second & {
+                top: 50%;
+                left: 50%;
+                transform: translate(-54%, -55%);
+                width: 200%;
+            }
+
+            .title-screen-slide_number_third & {
+                top: 50%;
+                left: 50%;
+                transform: translate(-47%, -56%);
+                width: 150%;
+            }
+        }
+    }
+
+    &__hexagon-1 {
+        display: none;
+        
+        @media (min-width: $mobile) {
+            display: block;
+            position: absolute;
+            top: 15%;
+            left: 0%;
+            width: 35%;
+            transform: scale(0, 0);
+            opacity: 0;
+            transition: transform 0s ease 1s, opacity 0s ease 1s;
+
+            .swiper-slide-active & {
+                transform: none;
+                opacity: 1;
+                transition: transform 0.3s ease 1.8s, opacity 0.3s ease 1.8s;
+            }
+        }
+    }
+
+    &__hexagon-2 {
+        display: none;
+        
+        @media (min-width: $mobile) {
+            display: block;
+            position: absolute;
+            top: 63%;
+            left: -22%;
+            width: 23%;
+            transform: scale(0, 0);
+            opacity: 0;
+            transition: transform 0s ease 1s, opacity 0s ease 1s;
+
+            .swiper-slide-active & {
+                transform: none;
+                opacity: 1;
+                transition: transform 0.3s ease 2.1s, opacity 0.3s ease 2.1s;
+            }
+        }
+    }
+
+    &__hexagon-3 {
+        display: none;
+        
+        @media (min-width: $mobile) {
+            display: block;
+            position: absolute;
+            top: 61%;
+            left: 77%;
+            width: 20%;
+            transform: scale(0, 0);
+            opacity: 0;
+            transition: transform 0s ease 1s, opacity 0s ease 1s;
+
+            .swiper-slide-active & {
+                transform: none;
+                opacity: 1;
+                transition: transform 0.3s ease 2.3s, opacity 0.3s ease 2.3s;
+            }
+        }
+    }
+
+    &__bg {
+        display: none;
+
+        @media (min-width: $mobile) {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: auto;
+        }
+
+        @media (min-width: $mobile) and (max-aspect-ratio: 16/9) {
+            top: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: auto;
+            height: 100%;
+
+            .title-screen-slide_number_third & {
+                right: 0;
+                transform: translateX(0%);
+            }
+        }
+    }
+
+    &__bg-mobile {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+
+        @media (min-width: $mobile) {
+            display: none;
+        }
+
+        .title-screen-slide_number_first & {
+            left: 50%;
+            transform: translate(-50%);
+            width: auto;
+            max-width: 100%;
+            max-height: 60vh;
         }
     }
 }
+
