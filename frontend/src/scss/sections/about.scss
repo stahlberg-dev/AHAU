@@ -1,4 +1,6 @@
 .about {
+    @include adaptiveValue("padding-top", 30px, 80px);
+    @include adaptiveValue("padding-bottom", 30px, 80px);
 
     &__container {
     }

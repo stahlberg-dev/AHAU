@@ -1,4 +1,7 @@
 .contact {
+    @include adaptiveValue("padding-top", 30px, 80px);
+    @include adaptiveValue("padding-bottom", 30px, 80px);
+    background-color: $thirdColor;
 
     &__container {
 
@@ -164,13 +167,12 @@
         @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-right", 15px, 30px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
-        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
-        background-color: #FFF;
+        //box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+        background-color: $fourthColor;
         font-family: $secondaryFontFamily;
         @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
-        font-weight: 500;
+        font-weight: 400;
         color: $secondaryColor;
 
         &::placeholder {
@@ -282,7 +284,6 @@
 
     &__button {
         @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
 
         @media (min-width: $smallMobile) {
             grid-column: 1/2; 

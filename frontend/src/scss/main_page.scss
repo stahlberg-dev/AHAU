@@ -50,19 +50,15 @@ body {
 .main {
 
     &__title-screen {
-        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 
     &__about {
-        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 
     &__models {
-        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 
     &__contact {
-        @include adaptiveValue("margin-bottom", 40px, 100px);
     }
 }
 
