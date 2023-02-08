@@ -18,7 +18,7 @@
     <link rel=”alternate” hreflang=”en” href=”https://ahaumarine.com/en/”>
     <link rel=”alternate” hreflang=”ru” href=”https://ahaumarine.com/ru/”>
 
-    <link rel="stylesheet" href="/css/style.min.css?_v=20230208154243">
+    <link rel="stylesheet" href="/css/style.min.css?_v=20230209000246">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
@@ -178,7 +178,7 @@
                             
                             
                         </h1>
-                        <div data-popup="order"
+                        <div data-popup="contact"
                             class="title-screen-slide__button button">
                             <div class="title-screen-slide__button-text button__text">
                                 
@@ -213,7 +213,7 @@
                             
                             
                         </h1>
-                        <div data-popup="order"
+                        <div data-popup="contact"
                             class="title-screen-slide__button button">
                             <div class="title-screen-slide__button-text button__text">
                                 
@@ -246,7 +246,7 @@
                             
                             
                         </h2>
-                        <div data-popup="order"
+                        <div data-popup="contact"
                             class="title-screen-slide__button button">
                             <div class="title-screen-slide__button-text button__text">
                                 
@@ -1344,6 +1344,89 @@
     </div>
 </div>
 
+<div data-popup-name="contact" class="contact-popup popup">
+    <div class="contact-popup__wrapper popup__wrapper">
+        <div class="contact-popup__content popup__content">
+            <div class="contact-popup__close popup__close">
+                <span class="popup__close-stripe"></span>
+                <span class="popup__close-stripe"></span>
+            </div>
+            <form class="contact-popup__form form">
+                <input type="text" 
+                       class="contact-popup__input contact-popup__input_type_name form__name" 
+                       name="name" 
+                       
+                       placeholder="Name*"
+                       
+                       maxlength="100"
+                       autocomplete="off"
+                       required>
+                <input type="text" 
+                       class="contact-popup__input contact-popup__input_type_phone form__phone" 
+                       name="phone" 
+                       
+                       placeholder="Phone"
+                       
+                       maxlength="50"
+                       autocomplete="off">
+                <input type="text" 
+                       class="contact-popup__input contact-popup__input_type_email form__email" 
+                       name="email" 
+                       
+                       placeholder="E-mail*"
+                       
+                       maxlength="100"
+                       autocomplete="off"
+                       pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$"
+                       required>
+                <input type="text" 
+                       class="contact-popup__input contact-popup__input_type_subject form__subject" 
+                       name="subject" 
+                       
+                       placeholder="Subject"
+                       
+                       maxlength="100"
+                       autocomplete="off">
+                <textarea type="text" 
+                          class="contact-popup__input contact-popup__input_type_message form__message" 
+                          name="message"
+                          
+                          placeholder="Your message*"
+                          
+                          maxlength="2000"
+                          autocomplete="off"
+                          required></textarea>
+                <label class="contact-popup__agreement">
+                    <input type="checkbox" 
+                           class="contact-popup__agreement-input form__agreement"
+                           name="agreement"
+                           checked 
+                           required> 
+                    <div class="contact-popup__agreement-checkbox">
+                        <svg class="contact-popup__agreement-hexagon">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                        </svg>
+                    </div>
+                    <span>
+                        
+                        I agree to the processing of my personal&nbsp;data
+                        
+                    </span>
+                </label>
+                <button type="submit"
+                        class="contact-popup__button button form__submit">
+                        <div class="contact-popup__button-text button__text">
+                            
+                            Send
+                            
+                        </div>
+                </button>
+                <div class="contact-popup__sending-screen form__sending-screen"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div data-popup-name="checkout" class="checkout-popup popup">
     <div class="checkout-popup__wrapper popup__wrapper">
         <div class="checkout-popup__content popup__content">
@@ -1407,6 +1490,6 @@
     </div>
 </div>
 
-    <script src="/js/app.min.js?_v=20230208154243"></script>
+    <script src="/js/app.min.js?_v=20230209000246"></script>
 </body>
 </html>

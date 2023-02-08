@@ -39,10 +39,9 @@
         background-color: $thirdColor;
         color: $secondaryColor;
         border-radius: 30px;
-        box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
         transform: scale(0, 0);
         will-change: transform;
-        transition: transform 0.5s ease;
+        transition: transform 0.3s ease;
 
         @media (min-width: $smallMobile) {
             @include adaptiveValue("width", 340px, 580px, $smallMobile, $tablet);
@@ -196,13 +195,11 @@
         @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("padding-right", 15px, 30px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("border-radius", 3px, 5px, $smallMobile, $maxContainerWidth);
-        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
         background-color: #FFF;
         font-family: $secondaryFontFamily;
         @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
         @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
-        font-weight: 500;
+        font-weight: 400;
         color: $secondaryColor;
 
         &::placeholder {
@@ -275,6 +272,263 @@
         @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
     }
     
+    &__button-text {
+        @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
+    }
+
+    &__sending-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(235, 234, 240, 0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity  0.2s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 7px solid $secondaryColor;
+            opacity: 0.7;
+
+            @media (min-width: $smallMobile) {
+                width: 50px;
+                height: 50px;
+                border-width: 8px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 60px;
+                height: 60px;
+                border-width: 10px;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 7px solid transparent;
+            border-right-color: $primaryColor;
+            animation: none;
+
+            @media (min-width: $smallMobile) {
+                width: 50px;
+                height: 50px;
+                border-width: 8px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 60px;
+                height: 60px;
+                border-width: 10px;
+            }
+
+            .form_sending & {
+                animation: loading 1s linear infinite;
+            }
+
+            @keyframes loading {
+                from {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+        }
+
+        .form_sending & {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+.contact-popup {
+
+    &__wrapper {
+    }
+
+    &__content {
+        min-width: calc($minWidth - $containerPadding * 2);
+        @include adaptiveValue("width", 280px, 340px, $minWidth, $smallMobile);
+        @include adaptiveValue("padding-top", 25px, 70px, $smallMobile, $tablet);
+        @include adaptiveValue("padding-bottom", 20px, 60px, $smallMobile, $tablet);
+        @include adaptiveValue("padding-left", 20px, 60px, $smallMobile, $tablet);
+        @include adaptiveValue("padding-right", 20px, 60px, $smallMobile, $tablet);
+        background-color: $secondaryColor;
+        color: $secondaryColor;
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("width", 440px, 980px, $smallMobile, $tablet);
+        }
+    }
+
+    &__close {
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        @include adaptiveValue("gap", 10px, 20px, $smallMobile, $maxContainerWidth);
+        width: 100%;
+
+        @media (min-width: $smallMobile) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-top", 8px, 14px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("padding-right", 15px, 30px, $smallMobile, $maxContainerWidth);
+        background-color: #FFF;
+        font-family: $secondaryFontFamily;
+        @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
+        font-weight: 400;
+        color: $secondaryColor;
+
+        &::placeholder {
+            color: $secondaryColor;
+            transition: color 0.3s ease;
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+
+        &_type_name {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 1/2; 
+                grid-row: 1/2;
+            }
+        }
+
+        &_type_phone {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 2/3; 
+                grid-row: 1/2;
+            }
+        }
+
+        &_type_mail {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 1/2; 
+                grid-row: 2/3;
+            }
+        }
+        
+        &_type_subject {
+
+            @media (min-width: $smallMobile) {
+                grid-column: 2/3; 
+                grid-row: 2/3;
+            }
+        }
+
+        &_type_message {
+            @include adaptiveValue("min-height", 100px, 200px, $smallMobile, $maxContainerWidth);
+            resize: vertical;
+
+            @media (min-width: $smallMobile) {
+                grid-column: 1/3; 
+                grid-row: 3/4;
+            }
+        }
+    }
+
+    &__agreement {
+        justify-self: start;
+        display: flex;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+        @include adaptiveValue("line-height", 14px, 16px, $smallMobile, $maxContainerWidth);
+        @include adaptiveValue("font-size", 12px, 14px, $smallMobile, $maxContainerWidth);
+        font-weight: 400;
+        color: $fourthColor;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (min-width: $smallMobile) {
+            grid-column: 1/3; 
+            grid-row: 4/5;
+        }
+    }
+
+    &__agreement-input {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__agreement-checkbox {
+        position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 25px, 35px, $smallMobile, $tablet);
+        @include adaptiveValue("height", 25px, 35px, $smallMobile, $tablet);
+        transform: translate(-15%, -25%);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30%;
+            height: 30%;
+            border-radius: 50%;
+            background-color: $primaryColor;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.3s ease;
+
+            .contact-popup__agreement-input:checked + & {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+
+    &__agreement-hexagon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: $fourthColor;
+    }
+
+    &__button {
+        @include adaptiveValue("height", 50px, 70px, $smallMobile, $maxContainerWidth);
+
+        @media (min-width: $smallMobile) {
+            grid-column: 1/3; 
+            grid-row: 5/6;
+            justify-self: center;
+            @include adaptiveValue("padding-left", 40px, 80px, $smallMobile, $tablet);
+            @include adaptiveValue("padding-right", 40px, 80px, $smallMobile, $tablet);
+        }
+    }
+
     &__button-text {
         @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
     }
