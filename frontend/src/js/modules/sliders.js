@@ -9,17 +9,6 @@ import Swiper, {
     Zoom,
 } from 'swiper';
 
-Swiper.use([
-    Autoplay, 
-    Navigation, 
-    Pagination, 
-    Thumbs, 
-    Mousewheel, 
-    Scrollbar, 
-    EffectFade, 
-    Zoom
-]);
-
 // ----- Title slider -----------------------------------------------------------------------
 
 export function swiperTitleSlider() {
@@ -28,10 +17,10 @@ export function swiperTitleSlider() {
 
     const aboutSlider = new Swiper('.title-screen__slider', {
         modules: [Pagination, EffectFade, Autoplay],
-        /* autoplay: {
-            delay: 6000,
+        autoplay: {
+            delay: 5000,
             disableOnInteraction: false,
-        }, */
+        },
         effect: 'fade',
         fadeEffect: {
             crossFade: true,
