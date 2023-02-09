@@ -14,6 +14,7 @@ import Swiper, {
 export function swiperTitleSlider() {
     
     if (!document.querySelector('.title-screen__slider')) return;
+    if (!document.querySelector('.title-screen__slider-pagination')) return;
 
     const aboutSlider = new Swiper('.title-screen__slider', {
         modules: [Pagination, EffectFade, Autoplay],
@@ -62,59 +63,12 @@ export function swiperAboutSlider() {
     
     if (!document.querySelector('.about-slider')) return;
     if (!document.querySelector('.about-thumbs')) return;
+    if (!document.querySelector('.about-slider__pagination')) return;
+    if (!document.querySelector('.about-slider__next-button')) return;
+    if (!document.querySelector('.about-slider__prev-button')) return;
 
     const aboutSliderThumbs = new Swiper('.about-thumbs', {
-        modules: [Scrollbar,Thumbs],
-        observer: true,
-        observeParents: true,
-        observeSlideChildren: true,
-        watchOverflow: true,
-        slidesPerView: 1.8, 
-        spaceBetween: 0, 
-        speed: 800,
-        grabCursor: true,
-        scrollbar: {
-            el: '.about-thumbs__scrollbar',
-            draggable: true,
-        },
-        breakpoints: {
-            375: { 
-                slidesPerView: 2.4,
-            },
-            414: { 
-                slidesPerView: 2.6,
-            },
-            481: { 
-                slidesPerView: 2.8,
-            },
-            550: { 
-                slidesPerView: 3.3,
-            },
-            650: { 
-                slidesPerView: 3.7,
-            },
-            769: { 
-                slidesPerView: 2.3,
-            },
-            900: { 
-                slidesPerView: 2.6,
-            },
-            1100: { 
-                slidesPerView: 2.9,
-            },
-            1366: { 
-                slidesPerView: 3.2,
-            },
-        }
-    });
-
-    const aboutSlider = new Swiper('.about-slider', {
         modules: [Thumbs, EffectFade],
-        /* effect: 'flip',
-        flipEffect: {
-            slideShadows: true,
-            limitRotation: true,
-        }, */
         effect: 'fade',
         fadeEffect: {
             crossFade: true,
@@ -123,14 +77,47 @@ export function swiperAboutSlider() {
         observeParents: true,
         observeSlideChildren: true,
         watchOverflow: true,
+        slidesPerView: 1, 
+        spaceBetween: 0, 
+        speed: 300,
+        allowTouchMove: false,
+        loop: true,
+        breakpoints: {
+
+        }
+    });
+
+    const aboutSlider = new Swiper('.about-slider', {
+        modules: [Navigation, Pagination, Thumbs],
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        watchOverflow: true,
         slidesPerView: 1,
-        spaceBetween: 0,
-        speed: 800,
+        spaceBetween: 20,
+        speed: 300,
+        preloadImages: false,
         grabCursor: true,
-        simulateTouch: true,
-        //autoHeight: true,
+        //allowTouchMove: true,
+        loop: true,
         thumbs: { 
             swiper: aboutSliderThumbs,
+        },
+        pagination: {
+            el: '.about-slider__pagination',
+            type: 'bullets',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return `<span class="` + className + `">
+                <svg class="about-slider__hexagon-bullet">
+                <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                </svg>
+                </span>`;
+            },
+        },
+        navigation: {
+            nextEl: '.about-slider__next-button',
+            prevEl: '.about-slider__prev-button',
         },
         breakpoints: {
         

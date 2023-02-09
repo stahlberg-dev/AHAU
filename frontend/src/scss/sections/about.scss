@@ -1,229 +1,286 @@
 .about {
     @include adaptiveValue("padding-top", 30px, 80px);
-    @include adaptiveValue("padding-bottom", 30px, 80px);
+    padding-bottom: 0;
+    
+    @media (min-width: $smallMobile) {  
+        @include adaptiveValue("padding-bottom", 30px, 120px);
+    }
 
     &__container {
+        position: relative;
     }
 
     &__title {
         @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
     }
 
-    &__content {
-        position: relative;
-        margin-left: -$containerPadding;
-        margin-right: -$containerPadding;
-        @include adaptiveValue("padding-top", 20px, 40px, $minWidth, $mobile);
-        @include adaptiveValue("padding-bottom", 20px, 40px, $minWidth, $mobile);
-        padding-left: $containerPadding;
-        padding-right: $containerPadding;
+    &__hexagon-1 {
+        display: none;
 
-        &::after {
-            content: '';
+        @media (min-width: $smallMobile) {
             display: block;
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-size: 90% auto;
-            background-position-x: 30%;
-            @include adaptiveValue("background-position-y", 165px, 220px, $minWidth, $mobile);
-            background-repeat: no-repeat;
-            background-image: url("../img/about/struts.webp");
-
-            @media (min-width: $mobile) {
-                display: none;
-            }
+            @include adaptiveValue("top", -20px, -50px, $smallMobile, $mobile);
+            left: -4vw;
+            transform: rotate(15deg);
+            width: 30vw;
+            height: 30vw;
+            stroke-width: 2vw;
+            fill: transparent;
+            stroke: $primaryColor;
         }
 
         @media (min-width: $mobile) {
-            background: url("../img/about/strut.webp") no-repeat 5% center/40% auto;
-            margin: 0;
-            @include adaptiveValue("padding", 15px, 30px, $mobile, $tablet);
+            @include adaptiveValue("top", -40px, -20px, $mobile, $tablet);
+            @include adaptiveValue("left", 0px, -20px, $mobile, $tablet);
+            width: 20vw;
+            height: 20vw;
+            stroke-width: 1vw;
+            stroke: $secondaryColor;
+        }
+
+        @media (min-width: $tablet) {
+            @include adaptiveValue("left", -20px, -110px, $tablet, 1550px);
+            width: calc($tablet * 0.2);
+            height: calc($tablet * 0.2);
+            stroke-width: calc($tablet * 0.01);
         }
     }
 
-    &__slider-thumbs {
+    &__hexagon-2 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("top", -15px, -60px, $smallMobile, $mobile);
+            right: 9vw;
+            transform: rotate(45deg);
+            width: 20vw;
+            height: 20vw;
+            stroke-width: 3vw;
+            fill: transparent;
+            stroke: $primaryColor;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("top", 0px, 0px, $mobile, $tablet);
+            right: 10vw;
+            width: 10vw;
+            height: 10vw;
+            stroke-width: 1.8vw;
+        }
+        
+        @media (min-width: $tablet) {
+            right: calc($tablet * 0.1);
+            width: calc($tablet * 0.1);
+            height: calc($tablet * 0.1);
+            stroke-width: calc($tablet * 0.018);
+        }
+    }
+
+    &__hexagon-3 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("top", 420px, 550px, $smallMobile, $mobile);
+            right: -4vw;
+            transform: rotate(15deg);
+            width: 30vw;
+            height: 30vw;
+            stroke-width: 2vw;
+            fill: transparent;
+            stroke: $secondaryColor;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("top", 250px, 380px, $mobile, $tablet);
+            right: 25vw;
+            width: 20vw;
+            height: 20vw;
+            stroke-width: 1vw;
+            stroke: $primaryColor;
+        }
+
+        @media (min-width: $tablet) {
+            right: calc($tablet * 0.25);
+            width: calc($tablet * 0.2);
+            height: calc($tablet * 0.2);
+            stroke-width: calc($tablet * 0.01);
+        }
+    }
+
+    &__content {
+        display: flex;
         position: relative;
-        margin-left: -$containerPadding;
-        margin-right: -$containerPadding;
-        @include adaptiveValue("margin-bottom", 160px, 370px, $minWidth, $mobile);
+        flex-flow: column-reverse nowrap;
+        align-items: center;
+        margin: 0 calc(-1 * $containerPadding);
+        z-index: 1;
+        color: $fourthColor;
+
+        @media (min-width: $smallMobile) {
+            width: 80%;
+            @include adaptiveValue("width", 400px, 600px, $smallMobile, $mobile);
+            margin: 0 auto;
+            @include adaptiveValue("border-radius", 20px, 30px, $smallMobile, $mobile);
+            overflow: hidden;
+        }
         
         @media (min-width: $mobile) {
-            margin-left: auto;
-            margin-right: 0;
-            @include adaptiveValue("margin-bottom", 10px, 20px, $mobile, $tablet);
+            width: 100%;
+            flex-flow: row nowrap;
+            justify-content: center;
+            @include adaptiveValue("height", 260px, 400px, $mobile, $tablet);
+            margin: 0;
+            @include adaptiveValue("border-radius", 20px, 30px, $mobile, $tablet);
         }
     }
 
     &__slider {
         position: relative;
-    } 
-}
-
-.about-thumbs {
-    @include adaptiveValue("padding-bottom", 10px, 20px, $minWidth, $mobile);
-    overflow: hidden;
-    
-    @media (min-width: $mobile) {
-        width: 55%;
-       @include adaptiveValue("padding-bottom", 10px, 20px, $mobile, $tablet);
     }
 
-    &__wrapper {
-        @include adaptiveValue("height", 130px, 160px, $minWidth, $mobile);
-        @include adaptiveValue("margin-bottom", 5px, 10px, $minWidth, $mobile);
-
-        @media (min-width: $mobile) {
-            @include adaptiveValue("height", 130px, 190px, $mobile, $tablet);
-            @include adaptiveValue("margin-bottom", 5px, 10px, $mobile, $tablet);
-         }
-    }
-
-    &__slide {
-        padding: 20px;
-        padding-right: 0px;
-        -webkit-tap-highlight-color: transparent;
-
-        @media (min-width: $mobile) {
-            @include adaptiveValue("padding", 15px, 20px, $mobile, $tablet);
-        }
-    }
-
-    &__slide-inner {
+    &__slider-thumbs {
         position: relative;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        @include adaptiveValue("border-radius", 5px, 10px, $minWidth, $mobile);
-        padding: 10px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        
-        @media (min-width: $mobile) {
-            @include adaptiveValue("border-radius", 5px, 10px, $mobile, $tablet);
-            @include adaptiveValue("padding", 5px, 10px, $mobile, $tablet);
-        }
-
-        .about-thumbs__slide:hover & {
-            transform: scale(1.05, 1.05);
-        }
-
-        .swiper-slide-thumb-active & {
-            transform: scale(1.05, 1.05);
-        } 
-
-        &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            @include adaptiveValue("border-radius", 5px, 10px, $minWidth, $mobile);
-            backdrop-filter: blur(3px);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: -1;
-            transition: backdrop-filter 0.3s ease,
-                        box-shadow 0.3s ease;
-
-            @media (min-width: $mobile) {
-                @include adaptiveValue("border-radius", 5px, 10px, $mobile, $tablet);
-            }
-
-            .about-thumbs__slide:hover & {
-                backdrop-filter: blur(6px);
-                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            }
-    
-            .swiper-slide-thumb-active & {
-                backdrop-filter: blur(6px);
-                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            } 
-        }
-    }
-
-    &__icon {
-        @include adaptiveValue("height", 40px, 60px, $minWidth, $mobile);
-        transition: opacity 0.3s ease;
-
-        @media (min-width: $mobile) {
-            @include adaptiveValue("height", 60px, 80px, $mobile, $tablet);
-        }
-    }
-
-    &__caption {
-        text-align: center;
-        @include adaptiveValue("line-height", 14px, 16px, $minWidth, $mobile);
-        @include adaptiveValue("font-size", 12px, 14px, $minWidth, $mobile);
-        font-weight: 700;
-        transition: opacity 0.3s ease;
-
-        @media (min-width: $mobile) {
-            @include adaptiveValue("line-height", 14px, 20px, $mobile, $tablet);
-            @include adaptiveValue("font-size", 12px, 16px, $mobile, $tablet);
-        }
-    }
-
-    &__scrollbar {
-        @include adaptiveValue("height", 3px, 5px, $minWidth, $mobile);
-        margin-right: $containerPadding;
-        margin-left: $containerPadding;
-        @include adaptiveValue("border-radius", 1px, 2px, $minWidth, $mobile);
-        background-color: $secondaryColor;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        cursor: grab;
-        -webkit-tap-highlight-color: transparent;
-
-        @media (min-width: $mobile) {
-            @include adaptiveValue("height", 3px, 5px, $mobile, $tablet);
-            @include adaptiveValue("border-radius", 1px, 2px, $mobile, $tablet);
-            margin-right: 0;
-            @include adaptiveValue("margin-left", 15px, 20px, $mobile, $tablet);
-        }
-
-        .swiper-scrollbar-drag {
-            @include adaptiveValue("height", 3px, 5px, $minWidth, $mobile);
-            @include adaptiveValue("border-radius", 1px, 2px, $minWidth, $mobile);
-            background-color: $primaryColor;
-
-            @media (min-width: $mobile) {
-                @include adaptiveValue("height", 3px, 5px, $mobile, $tablet);
-                @include adaptiveValue("border-radius", 1px, 2px, $mobile, $tablet);
-            }
-        }
     }
 }
 
 .about-slider {
-
+    width: 100%;
+    @include adaptiveValue("height", 200px, 350px, $minWidth, $mobile);
+    background-color: $primaryColor;
+    overflow: hidden;
+    
     @media (min-width: $mobile) {
-        width: 55%;
-        margin-left: auto;
-        padding: 0;
-        @include adaptiveValue("padding-left", 15px, 20px, $mobile, $tablet);
+        flex: 0 0 45%;
+        height: 100%;
     }
 
     &__wrapper {
-        
     }
 
     &__slide {
-        @include adaptiveValue("border-radius", 5px, 10px, $minWidth, $mobile);
-        @include adaptiveValue("padding", 10px, 20px, $minWidth, $mobile);
-        @include adaptiveValue("font-size", 14px, 20px, $minWidth, $mobile);
-        backdrop-filter: blur(4px);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        @include adaptiveValue("padding", $containerPadding, 60px, $minWidth, $mobile);
+        text-align: center;
+        text-transform: uppercase;
+        font-family: $primaryFontFamily;
+        @include adaptiveValue("line-height", 60px, 100px, $minWidth, $mobile);
+        @include adaptiveValue("font-size", 20px, 40px, $minWidth, $mobile);
+        font-weight: 700;
+        
+        @media (min-width: $mobile) {
+            @include adaptiveValue("padding", 30px, 60px, $mobile, $tablet);
+            @include adaptiveValue("line-height", 60px, 100px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 22px, 40px, $mobile, $tablet);
+        }
+    }
+
+    &__prev-button,
+    &__next-button {
+        fill: $fourthColor;
+
+        @media (any-hover: hover) { 
+
+            &:hover { 
+                fill: $secondaryColor;
+            }
+        }
+    }
+
+    &__prev-icon {
+    } 
+
+    &__next-icon {
+    }
+
+    &__pagination {
+        position: absolute;
+        left: 0;
+        bottom: 5%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        @include adaptiveValue("gap", 15px, 20px, $minWidth, $mobile);
+        width: 100%;
+        z-index: 5;
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("border-radius", 5px, 10px, $mobile, $tablet);
+            bottom: 10%;
+            @include adaptiveValue("gap", 15px, 25px, $mobile, $tablet);
+        }
+
+        .swiper-pagination-bullet {
+            display: block;
+            @include adaptiveValue("width", 20px, 30px, $minWidth, $mobile);
+            @include adaptiveValue("height", 20px, 30px, $minWidth, $mobile);
+            fill: transparent;
+            cursor: pointer;
+            transition: fill 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+
+            @media (min-width: $mobile) {
+                @include adaptiveValue("width", 15px, 30px, $mobile, $tablet);
+                @include adaptiveValue("height", 15px, 30px, $mobile, $tablet);
+            }
+
+            @media (any-hover: hover) {
+                &:hover:not(.swiper-pagination-bullet-active) {
+                    fill: $fourthColor;
+                    fill-opacity: 0.5;
+                }
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            fill: $fourthColor;
+        }
+    }
+
+    &__hexagon-bullet {
+        display: block;
+        width: 100%;
+        height: 100%;
+        stroke: $fourthColor;
+        stroke-width: 2;
+    }
+}
+
+.about-thumbs {
+    width: 100%;
+    @include adaptiveValue("height", 280px, 480px, $minWidth, $mobile);
+    background-color: $secondaryColor;
+    overflow: hidden;
+    
+    @media (min-width: $mobile) {
+        flex: 0 0 55%;
+        height: 100%;
+    } 
+
+    &__wrapper {
+    }
+
+    &__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        @include adaptiveValue("padding", $containerPadding, 40px, $minWidth, $mobile);
+        line-height: 1.2;
+        @include adaptiveValue("font-size", 14px, 24px, $minWidth, $mobile);
+
+        @media (min-width: $mobile) {
             @include adaptiveValue("padding", 15px, 30px, $mobile, $tablet);
-            @include adaptiveValue("font-size", 12px, 20px, $mobile, $tablet);
+            @include adaptiveValue("font-size", 16px, 24px, $mobile, $tablet);
         }
     }
 }

@@ -87,8 +87,8 @@ new clickAnimator([
         clickedElementClassName: '.burger_clicked',
     },
     {
-        clickableElementClassName: '.slider-button',
-        clickedElementClassName: '.slider-button_clicked',
+        clickableElementClassName: '.slider-nav-button',
+        clickedElementClassName: '.slider-nav-button_clicked',
     },
     {
         clickableElementClassName: '.footer-link',
