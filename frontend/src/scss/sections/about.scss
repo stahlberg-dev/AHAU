@@ -1,8 +1,9 @@
 .about {
-    @include adaptiveValue("padding-top", 30px, 80px);
+    padding-top: 0;
     padding-bottom: 0;
     
     @media (min-width: $smallMobile) {  
+        @include adaptiveValue("padding-top", 30px, 80px);
         @include adaptiveValue("padding-bottom", 30px, 120px);
     }
 
@@ -11,7 +12,20 @@
     }
 
     &__title {
-        @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
+        margin: 0 calc(-1 * $containerPadding);
+        padding-top: 20px;
+        background-color: $primaryColor;
+        font-size: 24px;
+        color: $fourthColor;
+
+        @media (min-width: $smallMobile) {
+            margin: 0;
+            padding: 0;
+            @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
+            background-color: transparent;
+            @include adaptiveValue("font-size", 28px, 48px, $mobile, $tablet);
+            color: $primaryColor;
+        }
     }
 
     &__hexagon-1 {
@@ -115,13 +129,14 @@
     &__content {
         display: flex;
         position: relative;
-        flex-flow: column-reverse nowrap;
+        flex-flow: column nowrap;
         align-items: center;
         margin: 0 calc(-1 * $containerPadding);
         z-index: 1;
         color: $fourthColor;
 
         @media (min-width: $smallMobile) {
+            flex-flow: column-reverse nowrap;
             width: 80%;
             @include adaptiveValue("width", 400px, 600px, $smallMobile, $mobile);
             margin: 0 auto;
@@ -150,9 +165,13 @@
 
 .about-slider {
     width: 100%;
-    @include adaptiveValue("height", 200px, 350px, $minWidth, $mobile);
+    @include adaptiveValue("height", 150px, 170px, $minWidth, $smallMobile);
     background-color: $primaryColor;
     overflow: hidden;
+
+    @media (min-width: $smallMobile) {
+        @include adaptiveValue("height", 200px, 350px, $minWidth, $mobile);
+    }
     
     @media (min-width: $mobile) {
         flex: 0 0 45%;
@@ -168,13 +187,18 @@
         align-items: center;
         width: 100%;
         height: 100%;
-        @include adaptiveValue("padding", $containerPadding, 60px, $minWidth, $mobile);
         text-align: center;
         text-transform: uppercase;
         font-family: $primaryFontFamily;
-        @include adaptiveValue("line-height", 60px, 100px, $minWidth, $mobile);
-        @include adaptiveValue("font-size", 20px, 40px, $minWidth, $mobile);
+        @include adaptiveValue("line-height", 50px, 55px, $minWidth, $smallMobile);
+        @include adaptiveValue("font-size", 20px, 30px, $minWidth, $smallMobile);
         font-weight: 700;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("padding", $containerPadding, 60px, $minWidth, $mobile);
+            @include adaptiveValue("line-height", 60px, 100px, $minWidth, $mobile);
+            @include adaptiveValue("font-size", 20px, 40px, $minWidth, $mobile);
+        }
         
         @media (min-width: $mobile) {
             @include adaptiveValue("padding", 30px, 60px, $mobile, $tablet);
@@ -202,16 +226,20 @@
     }
 
     &__pagination {
-        position: absolute;
-        left: 0;
-        bottom: 5%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        @include adaptiveValue("gap", 15px, 20px, $minWidth, $mobile);
-        width: 100%;
-        z-index: 5;
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: flex;
+            position: absolute;
+            left: 0;
+            bottom: 5%;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            @include adaptiveValue("gap", 15px, 20px, $minWidth, $mobile);
+            width: 100%;
+            z-index: 5;
+        }
 
         @media (min-width: $mobile) {
             bottom: 10%;
@@ -256,9 +284,13 @@
 
 .about-thumbs {
     width: 100%;
-    @include adaptiveValue("height", 280px, 480px, $minWidth, $mobile);
+    @include adaptiveValue("height", 280px, 320px, $minWidth, $smallMobile);
     background-color: $secondaryColor;
     overflow: hidden;
+
+    @media (min-width: $smallMobile) {
+        @include adaptiveValue("height", 280px, 480px, $minWidth, $mobile);
+    }
     
     @media (min-width: $mobile) {
         flex: 0 0 55%;

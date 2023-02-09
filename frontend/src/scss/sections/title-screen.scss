@@ -22,10 +22,10 @@
     }
 
     &__slider-pagination {
+        display: flex;
         position: absolute;
         left: 0;
         bottom: 5%;
-        display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;

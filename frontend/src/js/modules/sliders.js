@@ -80,10 +80,13 @@ export function swiperAboutSlider() {
         slidesPerView: 1, 
         spaceBetween: 0, 
         speed: 300,
-        allowTouchMove: false,
+        //allowTouchMove: false,
         loop: true,
+        //autoHeight: true,
         breakpoints: {
-
+            // 769: {
+            //     autoHeight: false,
+            // },
         }
     });
 
@@ -120,7 +123,6 @@ export function swiperAboutSlider() {
             prevEl: '.about-slider__prev-button',
         },
         breakpoints: {
-        
         }
     });
 
