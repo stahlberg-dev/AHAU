@@ -18,7 +18,7 @@
     <link rel=”alternate” hreflang=”en” href=”https://ahaumarine.com/en/”>
     <link rel=”alternate” hreflang=”ru” href=”https://ahaumarine.com/ru/”>
 
-    <link rel="stylesheet" href="/css/style.min.css?_v=20230210144401">
+    <link rel="stylesheet" href="/css/style.min.css?_v=20230210215408">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
@@ -1332,11 +1332,16 @@
             </div>
             <form class="order-popup__form form">
                 <input type="text" 
-                       class="order-popup__input order-popup__input_hidden form__model" 
+                       class="order-popup__input 
+                              form__input
+                              form__input_type_model
+                              form__input_hidden" 
                        name="model"
                        value="as250white">
                 <input type="text" 
-                       class="order-popup__input form__name" 
+                       class="order-popup__input
+                              form__input
+                              form__input_type_name" 
                        name="name" 
                        
                        
@@ -1345,7 +1350,9 @@
                        autocomplete="off"
                        required>
                 <input type="text" 
-                       class="order-popup__input form__phone" 
+                       class="order-popup__input
+                              form__input
+                              form__input_type_phone" 
                        name="phone" 
                        
                        
@@ -1353,7 +1360,9 @@
                        maxlength="50"
                        autocomplete="off">
                 <input type="text" 
-                       class="order-popup__input form__email" 
+                       class="order-popup__input
+                              form__input
+                              form__input_type_email" 
                        name="email" 
                        
                        
@@ -1362,13 +1371,17 @@
                        autocomplete="off"
                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$"
                        required>
-                <label class="order-popup__agreement">
+                <label class="order-popup__agreement form__agreement-label">
                     <input type="checkbox" 
-                           class="order-popup__agreement-input form__agreement"
+                           class="order-popup__agreement-input form__agreement-input"
                            name="agreement"
                            checked 
                            required> 
-                    <div class="order-popup__agreement-checkbox"></div>
+                    <div class="order-popup__agreement-checkbox form__agreement-checkbox">
+                        <svg class="order-popup__agreement-hexagon form__agreement-hexagon">
+                            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                        </svg>
+                    </div>
                     <span>
                         
                         
@@ -1398,7 +1411,10 @@
             </div>
             <form class="contact-popup__form form">
                 <input type="text" 
-                       class="contact-popup__input contact-popup__input_type_name form__name" 
+                       class="contact-popup__input 
+                              contact-popup__input_type_name
+                              form__input 
+                              form__input_type_name" 
                        name="name" 
                        
                        
@@ -1407,7 +1423,10 @@
                        autocomplete="off"
                        required>
                 <input type="text" 
-                       class="contact-popup__input contact-popup__input_type_phone form__phone" 
+                       class="contact-popup__input 
+                              contact-popup__input_type_phone 
+                              form__input
+                              form__input_type_phone" 
                        name="phone" 
                        
                        
@@ -1415,7 +1434,10 @@
                        maxlength="50"
                        autocomplete="off">
                 <input type="text" 
-                       class="contact-popup__input contact-popup__input_type_email form__email" 
+                       class="contact-popup__input 
+                              contact-popup__input_type_email 
+                              form__input
+                              form__input_type_email" 
                        name="email" 
                        
                        
@@ -1425,7 +1447,10 @@
                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$"
                        required>
                 <input type="text" 
-                       class="contact-popup__input contact-popup__input_type_subject form__subject" 
+                       class="contact-popup__input 
+                              contact-popup__input_type_subject 
+                              form__input
+                              form__input_type_subject" 
                        name="subject" 
                        
                        
@@ -1433,7 +1458,10 @@
                        maxlength="100"
                        autocomplete="off">
                 <textarea type="text" 
-                          class="contact-popup__input contact-popup__input_type_message form__message" 
+                          class="contact-popup__input 
+                                 contact-popup__input_type_message 
+                                 form__input
+                                 form__input_type_message" 
                           name="message"
                           
                           
@@ -1441,14 +1469,14 @@
                           maxlength="2000"
                           autocomplete="off"
                           required></textarea>
-                <label class="contact-popup__agreement">
+                <label class="contact-popup__agreement form__agreement-label">
                     <input type="checkbox" 
-                           class="contact-popup__agreement-input form__agreement"
+                           class="contact-popup__agreement-input form__agreement-input"
                            name="agreement"
                            checked 
                            required> 
-                    <div class="contact-popup__agreement-checkbox">
-                        <svg class="contact-popup__agreement-hexagon">
+                    <div class="contact-popup__agreement-checkbox form__agreement-checkbox">
+                        <svg class="contact-popup__agreement-hexagon form__agreement-hexagon">
                             <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
                         </svg>
                     </div>
@@ -1535,6 +1563,6 @@
     </div>
 </div>
 
-    <script src="/js/app.min.js?_v=20230210144401"></script>
+    <script src="/js/app.min.js?_v=20230210215408"></script>
 </body>
 </html>

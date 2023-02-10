@@ -172,9 +172,9 @@ modelSwitcher();
 
 new formHandler({
     formClassName: '.form',
-    modelInputClassName: '.form__model',
-    phoneInputClassName: '.form__phone',
-    messageInputClassName: '.form__message',
+    modelInputClassName: '.form__input_type_model',
+    phoneInputClassName: '.form__input_type_phone',
+    messageInputClassName: '.form__input_type_message',
     sendingFormClassName: '.form_sending',
     mailerConfigPath: '../api/sendLetter.php',
     successOrderPopupName: 'checkout',

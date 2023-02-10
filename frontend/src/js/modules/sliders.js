@@ -97,7 +97,7 @@ export function swiperAboutSlider() {
         watchOverflow: true,
         slidesPerView: 1,
         spaceBetween: 20,
-        speed: 300,
+        speed: 800,
         preloadImages: false,
         grabCursor: true,
         allowTouchMove: false,
