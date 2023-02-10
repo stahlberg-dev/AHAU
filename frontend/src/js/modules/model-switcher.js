@@ -42,11 +42,13 @@ export function modelSwitcher() {
 
                 if (button.classList.contains(activeTabButtonClassName.slice(1)) || !unlockTab) return;
 
-                const oldActiveButton = document.querySelector(`${activeTabButtonClassName}[${attrName}]`);
+                const oldActiveButtons = document.querySelectorAll(`${activeTabButtonClassName}[${attrName}]`);
                 const oldActiveContentBlocks = document.querySelectorAll(activeTabContentClassName);
                 unlockTab = false;
 
-                oldActiveButton.classList.remove(activeTabButtonClassName.slice(1));
+                oldActiveButtons.forEach(oldActiveButton => {
+                    oldActiveButton.classList.remove(activeTabButtonClassName.slice(1));
+                });
 
                 oldActiveContentBlocks.forEach(block => {
 
@@ -69,7 +71,12 @@ export function modelSwitcher() {
                 const newActiveContentBlocks = document
                     .querySelectorAll(`${tabContentClassName}[${tabModelAttrName}="${newActiveContentAttrName}"]`);
 
-                button.classList.add(activeTabButtonClassName.slice(1));
+                const newActiveButtons = document
+                    .querySelectorAll(`${tabButtonClassName}[${attrName}="${newActiveButtonAttrValue}"]`); 
+                    
+                newActiveButtons.forEach(newActiveButton => {
+                    newActiveButton.classList.add(activeTabButtonClassName.slice(1));
+                });
 
                 newActiveContentBlocks.forEach(block => {
 

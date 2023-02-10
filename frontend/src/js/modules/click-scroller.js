@@ -36,7 +36,7 @@ export class clickScroller {
             if (gotoBlock) {
 
                 const gotoBlockValue = gotoBlock.getBoundingClientRect().top - 
-                                        document.querySelector('.header__wrapper').offsetHeight - 20;
+                                        document.querySelector('.header__wrapper').offsetHeight;
 
                 window.scrollBy({
                     top: gotoBlockValue,
