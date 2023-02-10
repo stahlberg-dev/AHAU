@@ -22,6 +22,7 @@ $smallMobile: 480.02px;
 @import "fonts.scss";
 @import "basic_components/mixins.scss";
 @import "../../node_modules/swiper/swiper.scss";
+@import '../../node_modules/swiper/modules/thumbs/thumbs.scss';
 @import '../../node_modules/swiper/modules/effect-fade/effect-fade.scss';
 @import '../../node_modules/swiper/modules/zoom/zoom.scss';
 @import "main_page.scss";

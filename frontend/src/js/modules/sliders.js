@@ -4,7 +4,6 @@ import Swiper, {
     Pagination, 
     Thumbs, 
     Mousewheel, 
-    Scrollbar, 
     EffectFade, 
     Zoom,
 } from 'swiper';
@@ -61,13 +60,13 @@ export function swiperTitleSlider() {
 
 export function swiperAboutSlider() {
     
-    if (!document.querySelector('.about-slider')) return;
-    if (!document.querySelector('.about-thumbs')) return;
-    if (!document.querySelector('.about-slider__pagination')) return;
-    if (!document.querySelector('.about-slider__next-button')) return;
-    if (!document.querySelector('.about-slider__prev-button')) return;
+    if (!document.querySelector('.about__slider')) return;
+    if (!document.querySelector('.about__thumbs')) return;
+    if (!document.querySelector('.about__pagination')) return;
+    if (!document.querySelector('.about__next-button')) return;
+    if (!document.querySelector('.about__prev-button')) return;
 
-    const aboutSliderThumbs = new Swiper('.about-thumbs', {
+    const aboutSliderThumbs = new Swiper('.about__thumbs', {
         modules: [Thumbs, EffectFade],
         effect: 'fade',
         fadeEffect: {
@@ -80,17 +79,17 @@ export function swiperAboutSlider() {
         slidesPerView: 1, 
         spaceBetween: 0, 
         speed: 300,
-        //allowTouchMove: false,
+        allowTouchMove: false,
         loop: true,
-        //autoHeight: true,
+        autoHeight: true,
         breakpoints: {
-            // 769: {
-            //     autoHeight: false,
-            // },
+            769: {
+                autoHeight: false,
+            },
         }
     });
 
-    const aboutSlider = new Swiper('.about-slider', {
+    const aboutSlider = new Swiper('.about__slider', {
         modules: [Navigation, Pagination, Thumbs],
         observer: true,
         observeParents: true,
@@ -101,26 +100,26 @@ export function swiperAboutSlider() {
         speed: 300,
         preloadImages: false,
         grabCursor: true,
-        //allowTouchMove: true,
+        allowTouchMove: false,
         loop: true,
         thumbs: { 
             swiper: aboutSliderThumbs,
         },
         pagination: {
-            el: '.about-slider__pagination',
+            el: '.about__pagination',
             type: 'bullets',
             clickable: true,
             renderBullet: function (index, className) {
                 return `<span class="` + className + `">
-                <svg class="about-slider__hexagon-bullet">
-                <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
-                </svg>
-                </span>`;
+                        <svg class="about__hexagon-bullet">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                        </svg>
+                        </span>`;
             },
         },
         navigation: {
-            nextEl: '.about-slider__next-button',
-            prevEl: '.about-slider__prev-button',
+            nextEl: '.about__next-button',
+            prevEl: '.about__prev-button',
         },
         breakpoints: {
         }

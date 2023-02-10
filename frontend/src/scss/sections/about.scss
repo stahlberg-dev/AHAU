@@ -99,7 +99,7 @@
         @media (min-width: $smallMobile) {
             display: block;
             position: absolute;
-            @include adaptiveValue("top", 420px, 550px, $smallMobile, $mobile);
+            @include adaptiveValue("bottom", 70px, 100px, $smallMobile, $mobile);
             right: -4vw;
             transform: rotate(15deg);
             width: 30vw;
@@ -110,7 +110,7 @@
         }
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("top", 250px, 380px, $mobile, $tablet);
+            @include adaptiveValue("bottom", -80px, -140px, $mobile, $tablet);
             right: 25vw;
             width: 20vw;
             height: 20vw;
@@ -154,34 +154,41 @@
         }
     }
 
+    &__slider-container {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        @include adaptiveValue("height", 150px, 170px, $minWidth, $smallMobile);
+        @include adaptiveValue("padding-top", 20px, 30px, $minWidth, $smallMobile);
+        @include adaptiveValue("padding-bottom", 20px, 30px, $minWidth, $smallMobile);
+        @include adaptiveValue("padding-left", 40px, 50px, $minWidth, $smallMobile);
+        @include adaptiveValue("padding-right", 40px, 50px, $minWidth, $smallMobile);
+        background-color: $primaryColor;
+        overflow: hidden;
+
+        @media (min-width: $smallMobile) {
+            @include adaptiveValue("height", 200px, 350px, $minWidth, $mobile);
+            @include adaptiveValue("padding", 30px, 65px, $minWidth, $mobile);
+        }
+        
+        @media (min-width: $mobile) {
+            flex: 0 0 45%;
+            height: 100%;
+            @include adaptiveValue("padding", 40px, 70px, $mobile, $tablet);
+        }
+    }
+
     &__slider {
         position: relative;
-    }
-
-    &__slider-thumbs {
-        position: relative;
-    }
-}
-
-.about-slider {
-    width: 100%;
-    @include adaptiveValue("height", 150px, 170px, $minWidth, $smallMobile);
-    background-color: $primaryColor;
-    overflow: hidden;
-
-    @media (min-width: $smallMobile) {
-        @include adaptiveValue("height", 200px, 350px, $minWidth, $mobile);
-    }
-    
-    @media (min-width: $mobile) {
-        flex: 0 0 45%;
+        width: 100%;
         height: 100%;
+        overflow: hidden;
     }
 
-    &__wrapper {
+    &__slider-wrapper {
     }
 
-    &__slide {
+    &__slider-slide {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -195,13 +202,11 @@
         font-weight: 700;
 
         @media (min-width: $smallMobile) {
-            @include adaptiveValue("padding", $containerPadding, 60px, $minWidth, $mobile);
             @include adaptiveValue("line-height", 60px, 100px, $minWidth, $mobile);
             @include adaptiveValue("font-size", 20px, 40px, $minWidth, $mobile);
         }
         
         @media (min-width: $mobile) {
-            @include adaptiveValue("padding", 30px, 60px, $mobile, $tablet);
             @include adaptiveValue("line-height", 60px, 100px, $mobile, $tablet);
             @include adaptiveValue("font-size", 22px, 40px, $mobile, $tablet);
         }
@@ -280,27 +285,37 @@
         stroke: $fourthColor;
         stroke-width: 2;
     }
-}
 
-.about-thumbs {
-    width: 100%;
-    @include adaptiveValue("height", 280px, 320px, $minWidth, $smallMobile);
-    background-color: $secondaryColor;
-    overflow: hidden;
+    &__thumbs-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        //@include adaptiveValue("height", 280px, 320px, $minWidth, $smallMobile);
+        background-color: $secondaryColor;
+        overflow: hidden;
 
-    @media (min-width: $smallMobile) {
-        @include adaptiveValue("height", 280px, 480px, $minWidth, $mobile);
+        @media (min-width: $smallMobile) {
+            //@include adaptiveValue("height", 280px, 480px, $minWidth, $mobile);
+        }
+        
+        @media (min-width: $mobile) {
+            flex: 0 0 55%;
+            height: 100%;
+        } 
     }
-    
-    @media (min-width: $mobile) {
-        flex: 0 0 55%;
+
+    &__thumbs {
+        position: relative;
+        width: 100%;
         height: 100%;
-    } 
-
-    &__wrapper {
+        overflow: hidden;
     }
 
-    &__slide {
+    &__thumbs-wrapper {
+    }
+
+    &__thumbs-slide {
         display: flex;
         justify-content: center;
         align-items: center;
