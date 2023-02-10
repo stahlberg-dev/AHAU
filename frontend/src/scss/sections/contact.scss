@@ -13,6 +13,7 @@
 
     &__content {
         display: flex;
+        position: relative;
         flex-flow: column nowrap;
         justify-content: space-between;
         
@@ -23,7 +24,71 @@
         }
     }
 
+    &__hexagon-1 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("bottom", 250px, 270px, $smallMobile, $mobile);
+            left: 35vw;
+            transform: rotate(15deg);
+            width: 50vw;
+            height: 50vw;
+            stroke-width: 3vw;
+            fill: transparent;
+            stroke: #efeff7;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("bottom", -30px, -40px, $mobile, $tablet);
+            @include adaptiveValue("left", 10px, 20px, $mobile, $tablet);
+            width: 35vw;
+            height: 35vw;
+            stroke-width: 2vw;
+        }
+
+        @media (min-width: $tablet) {
+            width: calc($tablet * 0.35);
+            height: calc($tablet * 0.35);
+            stroke-width: calc($tablet * 0.02);
+        }
+    }
+
+    &__hexagon-2 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("top", 470px, 550px, $smallMobile, $mobile);
+            right: 5vw;
+            transform: rotate(45deg);
+            width: 25vw;
+            height: 25vw;
+            stroke-width: 5vw;
+            fill: transparent;
+            stroke: #dfdee7;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("top", -110px, -210px, $mobile, $tablet);
+            right: 2vw;
+            width: 23vw;
+            height: 23vw;
+            stroke-width: 2vw;
+        }
+        
+        @media (min-width: $tablet) {
+            right: calc($tablet * 0.02);
+            width: calc($tablet * 0.23);
+            height: calc($tablet * 0.23);
+            stroke-width: calc($tablet * 0.02);
+        }
+    }
+
     &__info {
+        z-index: 1;
 
         @media (min-width: $mobile) {
             flex: 0 0 35%;
@@ -46,6 +111,7 @@
     }
 
     &__questions {
+        z-index: 1;
 
         @media (min-width: $mobile) {
             flex: 1 1 auto;
@@ -161,28 +227,6 @@
     }
 
     &__input {
-        width: 100%;
-        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-top", 8px, 14px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-bottom", 8px, 14px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-left", 15px, 30px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("padding-right", 15px, 30px, $smallMobile, $maxContainerWidth);
-        //box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
-        background-color: $fourthColor;
-        font-family: $secondaryFontFamily;
-        @include adaptiveValue("line-height", 20px, 22px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 16px, 20px, $smallMobile, $maxContainerWidth);
-        font-weight: 400;
-        color: $secondaryColor;
-
-        &::placeholder {
-            color: $secondaryColor;
-            transition: color 0.3s ease;
-        }
-
-        &:focus::placeholder {
-            color: transparent;
-        }
 
         &_type_name {
 
@@ -217,8 +261,6 @@
         }
 
         &_type_message {
-            @include adaptiveValue("min-height", 120px, 200px, $smallMobile, $maxContainerWidth);
-            resize: vertical;
 
             @media (min-width: $smallMobile) {
                 grid-column: 1/3; 
@@ -228,16 +270,7 @@
     }
 
     &__agreement {
-        justify-self: start;
-        display: flex;
-        position: relative;
-        align-items: flex-start;
-        width: 100%;
-        @include adaptiveValue("line-height", 14px, 16px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("font-size", 12px, 14px, $smallMobile, $maxContainerWidth);
-        font-weight: 400;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
+        color: $secondaryColor;
 
         @media (min-width: $smallMobile) {
             grid-column: 1/3; 
@@ -246,44 +279,16 @@
     }
 
     &__agreement-input {
-        display: block;
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
     }
 
     &__agreement-checkbox {
-        position: relative;
-        flex-grow: 0;
-        flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 14px, 16px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("height", 14px, 16px, $smallMobile, $maxContainerWidth);
-        margin-right: 10px;
-        border-radius: 50%;
-        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
-        background-color:#FFF;
+    }
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid #FFF;
-            background-color: $primaryColor;
-            transform: scale(0);
-            transition: transform 0.3s ease;
-
-            .question-form__agreement-input:checked + & {
-                transform: scale(1);
-            }
-        }
+    &__agreement-hexagon {
+        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
     }
 
     &__button {
-        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
 
         @media (min-width: $smallMobile) {
             grid-column: 1/2; 
@@ -293,88 +298,9 @@
     }
 
     &__button-text {
-        @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
     }
 
     &__sending-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(235, 234, 240, 0.8);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity  0.2s ease;
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 7px solid $secondaryColor;
-            opacity: 0.7;
-
-            @media (min-width: $smallMobile) {
-                width: 50px;
-                height: 50px;
-                border-width: 8px;
-            }
-
-            @media (min-width: $mobile) {
-                width: 60px;
-                height: 60px;
-                border-width: 10px;
-            }
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 7px solid transparent;
-            border-right-color: $primaryColor;
-            animation: none;
-
-            @media (min-width: $smallMobile) {
-                width: 50px;
-                height: 50px;
-                border-width: 8px;
-            }
-
-            @media (min-width: $mobile) {
-                width: 60px;
-                height: 60px;
-                border-width: 10px;
-            }
-
-            .form_sending & {
-                animation: loading 1s linear infinite;
-            }
-
-            @keyframes loading {
-                from {
-                    transform: translate(-50%, -50%) rotate(0deg);
-                }
-                to {
-                    transform: translate(-50%, -50%) rotate(360deg);
-                }
-            }
-        }
-
-        .form_sending & {
-            opacity: 1;
-            pointer-events: auto;
-        }
     }
 }
 

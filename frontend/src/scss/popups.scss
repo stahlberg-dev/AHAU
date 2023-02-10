@@ -206,14 +206,10 @@
 
     &__button {
         width: 100%;
-        flex-grow: 0;
-        flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 36px, 50px, $smallMobile, $maxContainerWidth);
-        @include adaptiveValue("height", 36px, 50px, $smallMobile, $maxContainerWidth);
+        flex: 0 0 auto;
     }
     
     &__button-text {
-        @include adaptiveValue("font-size", 18px, 24px, $smallMobile, $maxContainerWidth);
     }
 
     &__sending-screen {  

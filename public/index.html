@@ -18,7 +18,7 @@
     <link rel=”alternate” hreflang=”en” href=”https://ahaumarine.com/en/”>
     <link rel=”alternate” hreflang=”ru” href=”https://ahaumarine.com/ru/”>
 
-    <link rel="stylesheet" href="/css/style.min.css?_v=20230210215408">
+    <link rel="stylesheet" href="/css/style.min.css?_v=20230211002919">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
@@ -1091,6 +1091,12 @@
             
         </h2>
         <div class="contact__content">
+            <svg class="contact__hexagon-1">
+                <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+            </svg>   
+            <svg class="contact__hexagon-2">
+                <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+            </svg>   
             <div class="contact__info">
                 <div class="contact__info-block info-block">
                     <div class="info-block__title">
@@ -1155,7 +1161,10 @@
                 </h3>
                 <form class="contact__question-form question-form form">
                     <input type="text" 
-                           class="question-form__input question-form__input_type_name form__name" 
+                           class="question-form__input 
+                                  question-form__input_type_name 
+                                  form__input 
+                                  form__input_type_name" 
                            name="name" 
                            placeholder="Adınız*"
                            
@@ -1164,7 +1173,10 @@
                            autocomplete="off"
                            required>
                     <input type="text" 
-                           class="question-form__input question-form__input_type_phone form__phone" 
+                           class="question-form__input 
+                                  question-form__input_type_phone 
+                                  form__input
+                                  form__input_type_phone" 
                            name="phone" 
                            placeholder="Telefon"
                            
@@ -1172,7 +1184,10 @@
                            maxlength="50"
                            autocomplete="off">
                     <input type="text" 
-                           class="question-form__input question-form__input_type_email form__email" 
+                           class="question-form__input 
+                                  question-form__input_type_email 
+                                  form__input
+                                  form__input_type_email" 
                            name="email" 
                            placeholder="E-posta*"
                            
@@ -1182,7 +1197,10 @@
                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$"
                            required>
                     <input type="text" 
-                           class="question-form__input question-form__input_type_subject form__subject" 
+                           class="question-form__input 
+                                  question-form__input_type_subject 
+                                  form__input
+                                  form__input_type_subject" 
                            name="subject" 
                            placeholder="Konu"
                            
@@ -1190,7 +1208,10 @@
                            maxlength="100"
                            autocomplete="off">
                     <textarea type="text" 
-                              class="question-form__input question-form__input_type_message form__message" 
+                              class="question-form__input 
+                                     question-form__input_type_message 
+                                     form__input
+                                     form__input_type_message" 
                               name="message"
                               placeholder="Mesajınız*"
                               
@@ -1198,13 +1219,17 @@
                               maxlength="2000"
                               autocomplete="off"
                               required></textarea>
-                    <label class="question-form__agreement">
+                    <label class="question-form__agreement form__agreement-label">
                         <input type="checkbox" 
-                               class="question-form__agreement-input form__agreement"
+                               class="question-form__agreement-input form__agreement-input"
                                name="agreement"
                                checked 
                                required> 
-                        <div class="question-form__agreement-checkbox"></div>
+                        <div class="question-form__agreement-checkbox form__agreement-checkbox">
+                            <svg class="question-form__agreement-hexagon form__agreement-hexagon">
+                                <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                            </svg>
+                        </div>
                         <span>
                             Kişisel verilerimin işlenmesini kabul ediyorum
                             
@@ -1562,6 +1587,6 @@
     </div>
 </div>
 
-    <script src="/js/app.min.js?_v=20230210215408"></script>
+    <script src="/js/app.min.js?_v=20230211002919"></script>
 </body>
 </html>
