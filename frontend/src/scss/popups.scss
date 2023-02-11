@@ -109,7 +109,7 @@
         background-color: $secondaryColor;
 
         @media (min-width: $mobile) {
-            @include adaptiveValue("width", 620px, 980px, $mobile, $tablet);
+            @include adaptiveValue("width", 620px, 1000px, $mobile, $tablet);
             @include adaptiveValue("padding-left", 20px, 40px, $smallMobile, $tablet);
             @include adaptiveValue("padding-right", 20px, 40px, $smallMobile, $tablet);
             background: linear-gradient(to right, $secondaryColor 50%, $fourthColor 50%, $fourthColor 100%);
