@@ -15,7 +15,6 @@
         margin: 0 calc(-1 * $containerPadding);
         padding-top: 20px;
         background-color: $primaryColor;
-        font-size: 24px;
         color: $fourthColor;
 
         @media (min-width: $smallMobile) {
@@ -23,7 +22,6 @@
             padding: 0;
             @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
             background-color: transparent;
-            @include adaptiveValue("font-size", 28px, 48px, $mobile, $tablet);
             color: $primaryColor;
         }
     }

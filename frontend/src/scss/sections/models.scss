@@ -2,15 +2,14 @@
     @include adaptiveValue("padding-top", 30px, 80px);
     @include adaptiveValue("padding-bottom", 30px, 80px);
     background-color: $thirdColor;
-
+    
     &__container {
-
     }
-
+    
     &__title {
         @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
     }
-
+    
     &__content {
         display: flex;
         flex-flow: column nowrap;
