@@ -51,7 +51,7 @@
             display: block;
             position: absolute;
             @include adaptiveValue("top", 30px, 0px, $smallMobile, $mobile);
-            right: 2vw;
+            right: -2vw;
             transform: rotate(68deg);
             width: 30vw;
             height: 30vw;
@@ -84,7 +84,7 @@
         margin: 0 auto;
 
         @media (min-width: $smallMobile) {
-            width: 70%;
+            width: 80%;
         }
 
         @media (min-width: $mobile) {
@@ -230,11 +230,11 @@
                 }
 
                 [lang="en"] & {
-                    @include adaptiveValue("flex-basis", 280px, 500px, $minWidth, $mobile);
+                    @include adaptiveValue("flex-basis", 280px, 460px, $minWidth, $mobile);
                 }
 
                 [lang="tr"] & {
-                    @include adaptiveValue("flex-basis", 280px, 480px, $minWidth, $mobile);
+                    @include adaptiveValue("flex-basis", 280px, 460px, $minWidth, $mobile);
                 }
             }
 
@@ -277,7 +277,9 @@
     }
 
     &__paragraph {
-        @include adaptiveValue("margin-bottom", 5px, 10px, $minWidth, $mobile);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 5px, 10px, $minWidth, $mobile);
+        }
 
         @media (min-width: $mobile) {
 
