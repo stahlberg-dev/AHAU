@@ -1,0 +1,154 @@
+<section class="main__health health">
+    <div class="health__container container">
+        <h2 class="health__title title">
+            @@if (context.lang == 'tr'){
+                Omurga Sağlığı 
+            }
+            @@if (context.lang == 'en'){
+                Spine health
+            }
+            @@if (context.lang == 'ru'){
+                Здоровье позвоночника
+            }
+        </h2>
+        <svg class="health__hexagon-1">
+            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+        </svg>   
+        <svg class="health__hexagon-2">
+            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+        </svg> 
+        <div class="health__content">  
+            <div data-health-button="danger" class="health__button health__button_type_danger">
+                <svg class="health__button-icon">
+                    <use xlink:href="/img/icon_sprite/sprite.svg#trapezoid"></use>
+                </svg>
+                <div class="health__button-text">
+                    @@if (context.lang == 'tr'){Tehlike}
+                    @@if (context.lang == 'en'){Danger}
+                    @@if (context.lang == 'ru'){Опасность}
+                </div>
+            </div> 
+            <div data-health-frame="danger" class="health__frame health__frame_type_danger">
+                <div class="health__text health__text_type_danger">
+                    @@if (context.lang == 'tr'){
+                        <p class="health__paragraph">
+                            Yüksek hızlı bir geminin dalgalara «sıçraması» sırasında,
+                            yolcunun omurgası ciddi yaralanmalara yol açabilecek
+                            tehlikeli yüklere maruz kalmaktadır.
+                        </p>
+                        <p class="health__paragraph">
+                            Aşağı doğru hareket ederken, omurga gerilir ve bu hareket aniden
+                            geminin başka bir dalgaya çarpmasıyla
+                            durduğunda keskin bir şekilde daralır.
+                            Düzenli statik-dinamik aşırı yükler, omurga dokularında kademeli
+                            değişikliklere, disklerin,
+                            eklemlerin ve bağların erken aşınmasına neden olur.
+                        </p>
+                        <p class="health__paragraph">
+                            Vertebral kolondaki tek seferlik yük kritik değerleri aşarsa,
+                            çeşitli spinal yaralanmalar mümkündür: çürükler,
+                            intervertebral disklerdeki yaralanmalar ve vertebral
+                            cisimlerin yer değiştirmeleri ve kompresyon kırıkları.
+                            Lomber bölge, bu vakalarda en çok travmatize edilen bölgelerden biridir.
+                        </p> 
+                    }
+                    @@if (context.lang == 'en'){
+                        <p class="health__paragraph">
+                            During the "splashing" of a high-speed ship on the waves,
+                            the passenger's spine is exposed to dangerous loads
+                            that can lead to serious injuries.
+                        </p>
+                        <p class="health__paragraph">
+                            When moving down,
+                            the keel is stretched and sharply narrows,
+                            when this movement suddenly stops with
+                            the impact of the ship on another wave.
+                            Regular static-dynamic overloads lead to gradual changes
+                            in the tissues of the spine, premature wear of discs,
+                            joints and ligaments.
+                        </p>
+                        <p class="health__paragraph">
+                            If the one-time load on the vertebral column exceeds critical values,
+                            various spinal injuries are possible: bruises,
+                            injuries to the intervertebral discs
+                            and displacements of the vertebral bodies, as well as compression fractures.
+                            The lumbar region is one of the most traumatized in these cases.
+                        </p>
+                    }
+                    @@if (context.lang == 'ru'){
+                        <p class="health__paragraph">
+                            Во время «прыжков» скоростного судна по волнам,
+                            позвоночник пассажира подвергается опасным нагрузкам,
+                            способным привести к серьёзным травмам.
+                        </p>
+                        <p class="health__paragraph">
+                            При движении вниз позвоночный столб претерпевает растяжение,
+                            а когда это движение внезапно прекращается ударом судна
+                            об очередную волну – резко сжимается.
+                            Регулярные статико-динамические перегрузки
+                            приводят к постепенным изменениям в тканях позвоночника,
+                            преждевременному износу дисков, суставов и связок.
+                        </p>
+                        <p class="health__paragraph">
+                            Если единовременная нагрузка на позвоночный столб превышает
+                            критические значения, возможны спинальные травмы разных видов:
+                            ушибы, повреждения межпозвонковых дисков,
+                            а также смещения и компрессионные переломы тел позвонков.
+                            Поясничный отдел – одна из наиболее травмируемых в этих случаях областей.
+                        </p>
+                    }
+                </div>
+            </div>
+            <div class="health__image">
+                <img src="/img/health/health.jpg" loading="lazy" alt="spine" class="health__photo">
+            </div>
+            <div data-health-frame="solution" class="health__frame health__frame_type_solution">
+                <div class="health__text health__text_type_solution">
+                    @@if (context.lang == 'tr'){
+                        <p class="health__paragraph">
+                            AHAU yastıklama direkleri, yüksek hızlı gemilerde sürekli seyahatlerde bile
+                            omurga dokularındaki yaralanmaları ve dejeneratif değişiklikleri
+                            ortadan kaldırarak dikey yükleri önemli ölçüde azaltır.
+                        </p>
+                        <p class="health__paragraph">
+                            Amortisörün sertlik derecesini ve direğin yüksekliğini ayarlayarak,
+                            farklı boy ve ağırlıktaki insanlar bunu kullanabilir.
+                        </p> 
+                    }
+                    @@if (context.lang == 'en'){
+                        <p class="health__paragraph">
+                            AHAU cushioning masts significantly reduce vertical loads
+                            by eliminating injuries and degenerative changes
+                            in spinal tissues even during continuous trips on high-speed ships.
+                        </p>
+                        <p class="health__paragraph">
+                            By adjusting the degree of rigidity of the shock absorber and the height of the mast,
+                            people of different heights and weights can use it.
+                        </p>
+                    }
+                    @@if (context.lang == 'ru'){
+                        <p class="health__paragraph">
+                            Амортизационные стойки AHAU существенно уменьшают вертикальные нагрузки,
+                            исключая травмы и дегенеративные изменения
+                            в тканях позвоночника даже при постоянных поездках на скоростных судах.
+                        </p>
+                        <p class="health__paragraph">
+                            За счёт регулировки степени жёсткости амортизатора
+                            и высоты стойки использовать её могут люди различного роста и веса.
+                        </p>
+                    }
+                </div>
+            </div>
+            <div data-health-button="solution" class="health__button health__button_type_solution">
+                <svg class="health__button-icon">
+                    <use xlink:href="/img/icon_sprite/sprite.svg#trapezoid"></use>
+                </svg>
+                <div class="health__button-text">
+                    @@if (context.lang == 'tr'){AHAU solution}
+                    @@if (context.lang == 'en'){AHAU solution}
+                    @@if (context.lang == 'ru'){Решение AHAU}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

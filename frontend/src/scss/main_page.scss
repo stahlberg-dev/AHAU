@@ -58,6 +58,9 @@ body {
     &__models {
     }
 
+    &__health {
+    }
+
     &__contact {
     }
 }
@@ -419,4 +422,5 @@ body {
 @import "sections/title-screen.scss";
 @import "sections/about.scss";
 @import "sections/models.scss";
+@import "sections/health.scss";
 @import "sections/contact.scss";

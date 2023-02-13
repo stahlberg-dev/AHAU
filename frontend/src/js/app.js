@@ -7,6 +7,7 @@ import {spoilers} from "./modules/spoilers.js";
 import {clickScroller} from "./modules/click-scroller.js";
 import {clickAnimator} from "./modules/click-animation.js";
 import {modelSwitcher} from "./modules/model-switcher.js";
+import {labelLinksMaker} from "./modules/label-links.js";
 import {formHandler} from "./modules/forms.js";
 
 //----- Add Loaded Class --------------------------------------------------------------------
@@ -165,6 +166,19 @@ sliders.modelSlider_as425_b();
 //----- Model switcher ----------------------------------------------------------------------
 
 modelSwitcher();
+
+//-------------------------------------------------------------------------------------------
+
+//----- Health ------------------------------------------------------------------------------
+
+new labelLinksMaker({
+    linkAttributeName: 'data-health-button',
+    activeLinkClassName: '.health__button_active',
+    labelAttributeName: 'data-health-frame',
+    activeLabelClassName: '.health__frame_active',
+    onlyClick: true,
+    showHideTime: 300,
+}).init();
 
 //-------------------------------------------------------------------------------------------
 

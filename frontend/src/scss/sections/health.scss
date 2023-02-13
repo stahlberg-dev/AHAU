@@ -1,0 +1,289 @@
+.health {
+    @include adaptiveValue("padding-top", 30px, 80px);
+    @include adaptiveValue("padding-bottom", 30px, 80px);
+    background-color: $secondaryColor;
+
+    &__container {
+        position: relative;
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 30px, 60px, $mobile, $tablet);
+        color: $fourthColor;
+    }
+
+    &__hexagon-1 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("bottom", -40px, -70px, $smallMobile, $mobile);
+            left: -5vw;
+            transform: rotate(15deg);
+            width: 50vw;
+            height: 50vw;
+            stroke-width: 4vw;
+            fill: transparent;
+            stroke: #1E2C57;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("bottom", -70px, -100px, $mobile, $tablet);
+            @include adaptiveValue("left", -20px, -50px, $mobile, $tablet);
+            width: 35vw;
+            height: 35vw;
+            stroke-width: 2.5vw;
+        }
+
+        @media (min-width: $tablet) {
+            left: -7vw;
+            width: calc($tablet * 0.35);
+            height: calc($tablet * 0.35);
+            stroke-width: calc($tablet * 0.025);
+        }
+    }
+
+    &__hexagon-2 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("top", 30px, 0px, $smallMobile, $mobile);
+            right: 2vw;
+            transform: rotate(68deg);
+            width: 30vw;
+            height: 30vw;
+            stroke-width: 5vw;
+            fill: transparent;
+            stroke: #273562;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("top", -20px, -40px, $mobile, $tablet);
+            right: 0;
+            width: 30vw;
+            height: 30vw;
+            stroke-width: 2.5vw;
+        }
+        
+        @media (min-width: $tablet) {
+            right: -3vw;
+            width: calc($tablet * 0.3);
+            height: calc($tablet * 0.3);
+            stroke-width: calc($tablet * 0.025);
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+
+        @media (min-width: $smallMobile) {
+            width: 70%;
+        }
+
+        @media (min-width: $mobile) {
+            flex-flow: row nowrap;
+            justify-content: center;
+            width: 100%;
+            @include adaptiveValue("height", 250px, 450px, $mobile, $tablet);
+            margin: 0;
+        }
+    }
+
+    &__button {
+        position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include adaptiveValue("flex-basis", 50px, 80px, $minWidth, $mobile);
+        @include adaptiveValue("height", 50px, 80px, $minWidth, $mobile);
+        aspect-ratio: 107/350;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("flex-basis", 60px, 100px, $mobile, $tablet);
+            @include adaptiveValue("width", 60px, 100px, $mobile, $tablet);
+            height: auto;
+        }
+    }
+
+    &__button-icon {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        @include adaptiveValue("width", 50px, 80px, $minWidth, $mobile);
+        aspect-ratio: 107/350;
+        fill: $fourthColor;
+        transition: fill 0.3s ease;
+
+        .health__button_type_danger & {
+            transform: translate(-50%, -50%) rotate(-90deg);
+        }
+
+        @media (min-width: $mobile) {
+            transform: translate(-50%, -50%);
+            @include adaptiveValue("width", 60px, 100px, $mobile, $tablet);
+            height: auto;
+
+            .health__button_type_danger & {
+                transform: translate(-50%, -50%) rotate(180deg);
+            }
+        }
+
+        @media (any-hover: hover) {
+
+            .health__button:hover & {
+                fill: $primaryColor;
+            }
+        }
+
+        .health__button_active & {
+            fill: $primaryColor;
+        }
+    }
+
+    &__button-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        @include adaptiveValue("font-size", 14px, 24px, $minWidth, $mobile);
+        font-weight: 700;
+        transition: color 0.3s ease;
+
+        .health__button_type_solution & {
+
+            @media (min-width: $mobile) {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+        }
+
+        @media (min-width: $mobile) {
+            transform: translate(-50%, -50%) rotate(-90deg);
+            @include adaptiveValue("font-size", 18px, 24px, $mobile, $tablet);
+        }
+
+        @media (any-hover: hover) {
+
+            .health__button:hover & {
+                color: $fourthColor;
+            }
+        }
+
+        .health__button_active & {
+            color: $fourthColor;
+        }
+    }
+
+    &__image {
+        flex: 0 0 auto;
+        z-index: 1;
+        width: 100%;
+        
+        @media (min-width: $mobile) {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    &__photo {
+        display: block;
+        width: 100%;
+
+        @media (min-width: $mobile) {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    &__frame {
+        position: relative;
+        flex-grow: 0;
+        flex-basis: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: $fourthColor;
+        transition: flex-grow 0.3s ease-in-out, 
+                    flex-basis 0.3s ease-in-out;
+
+        @media (min-width: $mobile) {
+            width: auto;
+            height: 100%;
+        }
+
+        &_active {
+            flex-grow: 1;
+
+            &.health__frame_type_danger {
+
+                [lang="ru"] & {
+                    @include adaptiveValue("flex-basis", 340px, 560px, $minWidth, $mobile);
+                }
+
+                [lang="en"] & {
+                    @include adaptiveValue("flex-basis", 280px, 500px, $minWidth, $mobile);
+                }
+
+                [lang="tr"] & {
+                    @include adaptiveValue("flex-basis", 280px, 480px, $minWidth, $mobile);
+                }
+            }
+
+            &.health__frame_type_solution {
+                @include adaptiveValue("flex-basis", 150px, 300px, $minWidth, $mobile);
+            }
+
+
+            @media (min-width: $mobile) {
+
+                &.health__frame_type_danger,
+                &.health__frame_type_solution {
+                    flex-basis: auto;
+                }
+            }
+        }
+    }
+
+    &__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        @include adaptiveValue("font-size", 10px, 18px, $minWidth, $mobile);
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("width", 300px, 580px, $mobile, $tablet);
+            line-height: 1.2;
+            @include adaptiveValue("font-size", 10px, 18px, $mobile, $tablet);
+        }
+
+        &_type_solution {
+            font-weight: 700;
+
+            @media (min-width: $mobile) {
+                @include adaptiveValue("font-size", 15px, 24px, $mobile, $tablet);
+            }
+        }
+    }
+
+    &__paragraph {
+        @include adaptiveValue("margin-bottom", 5px, 10px, $minWidth, $mobile);
+
+        @media (min-width: $mobile) {
+
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 10px, 20px, $mobile, $tablet);
+            }
+        }
+    }
+}
