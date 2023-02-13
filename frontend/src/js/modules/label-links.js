@@ -7,6 +7,7 @@ export class labelLinksMaker {
         this.activeLabelClassName = config.activeLabelClassName;
         this.onMouseLeaveHide = config.onMouseLeaveHide;
         this.onlyClick = config.onlyClick;
+        this.missClick = config.missClick;
         this.showHideTime = config.showHideTime;
         this.visibleLabelNames = config.visibleLabelNames;
     }
@@ -155,6 +156,7 @@ export class labelLinksMaker {
         labelAttributeName,
         activeLabelClassName,
         onlyClick,
+        missClick,
         showHideTime,
     }) {
 
@@ -170,19 +172,23 @@ export class labelLinksMaker {
             const closestLink = event.target.closest(`[${linkAttributeName}]`);
             const isActive = closestLink?.classList.contains( activeLinkClassName.slice(1) );
 
-            activeLinks.forEach(activeLink => {
-                activeLink.classList.remove( activeLinkClassName.slice(1) );
-            });
+            if (missClick || closestLink && !isActive) {
 
-            activeLabels.forEach(activeLabel => {
-
-                activeLabel.classList.remove( activeLabelClassName.slice(1) );
-
-                setTimeout(() => {
-                    activeLabel.style.visibility = 'hidden';
-                }, showHideTime);
-
-            });
+                activeLinks.forEach(activeLink => {
+                    activeLink.classList.remove( activeLinkClassName.slice(1) );
+                });
+    
+                activeLabels.forEach(activeLabel => {
+    
+                    activeLabel.classList.remove( activeLabelClassName.slice(1) );
+    
+                    setTimeout(() => {
+                        activeLabel.style.visibility = 'hidden';
+                    }, showHideTime);
+    
+                });
+                
+            }
 
             if (closestLink && !isActive) {
 

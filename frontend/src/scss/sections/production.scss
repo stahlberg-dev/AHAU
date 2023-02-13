@@ -1,0 +1,327 @@
+.production {
+    @include adaptiveValue("padding-top", 30px, 80px);
+    @include adaptiveValue("padding-bottom", 30px, 80px);
+    background-color: $thirdColor;
+
+    &__container {
+        position: relative;
+    }
+
+    &__title {
+        color: $primaryColor;
+        @include adaptiveValue("margin-bottom", 60px, 110px, $minWidth, $mobile);
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-bottom", 90px, 150px, $mobile, $tablet);
+        }
+    }
+
+    &__hexagon-1 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("top", 20px, 50px, $smallMobile, $mobile);
+            left: -7vw;
+            transform: rotate(15deg);
+            width: 30vw;
+            height: 30vw;
+            stroke-width: 2vw;
+            fill: transparent;
+            stroke: $secondaryColor;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("top", 40px, 140px, $mobile, $tablet);
+            @include adaptiveValue("left", 0px, -20px, $mobile, $tablet);
+            width: 25vw;
+            height: 25vw;
+            stroke-width: 1.2vw;
+        }
+
+        @media (min-width: $tablet) {
+            @include adaptiveValue("left", -20px, -110px, $tablet, 1550px);
+            width: calc($tablet * 0.25);
+            height: calc($tablet * 0.25);
+            stroke-width: calc($tablet * 0.012);
+        }
+    }
+
+    &__hexagon-2 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("top", -15px, -60px, $smallMobile, $mobile);
+            right: 9vw;
+            transform: rotate(78deg);
+            width: 20vw;
+            height: 20vw;
+            stroke-width: 3vw;
+            fill: transparent;
+            stroke: $secondaryColor;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("top", 20px, -60px, $mobile, $tablet);
+            right: 12vw;
+            width: 15vw;
+            height: 15vw;
+            stroke-width: 1.8vw;
+        }
+        
+        @media (min-width: $tablet) {
+            right: calc($tablet * 0.12);
+            width: calc($tablet * 0.15);
+            height: calc($tablet * 0.1);
+            stroke-width: calc($tablet * 0.018);
+        }
+    }
+
+    &__hexagon-3 {
+        display: none;
+
+        @media (min-width: $smallMobile) {
+            display: block;
+            position: absolute;
+            @include adaptiveValue("bottom", 100px, 130px, $smallMobile, $mobile);
+            right: -8vw;
+            transform: rotate(15deg);
+            width: 40vw;
+            height: 40vw;
+            stroke-width: 1.5vw;
+            fill: transparent;
+            stroke: $primaryColor;
+        }
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("bottom", 20px, -20px, $mobile, $tablet);
+            right: -7vw;
+            width: 40vw;
+            height: 40vw;
+            stroke-width: 0.7vw;
+            stroke: $primaryColor;
+        }
+
+        @media (min-width: $tablet) {
+            right: calc($tablet * -0.07);
+            width: calc($tablet * 0.4);
+            height: calc($tablet * 0.4);
+            stroke-width: calc($tablet * 0.007);
+        }
+    }
+
+    &__content {
+    }
+
+    &__links {
+        position: relative;
+        @include adaptiveValue("margin-bottom", 30px, 60px, $minWidth, $mobile);
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-bottom", 50px, 70px, $mobile, $tablet);
+        }
+    }
+
+    &__curve {
+        display: block;
+        width: 100%;
+        aspect-ratio: 972/423;
+        margin: 0 auto;
+
+        @media (min-width: $smallMobile) {
+            width: 80%;
+        }
+
+        @media (min-width: $mobile) {
+            width: 50%;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        width: 8%;
+        aspect-ratio: 1;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (min-width: $smallMobile) {
+            width: 6%;
+        }
+
+        @media (min-width: $mobile) {
+            width: 4%;
+        }
+
+        &_name_constructions {
+            top: -7%;
+            left: 20%;
+
+            @media (min-width: $smallMobile) {
+                top: -6%;
+                left: 25%;
+            }
+
+            @media (min-width: $mobile) {
+                top: -7%;
+                left: 34%;
+            }
+        }
+
+        &_name_respond {
+            top: -7%;
+            left: 72%;
+
+            @media (min-width: $smallMobile) {
+                top: -6%;
+                left: 68%;
+            }
+
+            @media (min-width: $mobile) {
+                top: -7%;
+                left: 62%;
+            }
+        }
+
+        &_name_universality {
+            top: 41.5%;
+            left: 20%;
+
+            @media (min-width: $smallMobile) {
+                top: 42.5%;
+                left: 25%;
+            }
+
+            @media (min-width: $mobile) {
+                top: 41.5%;
+                left: 34%;
+            }
+        }
+
+        &_name_materials {
+            top: 41.5%;
+            left: 72%;
+
+            @media (min-width: $smallMobile) {
+                top: 42.5%;
+                left: 68%;
+            }
+
+            @media (min-width: $mobile) {
+                top: 41.5%;
+                left: 62%;
+            }
+        }
+
+        &_name_precision {
+            top: 88.5%;
+            left: 20%;
+
+            @media (min-width: $smallMobile) {
+                top: 89%;
+                left: 25%;
+            }
+
+            @media (min-width: $mobile) {
+                top: 88.5%;
+                left: 34%;
+            }
+        }
+
+        &_name_testing {
+            top: 88.5%;
+            left: 72%;
+
+            @media (min-width: $smallMobile) {
+                top: 89%;
+                left: 68%;
+            }
+
+            @media (min-width: $mobile) {
+                top: 88.5%;
+                left: 62%;
+            }
+        }
+    }
+
+    &__link-icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        stroke-width: 3;
+        stroke: $fourthColor;
+        fill: $secondaryColor;
+        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
+        transition: fill 0.3s ease;
+
+        .production__link_active & {
+            fill: $primaryColor;
+        }
+    }
+
+    &__link-text {
+        position: absolute;
+        display: inline-block;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -110%);
+        text-align: center;
+        line-height: 1.2;
+        @include adaptiveValue("font-size", 10px, 20px, $minWidth, $mobile);
+        transition: color 0.3s ease;
+
+        /* @media (min-width: $smallMobile) {
+            @include adaptiveValue("font-size", 10px, 20px, $minWidth, $mobile);
+        } */
+
+        @media (min-width: $mobile) {
+            @include adaptiveValue("font-size", 16px, 24px, $mobile, $tablet);
+        }
+
+        .production__link_active & {
+            color: $primaryColor;
+        }
+    }
+
+    &__text-container {
+        position: relative;
+        width: 100%;
+        @include adaptiveValue("height", 170px, 250px, $minWidth, $mobile);
+        @include adaptiveValue("border-radius", 15px, 30px, $minWidth, $mobile);
+        background-color: $secondaryColor;
+        overflow: hidden;
+        margin: 0 auto;
+
+        @media (min-width: $mobile) {
+            width: 70%;
+            @include adaptiveValue("height", 180px, 230px, $mobile, $tablet);
+            @include adaptiveValue("border-radius", 20px, 30px, $mobile, $tablet);
+        }
+    }
+
+    &__text {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        padding: 6%;
+        @include adaptiveValue("font-size", 10px, 20px, $minWidth, $mobile);
+        color: $fourthColor;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        @media (min-width: $mobile) {
+            padding: 4%;
+            @include adaptiveValue("font-size", 14px, 20px, $mobile, $tablet);
+        }
+    }
+
+    .production__text_active {
+        transform: translateY(-50%);
+        opacity: 1;
+        transition: opacity 0.3s ease 0.15s;
+    }
+}

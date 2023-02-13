@@ -169,6 +169,20 @@ modelSwitcher();
 
 //-------------------------------------------------------------------------------------------
 
+//----- Production --------------------------------------------------------------------------
+
+new labelLinksMaker({
+    linkAttributeName: 'data-production-link',
+    activeLinkClassName: '.production__link_active',
+    labelAttributeName: 'data-production-label',
+    activeLabelClassName: '.production__text_active',
+    missClick: false,
+    showHideTime: 300,
+    visibleLabelNames: ['constructions'],
+}).init();
+
+//-------------------------------------------------------------------------------------------
+
 //----- Health ------------------------------------------------------------------------------
 
 new labelLinksMaker({
@@ -177,6 +191,7 @@ new labelLinksMaker({
     labelAttributeName: 'data-health-frame',
     activeLabelClassName: '.health__frame_active',
     onlyClick: true,
+    missClick: true,
     showHideTime: 300,
 }).init();
 

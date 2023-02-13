@@ -1,0 +1,228 @@
+<section class="main__production production">
+    <div class="production__container container">
+        <h2 class="production__title title">
+            @@if (context.lang == 'tr'){
+                Üretim
+            }
+            @@if (context.lang == 'en'){
+                Production
+            }
+            @@if (context.lang == 'ru'){
+                Производство
+            }
+        </h2>
+        <svg class="production__hexagon-1">
+            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+        </svg>   
+        <svg class="production__hexagon-2">
+            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+        </svg> 
+        <svg class="production__hexagon-3">
+            <use xlink:href="/img/icon_sprite/sprite.svg#hexagon"></use>
+        </svg> 
+        <div class="production__content">  
+            <div class="production__links">
+                <img src="/img/production/curve.svg" loading="lazy" alt="spine" class="production__curve">
+                <div data-production-link="constructions" 
+                     class="production__link production__link_name_constructions">
+                    <svg class="production__link-icon">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                    </svg>
+                    <div class="production__link-text">
+                        @@if (context.lang == 'tr'){Design}
+                        @@if (context.lang == 'en'){Design}
+                        @@if (context.lang == 'ru'){Проработка<br>конструкций}
+                    </div>
+                </div>
+                <div data-production-link="respond"
+                     class="production__link production__link_name_respond">
+                    <svg class="production__link-icon">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                    </svg>
+                    <div class="production__link-text">
+                        @@if (context.lang == 'tr'){Response<br>to&nbsp;the&nbsp;needs}
+                        @@if (context.lang == 'en'){Response<br>to&nbsp;the&nbsp;needs}
+                        @@if (context.lang == 'ru'){Учет<br>потребностей}
+                    </div>
+                </div>
+                <div data-production-link="universality"
+                     class="production__link production__link_name_universality">
+                    <svg class="production__link-icon">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                    </svg>
+                    <div class="production__link-text">
+                        @@if (context.lang == 'tr'){Universal<br>development}
+                        @@if (context.lang == 'en'){Universal<br>development}
+                        @@if (context.lang == 'ru'){Универсальная<br>разработка}
+                    </div>
+                </div>
+                <div data-production-link="materials"
+                     class="production__link production__link_name_materials">
+                    <svg class="production__link-icon">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                    </svg>
+                    <div class="production__link-text">
+                        @@if (context.lang == 'tr'){The&nbsp;best<br>materials}
+                        @@if (context.lang == 'en'){The&nbsp;best<br>materials}
+                        @@if (context.lang == 'ru'){Лучшие<br>материалы}
+                    </div>
+                </div>
+                <div data-production-link="precision"
+                     class="production__link production__link_name_precision">
+                    <svg class="production__link-icon">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                    </svg>
+                    <div class="production__link-text">
+                        @@if (context.lang == 'tr'){Precision<br>at&nbsp;every&nbsp;step}
+                        @@if (context.lang == 'en'){Precision<br>at&nbsp;every&nbsp;step}
+                        @@if (context.lang == 'ru'){Точность<br>на&nbsp;каждом&nbsp;этапе}
+                    </div>
+                </div>
+                <div data-production-link="testing"
+                     class="production__link production__link_name_testing">
+                    <svg class="production__link-icon">
+                        <use xlink:href="/img/icon_sprite/sprite.svg#hexagon-small"></use>
+                    </svg>
+                    <div class="production__link-text">
+                        @@if (context.lang == 'tr'){Testing}
+                        @@if (context.lang == 'en'){Testing}
+                        @@if (context.lang == 'ru'){Тестирование}
+                    </div>
+                </div>
+            </div>
+            <div class="production__text-container">
+                <div data-production-label="constructions" class="production__text">
+                    @@if (context.lang == 'tr'){
+                        Benzersiz patentli ünite tasarımı,
+                        AHAU'NUN mühendisleri tarafından dünya
+                        tecrübesine ve yüzlerce test testine dayanarak kurulmuştur.
+                        Önemli tasarım özelliklerinden biri,
+                        kaynak bağlantılarının olmaması, direklerin yüksek
+                        mukavemetini garanti etmesidir.
+                    }
+                    @@if (context.lang == 'en'){
+                        Unique patented the unit design was
+                        established by AHAU's engineers based
+                        on world experience and hundreds of test tests.
+                        One of the important design features is the absence of welding joints,
+                        which guarantees the high strength of the posts.
+                    }
+                    @@if (context.lang == 'ru'){
+                        Уникальная запатентованная конструкция стоек,
+                        создана инженерами компании AHAU на основе мирового
+                        опыта и сотен тестовых испытаний. Одна из важных
+                        конструктивных особенностей – отсутствие сварных
+                        соединений гарантирует высокую прочность стоек.
+                    }
+                </div>
+                <div data-production-label="respond" class="production__text">
+                    @@if (context.lang == 'tr'){
+                        En iyi şekilde seçilmiş geometrik parametreler sayesinde,
+                        ünite güçlü bir dalga boyunca hareket ederken sığ dalgalardan
+                        büyük sarsıntılara kadar her türlü salınımı mükemmel bir şekilde söndürür.
+                        Amortisör özellikleri ile birleştiğinde,
+                        tasarım maksimum sedok ağırlığında ve en sert darbelerde bile "arıza" yı ortadan kaldırır.
+                    }
+                    @@if (context.lang == 'en'){
+                        Thanks to the optimally selected geometric parameters,
+                        the unit perfectly extinguishes all kinds of oscillations - from shallow waves
+                        to large tremors when moving along a powerful wave.
+                        Combined with the shock absorber characteristics,
+                        the design eliminates "breakdowns" at the maximum
+                        passenger weight and even with the most severe impacts.
+                    }
+                    @@if (context.lang == 'ru'){
+                        Благодаря оптимально подобранным геометрическим параметрам
+                        стойка превосходно гасит любые колебания от мелкой ряби
+                        до крупных толчков при движении по сильной волне.
+                        В сочетании с характеристиками амортизатора конструкция
+                        исключает «пробой» даже при максимальном
+                        весе седока и наиболее жёстких ударах.
+                    }
+                </div>
+                <div data-production-label="universality" class="production__text">
+                    @@if (context.lang == 'tr'){
+                        3.	Üniversal sabitleme koltuklarından dolayı
+                        AHAU amortisör üniteleri çok çeşitli gemilerde kullanabilirsiniz:
+                        özel araçlardan sahil güvenlik, polis, askeri vb.
+                    }
+                    @@if (context.lang == 'en'){
+                        Due to the universal fixing seats,
+                        AHAU shock absorber units can be used on a wide variety of ships:
+                        from private vehicles to coast guard, police, military, etc.
+                    }
+                    @@if (context.lang == 'ru'){
+                        За счет универсальных посадочных мест
+                        для крепления использовать амортизационные
+                        стойки AHAU можно на самых разных судах: от частных скоростных лодок
+                        до специальных плавсредств береговой охраны, полиции, военных и так далее.
+                    }
+                </div>
+                <div data-production-label="materials" class="production__text">
+                    @@if (context.lang == 'tr'){
+                        Süspansiyon ünitelerinin imalatı için AL6082 deniz
+                        alüminyumu ve korozyona dayanıklı SST 316 sınıfı çelik kullanılır.
+                        Metal çerçeve konstrüksiyonu, sertlik ayarlı bir amortisöre sahiptir.
+                        Raf elemanlarının hareketliliği,
+                        güvenilir 304L çelik akslar ve kestamid burçlarla sağlanır.
+                    }
+                    @@if (context.lang == 'en'){
+                        For the manufacture of suspension units,
+                        AL6082 marine aluminum and corrosion-resistant SST 316 grade steel are used.
+                        The metal frame construction has a shock absorber with a stiffness adjustment.
+                        The mobility of the rack elements is ensured
+                        by reliable 304L steel axles and kestamide bushings.
+                    }
+                    @@if (context.lang == 'ru'){
+                        Для изготовления амортизационных стоек используется
+                        морской алюминий AL6082 и устойчивая к коррозии сталь марки SST 316.
+                        Конструкция в виде металлической рамы оснащена
+                        амортизатором с регулировкой жесткости.
+                        Подвижность элементов стойки обеспечивается
+                        надёжными осями из стали 304L и втулками из кестамида.
+                    }
+                </div>
+                <div data-production-label="precision" class="production__text">
+                    @@if (context.lang == 'tr'){
+                        Modern montaj hattı, yapı elemanlarına mükemmel uyum sağlamak
+                        için CNC makinelerle donatılmıştır. Metal parçalar galvanize
+                        edilir ve daha sonra korozyona karşı ek direnç sağlamak için iki kat toz boya ile kaplanır.
+                        Rafların montajı yüksek vasıflı uzmanlar tarafından elle yapılır.
+                    }
+                    @@if (context.lang == 'en'){
+                        The modern assembly line is equipped with CNC machines to perfectly
+                        fit the structural elements. Metal parts are galvanized,
+                        and then coated with two layers of powder coating to provide additional resistance to corrosion.
+                        Installation of racks is done manually by highly qualified specialists.
+                    }
+                    @@if (context.lang == 'ru'){
+                        Современная сборочная линия оснащена станками с ЧПУ,
+                        гарантирующими идеальную точность подгонки элементов конструкции.
+                        Металлические детали подвергаются гальванической обработке,
+                        а затем покрываются двумя слоями порошковой краски, что обеспечивает
+                        дополнительную устойчивость к коррозии.
+                        Сборка стоек проводится высококвалифицированными специалистами вручную.
+                    }
+                </div>
+                <div data-production-label="testing" class="production__text">
+                    @@if (context.lang == 'tr'){
+                        Bitmiş ürünler, gerçek operasyonun ve dış ortamın etkisinin
+                        simüle edildiği termal kameralarda,
+                        titreşimli ünitelerde ve test tesislerinde
+                        sıkı kontrol ve zorunlu kaynak testlerine tabi tutulur.
+                    }
+                    @@if (context.lang == 'en'){
+                        Готовые изделия проходят тщательный контроль и обязательные ресурсные испытания
+                        в термокамерах, на вибростендах и тестовых установках,
+                        где имитируется реальная эксплуатация и воздействие внешней среды.
+                    }
+                    @@if (context.lang == 'ru'){
+                        Готовые изделия проходят тщательный контроль и обязательные ресурсные испытания
+                        в термокамерах, на вибростендах и тестовых установках,
+                        где имитируется реальная эксплуатация и воздействие внешней среды.
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
