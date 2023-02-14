@@ -226,20 +226,20 @@
             &.health__frame_type_danger {
 
                 [lang="ru"] & {
-                    @include adaptiveValue("flex-basis", 340px, 560px, $minWidth, $mobile);
+                    @include adaptiveValue("flex-basis", 450px, 450px, $minWidth, $mobile);
                 }
 
                 [lang="en"] & {
-                    @include adaptiveValue("flex-basis", 280px, 460px, $minWidth, $mobile);
+                    @include adaptiveValue("flex-basis", 360px, 380px, $minWidth, $mobile);
                 }
 
                 [lang="tr"] & {
-                    @include adaptiveValue("flex-basis", 280px, 460px, $minWidth, $mobile);
+                    @include adaptiveValue("flex-basis", 380px, 400px, $minWidth, $mobile);
                 }
             }
 
             &.health__frame_type_solution {
-                @include adaptiveValue("flex-basis", 150px, 300px, $minWidth, $mobile);
+                @include adaptiveValue("flex-basis", 220px, 250px, $minWidth, $mobile);
             }
 
 
@@ -259,11 +259,11 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
-        @include adaptiveValue("font-size", 10px, 18px, $minWidth, $mobile);
+        line-height: 1.2;
+        @include adaptiveValue("font-size", 13px, 18px, $minWidth, $mobile);
 
         @media (min-width: $mobile) {
             @include adaptiveValue("width", 300px, 580px, $mobile, $tablet);
-            line-height: 1.2;
             @include adaptiveValue("font-size", 10px, 18px, $mobile, $tablet);
         }
 

@@ -269,12 +269,8 @@
         transform: translate(-50%, -110%);
         text-align: center;
         line-height: 1.2;
-        @include adaptiveValue("font-size", 10px, 20px, $minWidth, $mobile);
+        @include adaptiveValue("font-size", 13px, 20px, $minWidth, $mobile);
         transition: color 0.3s ease;
-
-        /* @media (min-width: $smallMobile) {
-            @include adaptiveValue("font-size", 10px, 20px, $minWidth, $mobile);
-        } */
 
         @media (min-width: $mobile) {
             @include adaptiveValue("font-size", 16px, 24px, $mobile, $tablet);
@@ -288,7 +284,7 @@
     &__text-container {
         position: relative;
         width: 100%;
-        @include adaptiveValue("height", 170px, 250px, $minWidth, $mobile);
+        @include adaptiveValue("height", 250px, 250px, $minWidth, $mobile);
         @include adaptiveValue("border-radius", 15px, 30px, $minWidth, $mobile);
         background-color: $secondaryColor;
         overflow: hidden;
@@ -308,13 +304,15 @@
         transform: translateY(-50%);
         width: 100%;
         padding: 6%;
-        @include adaptiveValue("font-size", 10px, 20px, $minWidth, $mobile);
+        line-height: 1.2;
+        @include adaptiveValue("font-size", 14px, 20px, $minWidth, $mobile);
         color: $fourthColor;
         opacity: 0;
         transition: opacity 0.3s ease;
 
         @media (min-width: $mobile) {
             padding: 4%;
+            line-height: 1.5;
             @include adaptiveValue("font-size", 14px, 20px, $mobile, $tablet);
         }
     }
