@@ -343,6 +343,7 @@
     &__details {
         @include adaptiveValue("margin-top", 10px, 20px, $minWidth, $smallMobile);
         @include adaptiveValue("margin-bottom", 10px, 20px, $minWidth, $smallMobile);
+        visibility: hidden;
         
         @media (min-width: $smallMobile) {
             @include adaptiveValue("margin-top", 10px, 20px, $smallMobile, $mobile);
